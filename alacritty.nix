@@ -10,7 +10,7 @@
   };
 
   font = {
-    size = 18.0;
+    size = 16.0;
     use_thin_strokes = true;
 
     normal.family = "FuraCode Nerd Font";
@@ -25,7 +25,7 @@
   colors = {
     # Default colors
     primary = {
-      background = "0x1b182c";
+      background = "0x292d3f";
       foreground = "0xcbe3e7";
     };
 

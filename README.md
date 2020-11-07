@@ -1,4 +1,4 @@
-# My NixOS configuration
+# My Nix MacOS configuration
 
 ## Setup
 
@@ -21,6 +21,4 @@ nix-shell -p git
 ...
 git clone git@github.com:blaadje/Mac-dotfiles.git $HOME/.nixpkgs
 cd $HOME/.nixpkgs
-
-
 ```

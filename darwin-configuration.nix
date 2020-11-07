@@ -1,21 +1,29 @@
-{  config, pkgs, ... }:
+{  config, pkgs, lib, ... }:
 
 {
   imports = [ <home-manager/nix-darwin> ];
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   nixpkgs.config.allowUnfree = true;
+  # fonts.fontconfig.enable = lib.mkForce true;
 
-  system.defaults.dock.autohide = true;
-  system.defaults.dock.orientation = "left";
-  system.defaults.finder.AppleShowAllExtensions = true;
-  system.defaults.NSGlobalDomain._HIHideMenuBar = true;
-  system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
-  system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
+  system.defaults = {
+    finder.AppleShowAllExtensions = true;
+    dock = {
+      autohide = true;
+      static-only = true;
+      orientation = "left";
+    };
+    NSGlobalDomain = {
+      _HIHideMenuBar = true;
+      NSAutomaticCapitalizationEnabled = false;
+      NSAutomaticDashSubstitutionEnabled = false;
+      NSAutomaticPeriodSubstitutionEnabled = false;
+      NSAutomaticQuoteSubstitutionEnabled = false;
+      NSAutomaticSpellingCorrectionEnabled = false;
+      "com.apple.swipescrolldirection" = false;
+    };
+  };
 
   programs.fish.enable = true;
 
@@ -34,17 +42,16 @@
       pkgs.alacritty
       pkgs.nodejs
       pkgs.yarn
+      pkgs.spacebar
     ];
 
     programs.autojump.enableFishIntegration = true;
 
     programs.vscode = {
       enable = true;
-      extensions = with pkgs.vscode-extensions; [
-        bbenoist.Nix
-        # whizkydee.vscode-palenight-theme
-      ];
-      userSettings = import ./vscode.nix;
+      extensions = with pkgs.vscode-utils;
+        (extensionsFromVscodeMarketplace (import ./vscode/extensions.nix));
+      userSettings = import ./vscode/settings.nix;
     };
 
     programs.alacritty = {
@@ -59,14 +66,44 @@
       userName = "blaadje";
       userEmail = "acharlot91@gmail.com";
       aliases = {
-        co = "checkout";
-        ci = "commit";
-        st = "status";
+        st              = "status";
+        ci              = "commit";
+        co              = "checkout";
+        br              = "branch";
+        di              = "diff";
+        sdi             = "diff --cached";
+        dis             = "diff --ignore-all-space";
+        logg            = "log --decorate --graph";
+        lg              = "log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset%s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative";
+        lga             = "!sh -c 'git log --author=\"$1\" -p $2' -";
+        lol             = "log --graph --decorate --pretty=oneline --abbrev-commit";
+        lola            = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
+        lint            = "!sh -c 'git status | awk \"/modified/ {print \\$3}\" | xargs -L 1 php -l'";
+        logfull         = "log --pretty=fuller --graph --stat -p";
+        cat             = "cat-file -p";
+        unstage         = "reset HEAD";
+        uncommit        = "update-ref HEAD HEAD^";
+        uncommithard    = "reset --hard HEAD^";
+        undomerge       = "reset --hard ORIG_HEAD";
+        oups            = "commit -a --amend -C HEAD";
       };
     };
   };
   
   services.nix-daemon.enable = false;
+
+  fonts = {
+    enableFontDir = true;
+    fonts = [
+      pkgs.font-awesome
+    ];
+  };
+
+  services.spacebar = {
+    enable = true;
+    package = pkgs.spacebar;
+    config = import ./spacebar.nix;
+  };
 
   services.skhd = {
     enable = true;
@@ -81,24 +118,12 @@
     config = import ./yabai.nix;
     extraConfig = ''
       # rules
-      yabai -m rule --add app='System Preferences' manage=off
-
-      # Any other arbitrary config here
+      yabai -m rule --add app="^Préférences Système$" manage=off
+      yabai -m rule --add app="^Code$" space=2
+      yabai -m rule --add app="^Alacritty$" space=3
+      yabai -m rule --add app="^Google Chrome$" space=1
     '';
   };
-  
-
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
-
-  # Auto upgrade nix package and the daemon service.
-  # services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
-
-  # Create /etc/bashrc that loads the nix-darwin environment.
-  # programs.zsh.enable = true;  # default shell on catalina
-  # programs.fish.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
