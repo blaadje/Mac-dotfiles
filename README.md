@@ -1,6 +1,9 @@
 # My Nix MacOS configuration
 
+![image](https://user-images.githubusercontent.com/24897042/98952066-4d777e00-24fb-11eb-8b82-49cef6bc12bc.png)
+
 ## Setup
+
 
 ```bash
 # nix
