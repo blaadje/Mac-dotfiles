@@ -13,8 +13,8 @@ sh <(curl -L https://nixos.org/nix/install)
 # arm support
 # rosetta 2
 /usr/sbin/softwareupdate --install-rosetta --agree-to-license
-#nix
-sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
+#nix (https://github.com/NixOS/nix/issues/2925#issuecomment-539570232)
+sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
 
 # bash
 echo ". $HOME/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
