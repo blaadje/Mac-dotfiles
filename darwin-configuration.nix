@@ -90,7 +90,7 @@
     };
   };
   
-  services.nix-daemon.enable = true;
+  services.nix-daemon.enable = false;
 
   fonts = {
     enableFontDir = true;
