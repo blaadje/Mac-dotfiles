@@ -30,6 +30,10 @@ nix-shell '<home-manager>' -A install
 nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
 ./result/bin/darwin-installer
 
+mv /etc/bashrc /etc/bashrc.orig
+echo 'if test -e /etc/static/bashrc; then . /etc/static/bashrc; fi' | sudo tee -a /etc/bashrc
+echo 'if test -e /etc/static/bashrc; then . /etc/static/bashrc; fi' | tee -a ~/.bashrc
+
 ssh-keygen  # then, add to Github
 
 nix-shell -p git
