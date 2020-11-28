@@ -5,6 +5,7 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [ (import ./overlays) ];
   # fonts.fontconfig.enable = lib.mkForce true;
 
   system.defaults = {
@@ -118,10 +119,10 @@
     config = import ./yabai.nix;
     extraConfig = ''
       # rules
-      yabai -m rule --add app="^Préférences Système$" manage=off
-      yabai -m rule --add app="^Code$" space=2
-      yabai -m rule --add app="^Alacritty$" space=3
-      yabai -m rule --add app="^Google Chrome$" space=1
+      yabai -m rule --add app="^System Preferences$" manage=off
+      yabai -m rule --add app="^Code$1" space=2
+      yabai -m rule --add app="^Alacritty$1" space=3
+      yabai -m rule --add app="^Google Chrome$1" space=1
     '';
   };
 

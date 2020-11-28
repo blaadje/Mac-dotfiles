@@ -2,7 +2,7 @@
 ctrl + shift - r : khd -e "reload"
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-ctrl - return : open -na alacritty
+ctrl - return : open -na /etc/profiles/per-user/$USER/bin/alacritty
 
 # focus window
 ctrl - left : yabai -m window --focus west
