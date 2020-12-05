@@ -12,14 +12,10 @@
   font = {
     size = 16.0;
     use_thin_strokes = true;
-
-    normal.family = "FuraCode Nerd Font";
-    bold.family = "FuraCode Nerd Font";
-    italic.family = "FuraCode Nerd Font";
   };
 
   shell = {
-    program = "/etc/profiles/per-user/alex/bin/fish";
+    program = "/etc/profiles/per-user/${builtins.getEnv("USER")}/bin/fish";
   };
 
   colors = {

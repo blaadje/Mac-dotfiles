@@ -7,8 +7,7 @@
   "editor.fontLigatures" = false;
   "editor.cursorStyle" = "block";
   "editor.tabSize" = 2;
-  "zenMode.fullScreen" = false;
-  "zenMode.centerLayout" = false;
+  "editor.lineNumbers" = "relative";
 
   # theme
   "workbench.activityBar.visible" = false;
@@ -16,4 +15,5 @@
 
   "editor.defaultFormatter" = "rvest.vs-code-prettier-eslint";
   "eslint.format.enable" = true;
+  "vim.leader" = ",";
 }
