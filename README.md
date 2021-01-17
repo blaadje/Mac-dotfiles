@@ -23,16 +23,18 @@ nix-channel --update
 
 NIX_PATH=~/.nix-defexpr/channels:nixpkgs=~/.nix-defexpr/channels/nixpkgs nix-shell '<home-manager>' -A install
 
-#git
-ssh-keygen  # then, add to Github
+# config
 nix-shell -p git
 ...
-git clone git@github.com:blaadje/Mac-dotfiles.git $HOME/.nixpkgs
+git clone https://github.com/blaadje/Mac-dotfiles.git $HOME/.nixpkgs
 cd $HOME/.nixpkgs
 
 # nix darwin
 nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
 ./result/bin/darwin-installer
+
+# git
+ssh-keygen  # then, add to Github
 
 # case of failing diskutils
 export PATH=$PATH:/usr/sbin
