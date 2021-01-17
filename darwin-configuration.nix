@@ -2,10 +2,8 @@
 
 {
   imports = [ <home-manager/nix-darwin> ];
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
   nixpkgs.config.allowUnfree = true;
-  # fonts.fontconfig.enable = lib.mkForce true;
+  nixpkgs.overlays = [ (import ./overlays) ];
 
   system.defaults = {
     finder.AppleShowAllExtensions = true;
@@ -31,6 +29,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.users.alex = { pkgs, ... }: {
     home.packages = [
+      pkgs.thefuck
       pkgs.fish
       pkgs.git
       pkgs.python3
@@ -43,9 +42,34 @@
       pkgs.nodejs
       pkgs.yarn
       pkgs.spacebar
+      pkgs.starship
+      pkgs.slack
+      pkgs.heroku
     ];
 
     programs.autojump.enableFishIntegration = true;
+    programs.starship = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    programs.fish = {
+      enable = true;
+      interactiveShellInit = ''
+        set fish_greeting
+      '';
+      plugins = [
+        {
+          name = "thefuck";
+          src = pkgs.fetchFromGitHub {
+            owner = "oh-my-fish";
+            repo = "plugin-thefuck";
+            rev = "3570c4464bdfd0f312e22a0b407a8c0ba98b7e0d";
+            sha256 = "0ih35vxvc05wc708i1ifr94s1p20k27bydqjlyk2gpv1cr8jf6j2";
+          };
+        }
+      ];  
+    };
 
     programs.vscode = {
       enable = true;
@@ -118,7 +142,7 @@
     config = import ./yabai.nix;
     extraConfig = ''
       # rules
-      yabai -m rule --add app="^Préférences Système$" manage=off
+      yabai -m rule --add app="^System Preferences$" sticky=on
       yabai -m rule --add app="^Code$" space=2
       yabai -m rule --add app="^Alacritty$" space=3
       yabai -m rule --add app="^Google Chrome$" space=1

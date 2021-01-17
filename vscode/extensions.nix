@@ -24,6 +24,12 @@
     sha256 = "0f2q17d028j2c816rns9hi2w38ln3mssdcgzm6kc948ih252jflr";
   }
   {
+    name = "vim";
+    publisher = "vscodevim";
+    version = "1.17.2";
+    sha256 = "199pcyfcjrnwra19fzxvxqfaggxx634d1li0j9yfylf5vmaq22yd";
+  }
+  {
     name = "material-palenight-theme";
     publisher = "whizkydee";
     version = "2.0.1";

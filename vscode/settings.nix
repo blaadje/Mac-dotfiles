@@ -7,13 +7,13 @@
   "editor.fontLigatures" = false;
   "editor.cursorStyle" = "block";
   "editor.tabSize" = 2;
-  "zenMode.fullScreen" = false;
-  "zenMode.centerLayout" = false;
+  "editor.lineNumbers" = "relative";
 
   # theme
   "workbench.activityBar.visible" = false;
   "workbench.colorTheme" = "Palenight Theme";
 
-  "editor.defaultFormatter" = "rvest.vs-code-prettier-eslint";
+  "editor.defaultFormatter" = "dbaeumer.vscode-eslint";
   "eslint.format.enable" = true;
+  "vim.leader" = ",";
 }
