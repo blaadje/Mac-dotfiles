@@ -1,5 +1,5 @@
 {
-  imports = [ ./colors/theme.nix ];
+  # imports = [ ./colors/theme.nix ];
 
   env = {
     "TERM" = "xterm-256color";
