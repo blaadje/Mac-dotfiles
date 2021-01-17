@@ -114,7 +114,7 @@
     };
   };
   
-  services.nix-daemon.enable = false;
+  services.nix-daemon.enable = true;
 
   fonts = {
     enableFontDir = true;
