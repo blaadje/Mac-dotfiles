@@ -13,7 +13,7 @@
   "workbench.activityBar.visible" = false;
   "workbench.colorTheme" = "Palenight Theme";
 
-  "editor.defaultFormatter" = "rvest.vs-code-prettier-eslint";
+  "editor.defaultFormatter" = "dbaeumer.vscode-eslint";
   "eslint.format.enable" = true;
   "vim.leader" = ",";
 }

@@ -43,6 +43,8 @@
       pkgs.yarn
       pkgs.spacebar
       pkgs.starship
+      pkgs.slack
+      pkgs.heroku
     ];
 
     programs.autojump.enableFishIntegration = true;
@@ -53,6 +55,9 @@
 
     programs.fish = {
       enable = true;
+      interactiveShellInit = ''
+        set fish_greeting
+      '';
       plugins = [
         {
           name = "thefuck";
@@ -138,9 +143,9 @@
     extraConfig = ''
       # rules
       yabai -m rule --add app="^System Preferences$" sticky=on
-      yabai -m rule --add app="^Code$1" space=2
-      yabai -m rule --add app="^Alacritty$1" space=3
-      yabai -m rule --add app="^Google Chrome$1" space=1
+      yabai -m rule --add app="^Code$" space=2
+      yabai -m rule --add app="^Alacritty$" space=3
+      yabai -m rule --add app="^Google Chrome$" space=1
     '';
   };
 
