@@ -36,4 +36,7 @@ nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
 
 # case of failing diskutils
 export PATH=$PATH:/usr/sbin
+
+# case of permission issue
+sudo rm /etc/ssl/certs/ca-certificates.crt && sudo ln -s /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt
 ```
