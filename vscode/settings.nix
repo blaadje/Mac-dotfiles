@@ -4,6 +4,10 @@
   "editor.minimap.enabled" = false;
   "editor.fontSize" = 14;
   "editor.lineHeight" = 24;
+  "editor.codeActionsOnSave" = {
+    "source.fixAll.eslint" = true;
+    "source.fixAll.stylelint" = true;
+  };
   "editor.fontLigatures" = false;
   "editor.cursorStyle" = "block";
   "editor.tabSize" = 2;

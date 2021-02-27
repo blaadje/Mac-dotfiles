@@ -40,4 +40,4 @@ ctrl - right : yabai -m window --focus east
 #shift + alt - l : window --swap east
 
 # toggle window fullscreen
-ctrl - f : yabai -m window --toggle zoom-parent
+ctrl - f : yabai -m window --toggle zoom-fullscreen

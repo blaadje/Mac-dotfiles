@@ -1,9 +1,10 @@
-{  config, pkgs, lib, ... }:
+{  config, pkgs, lib, users, ... }:
 
 {
   imports = [ <home-manager/nix-darwin> ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ (import ./overlays) ];
+  users.nix.configureBuildUsers = true;
 
   system.defaults = {
     finder.AppleShowAllExtensions = true;
@@ -29,7 +30,6 @@
   home-manager.useGlobalPkgs = true;
   home-manager.users.alex = { pkgs, ... }: {
     home.packages = [
-      pkgs.thefuck
       pkgs.fish
       pkgs.git
       pkgs.python3
@@ -40,14 +40,17 @@
       pkgs.autojump
       pkgs.alacritty
       pkgs.nodejs
+      pkgs.tree
       pkgs.yarn
       pkgs.spacebar
       pkgs.starship
-      pkgs.slack
       pkgs.heroku
+      pkgs.neovim
+      pkgs.gitAndTools.delta
     ];
 
     programs.autojump.enableFishIntegration = true;
+
     programs.starship = {
       enable = true;
       enableFishIntegration = true;
@@ -58,17 +61,13 @@
       interactiveShellInit = ''
         set fish_greeting
       '';
-      plugins = [
-        {
-          name = "thefuck";
-          src = pkgs.fetchFromGitHub {
-            owner = "oh-my-fish";
-            repo = "plugin-thefuck";
-            rev = "3570c4464bdfd0f312e22a0b407a8c0ba98b7e0d";
-            sha256 = "0ih35vxvc05wc708i1ifr94s1p20k27bydqjlyk2gpv1cr8jf6j2";
-          };
-        }
-      ];  
+      functions = {
+        vim.body = "alacritty --title vimwindow --working-directory (pwd) -e nvim $argv &";
+      };
+    };
+
+    programs.git.delta = {
+      enable = true;
     };
 
     programs.vscode = {
@@ -144,6 +143,7 @@
       # rules
       yabai -m rule --add app="^System Preferences$" sticky=on
       yabai -m rule --add app="^Code$" space=2
+      yabai -m rule --add title="vimwindow" space=2
       yabai -m rule --add app="^Alacritty$" space=3
       yabai -m rule --add app="^Google Chrome$" space=1
     '';
