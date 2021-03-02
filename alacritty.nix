@@ -14,6 +14,9 @@
   font = {
     size = 16.0;
     use_thin_strokes = true;
+    normal = {
+      family = "DroidSansMono Nerd Font";
+    };
   };
 
   # colors = with options.colors; {

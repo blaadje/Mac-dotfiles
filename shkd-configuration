@@ -11,8 +11,14 @@ ctrl - return : open -na /etc/profiles/per-user/$USER/bin/alacritty
 #ctrl - 4  : yabai -m space --focus 4
 #ctrl - 5  : yabai -m space --focus 5
 
+# focus display
+ctrl - 0x32 : yabai -m display --focus 2
+
 #rotate tree
 ctrl - r : yabai -m space --rotate 90
+
+# move window to display
+ctrl + shift - 0x32 : yabai -m window --display 2
 
 # move window to space
 ctrl + shift - 1 : yabai -m window --space 1

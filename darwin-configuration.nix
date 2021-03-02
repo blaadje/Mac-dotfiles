@@ -1,6 +1,34 @@
 {  config, pkgs, lib, users, ... }:
+let 
+  custom-plugins = pkgs.callPackage ./vimcustomplugins.nix {
+    inherit (pkgs.vimUtils) buildVimPlugin;
+  };
+  plugins = pkgs.vimPlugins // custom-plugins;
 
-{
+  myVimPlugins = with plugins; [
+    # fugitive
+      material-vim
+      vim-devicons
+      nerdtree
+      # ghc-mod-vim
+      # haskell-vim
+      # LanguageClient-neovim
+      # nerdcommenter
+      # neomake
+      # polyglot
+      # ranger-vim
+      # rust-vim
+      # SpaceCamp
+      # syntastic
+      vim-vue
+      vim-nix
+      # vim-colorschemes
+      vim-airline
+      vim-airline-themes
+      vim-autoformat
+      # YouCompleteMe
+  ];
+in {
   imports = [ <home-manager/nix-darwin> ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ (import ./overlays) ];
@@ -41,13 +69,25 @@
       pkgs.alacritty
       pkgs.nodejs
       pkgs.tree
+      pkgs.cloc
       pkgs.yarn
       pkgs.spacebar
       pkgs.starship
       pkgs.heroku
-      pkgs.neovim
+      pkgs.neovim-unwrapped
       pkgs.gitAndTools.delta
     ];
+
+    programs.neovim = {
+      enable = true;
+      withNodeJs = true;
+      vimAlias = true;
+      extraConfig = builtins.readFile ./vimconfig.vim;
+      # plug.plugins = with pkgs.vimPlugins; [
+      #   vim-material
+      # ];
+      plugins = myVimPlugins;
+    };
 
     programs.autojump.enableFishIntegration = true;
 
@@ -62,12 +102,15 @@
         set fish_greeting
       '';
       functions = {
-        vim.body = "alacritty --title vimwindow --working-directory (pwd) -e nvim $argv &";
+        vi.body = "alacritty --title vimwindow --working-directory (pwd) -e nvim $argv &";
       };
     };
 
     programs.git.delta = {
       enable = true;
+      options = {
+        side-by-side = true;
+      };
     };
 
     programs.vscode = {
@@ -84,11 +127,11 @@
     };
 
     programs.git = {
-      package = pkgs.git;
       enable = true;
       userName = "blaadje";
       userEmail = "acharlot91@gmail.com";
       aliases = {
+        push            = "push.default current";
         st              = "status";
         ci              = "commit";
         co              = "checkout";
@@ -119,6 +162,7 @@
     enableFontDir = true;
     fonts = [
       pkgs.font-awesome
+      pkgs.nerdfonts
     ];
   };
 
