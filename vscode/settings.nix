@@ -20,4 +20,10 @@
   "editor.defaultFormatter" = "dbaeumer.vscode-eslint";
   "eslint.format.enable" = true;
   "vim.leader" = ",";
+  "[javascript]" = {
+    "editor.defaultFormatter" = "dbaeumer.vscode-eslint";
+  };
+  "eslint.validate" = [
+    "javascript"
+  ];
 }

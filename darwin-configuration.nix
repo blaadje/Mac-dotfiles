@@ -1,4 +1,4 @@
-{  config, pkgs, lib, users, ... }:
+{ config, pkgs, lib, users, ... }:
 let 
   custom-plugins = pkgs.callPackage ./vimcustomplugins.nix {
     inherit (pkgs.vimUtils) buildVimPlugin;
@@ -6,10 +6,11 @@ let
   plugins = pkgs.vimPlugins // custom-plugins;
 
   myVimPlugins = with plugins; [
+      indent-blankline-nvim
     # fugitive
       material-vim
       vim-devicons
-      nerdtree
+      # nerdtree
       # ghc-mod-vim
       # haskell-vim
       # LanguageClient-neovim
@@ -21,6 +22,7 @@ let
       # SpaceCamp
       # syntastic
       vim-vue
+      ctrlp-vim
       vim-nix
       # vim-colorschemes
       vim-airline
@@ -28,6 +30,7 @@ let
       vim-autoformat
       # YouCompleteMe
   ];
+
 in {
   imports = [ <home-manager/nix-darwin> ];
   nixpkgs.config.allowUnfree = true;
@@ -56,26 +59,27 @@ in {
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
-  home-manager.users.alex = { pkgs, ... }: {
+  home-manager.users.alex = with pkgs; {
     home.packages = [
-      pkgs.fish
-      pkgs.git
-      pkgs.python3
-      pkgs.htop
-      pkgs.vscode
-      pkgs.yabai
-      pkgs.skhd
-      pkgs.autojump
-      pkgs.alacritty
-      pkgs.nodejs
-      pkgs.tree
-      pkgs.cloc
-      pkgs.yarn
-      pkgs.spacebar
-      pkgs.starship
-      pkgs.heroku
-      pkgs.neovim-unwrapped
-      pkgs.gitAndTools.delta
+      fish
+      git
+      python3
+      htop
+      vscode
+      yabai
+      skhd
+      autojump
+      alacritty
+      nodejs
+      tree
+      cloc
+      yarn
+      spacebar
+      starship
+      heroku
+      netlify-cli
+      neovim-unwrapped
+      gitAndTools.delta
     ];
 
     programs.neovim = {
@@ -87,6 +91,15 @@ in {
       #   vim-material
       # ];
       plugins = myVimPlugins;
+
+      # configure = {
+      #   customRC = with myVimPlugins; {
+      #     # loaded on launch
+      #     start = [ indent-blankline-nvim ];
+      #     # manually loadable by calling `:packadd $plugin-name`
+      #     opt = [ ];
+      #   };
+      # };
     };
 
     programs.autojump.enableFishIntegration = true;
