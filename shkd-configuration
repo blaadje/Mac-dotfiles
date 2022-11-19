@@ -1,15 +1,20 @@
+ctrl + shift - f : yabai -m window --toggle float
+
 # reload config
-ctrl + shift - r : khd -e "reload"
+ctrl + shift - r : skhd --restart-service
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-ctrl - return : open -na /etc/profiles/per-user/$USER/bin/alacritty
+ctrl - return : open -na alacritty
+
+ctrl + shift - return : open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
+# cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # focus space
-#ctrl - 1  : yabai -m space --focus 1
-#ctrl - 2  : yabai -m space --focus 2
-#ctrl - 3  : yabai -m space --focus 3
-#ctrl - 4  : yabai -m space --focus 4
-#ctrl - 5  : yabai -m space --focus 5
+#ctrl - 1 : yabai -m space --focus 1
+#ctrl - 2 : yabai -m space --focus 2
+#ctrl - 3 : yabai -m space --focus 3
+#ctrl - 4 : yabai -m space --focus 4
+#ctrl - 5 : yabai -m space --focus 5
 
 # focus display
 ctrl - 0x32 : yabai -m display --focus 2
