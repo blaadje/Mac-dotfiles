@@ -40,6 +40,9 @@ ssh-keygen  # then, add to Github
 # case of failing diskutils
 export PATH=$PATH:/usr/sbin
 
+#case of certificate issue
+https://github.com/NixOS/nix/issues/2899#issuecomment-699299567
+
 # case of permission issue
 sudo rm /etc/ssl/certs/ca-certificates.crt && sudo ln -s /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt
 ```
