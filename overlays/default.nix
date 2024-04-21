@@ -1,7 +1,6 @@
-self: super:
-{
-  # yabai = super.yabai.overrideAttrs (oldAttrs: rec {
-  #   version = "6.0.0"; # Mettez à jour cette version si nécessaire
+self: super: {
+  # JankyBorders = super.JankyBorders.overrideAttrs (oldAttrs: rec {
+  #   version = "1.0.0"; # Mettez à jour cette version si nécessaire
 
   #   src = super.fetchFromGitHub {
   #     owner = "FelixKratz";
@@ -28,16 +27,14 @@ self: super:
   #   '';
   # });
 
-  # yabai = super.yabai.overrideAttrs (o: rec {
-  #   version = "6.0.0";
-  #   src = super.fetchFromGitHub {
-  #     owner = "FelixKratz";
-  #     repo = "yabai";
-  #     rev =
-  #       "7787e87ae20603b845f5c0dda018135934f277be"; # ou le hash du commit que vous voulez télécharger
-  #     sha256 = "1szyjcwkhn2wbrcfhh9lh5bnfm1cavxrx6xj4q7521z3zj29a9kf";
-  #   };
-  # });
+  yabai = super.yabai.overrideAttrs (o: rec {
+    version = "7.1.0";
+    src = super.fetchzip {
+      url =
+        "https://github.com/koekeishiya/yabai/releases/download/v${version}/yabai-v${version}.tar.gz";
+      hash = "sha256-88Sh2nizAQ0a0cnlnrkhb5x3VjHa372HhjHlmNjGdQ4=";
+    };
+  });
 
   # src = builtins.fetchTarball {
   #   url =

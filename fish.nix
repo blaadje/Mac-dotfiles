@@ -64,8 +64,9 @@
   # own backend services aliases
 
   function dlog
-    docker logs -f $argv[1] | while read -l line
-      echo $line | jq . 2>/dev/null
+    docker logs -f --tail 100 $argv[1] | while read -l line
+    # docker logs -f --tail 100 $argv[1] | while IFS= read -r line
+      echo $line | jq . 2>/dev/null || echo $line
     end
   end
 
@@ -75,10 +76,6 @@
 
   function back-stop
     gr @main docker-compose down
-  end
-
-  function back-restart
-    gr @main git stash; and gr @main git stash pop
   end
 
   function back-service

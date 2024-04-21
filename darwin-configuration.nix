@@ -35,6 +35,12 @@ let
 
   nix-colors = import <nix-colors> { };
 
+  janky-borders = import ./derivations/jankyBorders.nix {
+    inherit (pkgs) stdenv fetchFromGitHub gcc;
+    make = pkgs.make;
+    darwin = pkgs.darwin;
+  };
+
   nixvim = import (builtins.fetchGit {
     url = "https://github.com/nix-community/nixvim";
     # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
@@ -107,7 +113,10 @@ in {
         '';
 
       home.packages = [
+        xcbuild
+        janky-borders
         python2Full
+        watch
         neofetch
         htop
         autojump
@@ -115,6 +124,9 @@ in {
         deno
         go
         jq
+        fzf
+        ripgrep
+        bat
         nodejs-16_x
         # nodejs-slim-14_x
         (yarn.override {
@@ -126,6 +138,7 @@ in {
         awscli
         # snapcraft
         nixfmt
+        mktemp
         docker
         awsebcli
         tree
@@ -235,6 +248,13 @@ in {
 
   services.karabiner-elements.enable = true;
 
+  launchd.user.agents.jankyborders = {
+    serviceConfig.ProgramArguments = [ "${janky-borders}/bin/jankyborders" ]
+      ++ [ "width=6.0" "active_color=0xff00ff00" "inactive_color=0xff414550" ];
+    serviceConfig.KeepAlive = true;
+    serviceConfig.RunAtLoad = true;
+  };
+
   services.spacebar = {
     enable = true;
     package = pkgs.spacebar;
@@ -261,7 +281,6 @@ in {
       yabai -m rule --add title="OBS.*" sticky=on
       yabai -m rule --add app="^Code$" space=2
       yabai -m rule --add title="vimwindow" space=2
-      yabai -m rule --add app="^Alacritty$" space=3
     '';
   };
 
