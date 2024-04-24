@@ -1,7 +1,7 @@
 { stdenv, fetchFromGitHub, darwin, gcc, make }:
 
 stdenv.mkDerivation rec {
-  pname = "jankyborders";
+  pname = "jankyBorders";
   version = "1.6.0";
 
   src = fetchFromGitHub {
