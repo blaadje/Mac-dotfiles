@@ -11,16 +11,8 @@ let
     act # Local github actions
   ];
 
-  commandLineTools = [
-    htop
-    watch
-    neofetch
-    autojump
-    jq
-    cloc
-    nodePackages.git-run
-    gitAndTools.delta
-  ];
+  commandLineTools =
+    [ htop watch neofetch jq cloc nodePackages.git-run gitAndTools.delta ];
 
   web = [
     awscli
@@ -43,7 +35,10 @@ in {
     web
   ];
 
-  programs.autojump.enableFishIntegration = true;
+  programs.autojump = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 
   programs.starship = {
     enable = true;

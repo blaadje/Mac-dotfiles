@@ -44,6 +44,8 @@ in {
 
   colorScheme = nix-colors.colorSchemes.zenburn;
 
+  programs.fish.enable = true; # Needed to be here for correct $NIX_PATH
+
   system.defaults = {
     finder.AppleShowAllExtensions = true;
     dock = {
