@@ -8,25 +8,35 @@ let
     deno
     go
     docker
+    watch
+    cloc
+    jq
     act # Local github actions
+    nodePackages.git-run
+    gitAndTools.delta
   ];
 
-  commandLineTools =
-    [ htop watch neofetch jq cloc nodePackages.git-run gitAndTools.delta ];
+  commandLineTools = [ htop neofetch awscli awsebcli ];
+
+  node = nodejs-16_x;
+  # node = nodejs-slim-14_x;
 
   web = [
-    awscli
-    awsebcli
     heroku
     netlify-cli
     nodePackages.http-server
-    nodejs-16_x
-    (yarn.override {
-      nodejs = nodejs-16_x;
-      # nodejs = nodejs-slim-14_x;
-    })
+    node
+    (yarn.override { nodejs = node; })
   ];
+
+  nixvim = import (builtins.fetchGit {
+    url = "https://github.com/nix-community/nixvim";
+    # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
+    ref = "nixos-23.05";
+  });
 in {
+  imports = [ nixvim.homeManagerModules.nixvim ];
+
   home.packages = concatLists [
     # misc
     [ fzf ripgrep bat nixfmt mktemp tree unrar material-icons ]

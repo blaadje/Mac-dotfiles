@@ -8,7 +8,6 @@ let
   };
 
   jankyBordersConfig = import ./configs/jankyBorders.nix { inherit config; };
-
 in {
   services.nix-daemon.enable = true;
 
