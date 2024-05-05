@@ -2,12 +2,8 @@
 with lib;
 let
   janky-borders = import ./derivations/jankyBorders.nix {
-    inherit (pkgs) stdenv fetchFromGitHub gcc;
-    make = pkgs.make;
-    darwin = pkgs.darwin;
+    inherit (pkgs) stdenv fetchFromGitHub gcc make darwin;
   };
-
-  jankyBordersConfig = import ./configs/jankyBorders.nix { inherit config; };
 in {
   services.nix-daemon.enable = true;
 
@@ -16,9 +12,15 @@ in {
   # custom service
   launchd.user.agents.jankyborders = {
     serviceConfig.ProgramArguments = [ "${janky-borders}/bin/jankyBorders" ]
-      ++ mapAttrsToList (attr: value: "${attr}=${value}") jankyBordersConfig;
+      ++ mapAttrsToList (attr: value: "${attr}=${value}")
+      (import ./configs/jankyBorders.nix { inherit config; });
     serviceConfig.KeepAlive = true;
     serviceConfig.RunAtLoad = true;
+  };
+
+  services.sketchybar = {
+    enable = false; # config not working properly
+    config = builtins.readFile ./configs/sketchybar/sketchybarrc;
   };
 
   services.spacebar = {

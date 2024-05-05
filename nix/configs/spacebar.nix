@@ -3,10 +3,10 @@
   height = 20;
   spacing_left = 25;
   spacing_right = 15;
-  text_font = "Andale Mono:bold:12.0";
-  icon_font = "Material Icons:Regular:12.0";
-  background_color = "0xff${config.colorScheme.colors.base00}";
-  foreground_color = "0xff${config.colorScheme.colors.base05}";
+  text_font = "FiraCode Nerd Font:Medium:16.0";
+  icon_font = "FiraCode Nerd Font:Medium:16.0";
+  background_color = "0xff${config.colorScheme.palette.base00}";
+  foreground_color = "0xff${config.colorScheme.palette.base05}";
   space_icon_color = "0xffc86663";
   power_icon_color = "0xffcd950c";
   battery_icon_color = "0xffd75f5f";

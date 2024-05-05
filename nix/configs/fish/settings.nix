@@ -103,28 +103,28 @@
 
   set fish_greeting
 
-  set color00 "${config.colorScheme.colors.base00}";
-  set color01 "${config.colorScheme.colors.base08}";
-  set color02 "${config.colorScheme.colors.base0B}";
-  set color03 "${config.colorScheme.colors.base0A}";
-  set color04 "${config.colorScheme.colors.base0D}";
-  set color05 "${config.colorScheme.colors.base0E}";
-  set color06 "${config.colorScheme.colors.base0C}";
-  set color07 "${config.colorScheme.colors.base05}";
-  set color08 "${config.colorScheme.colors.base03}";
+  set color00 "${config.colorScheme.palette.base00}";
+  set color01 "${config.colorScheme.palette.base08}";
+  set color02 "${config.colorScheme.palette.base0B}";
+  set color03 "${config.colorScheme.palette.base0A}";
+  set color04 "${config.colorScheme.palette.base0D}";
+  set color05 "${config.colorScheme.palette.base0E}";
+  set color06 "${config.colorScheme.palette.base0C}";
+  set color07 "${config.colorScheme.palette.base05}";
+  set color08 "${config.colorScheme.palette.base03}";
   set color09 $color01;
   set color10 $color02;
   set color11 $color03;
   set color12 $color04;
   set color13 $color05;
   set color14 $color06;
-  set color15 "${config.colorScheme.colors.base07}";
-  set color16 "${config.colorScheme.colors.base09}";
-  set color17 "${config.colorScheme.colors.base0F}";
-  set color18 "${config.colorScheme.colors.base01}";
-  set color19 "${config.colorScheme.colors.base02}";
-  set color20 "${config.colorScheme.colors.base04}";
-  set color21 "${config.colorScheme.colors.base06}";
+  set color15 "${config.colorScheme.palette.base07}";
+  set color16 "${config.colorScheme.palette.base09}";
+  set color17 "${config.colorScheme.palette.base0F}";
+  set color18 "${config.colorScheme.palette.base01}";
+  set color19 "${config.colorScheme.palette.base02}";
+  set color20 "${config.colorScheme.palette.base04}";
+  set color21 "${config.colorScheme.palette.base06}";
   set colorfg $color07;
   set colorbg $color00;
 

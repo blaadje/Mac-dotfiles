@@ -5,50 +5,52 @@
     window = {
       padding.x = 15;
       padding.y = 15;
-      decorations = "buttonless";
+      decorations = "Buttonless";
     };
 
     font = {
-      size = 16.0;
-      # use_thin_strokes = true;
-      normal = { family = "Menlo"; };
+      size = 15.0;
+      normal = {
+        family = "MesloLGL Nerd Font";
+        style = "Regular";
+      };
     };
 
     colors = {
       # Default colors
       primary = {
-        background = "#${config.colorScheme.colors.base00}";
-        foreground = "#${config.colorScheme.colors.base05}";
+        background = "#${config.colorScheme.palette.base00}";
+        foreground = "#${config.colorScheme.palette.base05}";
       };
 
       # Colors the cursor will use if `custom_cursor_colors` is true
       cursor = {
-        text = "#${config.colorScheme.colors.base00}";
-        cursor = "#${config.colorScheme.colors.base05}";
+        text = "#${config.colorScheme.palette.base00}";
+        cursor = "#${config.colorScheme.palette.base05}";
       };
 
       # Normal colors
       normal = {
-        black = "#${config.colorScheme.colors.base00}";
-        red = "#${config.colorScheme.colors.base08}";
-        green = "#${config.colorScheme.colors.base0B}";
-        yellow = "#${config.colorScheme.colors.base0A}";
-        blue = "#${config.colorScheme.colors.base0D}";
-        magenta = "#${config.colorScheme.colors.base0E}";
-        cyan = "#${config.colorScheme.colors.base0C}";
-        white = "#${config.colorScheme.colors.base05}";
+        black = "#${config.colorScheme.palette.base00}";
+        red = "#${config.colorScheme.palette.base08}";
+        green = "#${config.colorScheme.palette.base0B}";
+        yellow = "#${config.colorScheme.palette.base0A}";
+        blue = "#${config.colorScheme.palette.base0D}";
+        magenta = "#${config.colorScheme.palette.base0E}";
+        cyan = "#${config.colorScheme.palette.base0C}";
+        white = "#${config.colorScheme.palette.base05}";
       };
 
       # Bright colors
       bright = {
-        black = "#${config.colorScheme.colors.base03}";
-        red = "#${config.colorScheme.colors.base09}";
-        green = "#${config.colorScheme.colors.base01}";
-        yellow = "#${config.colorScheme.colors.base02}";
-        blue = "#${config.colorScheme.colors.base04}";
-        magenta = "#${config.colorScheme.colors.base06}";
-        cyan = "#${config.colorScheme.colors.base0F}";
-        white = "#${config.colorScheme.colors.base07}";
+        black = "#${config.colorScheme.palette.base03}";
+        red = "#${config.colorScheme.palette.base09}";
+        green = "#${config.colorScheme.palette.base01}";
+        yellow = "#${config.colorScheme.palette.base02}";
+        blue = "#${config.colorScheme.palette.base04}";
+        magenta = "#${config.colorScheme.palette.base06}";
+        cyan = "#${config.colorScheme.palette.base0F}";
+        white = "#${config.colorScheme.palette.base07}";
       };
     };
 

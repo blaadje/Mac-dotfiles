@@ -2,11 +2,17 @@
 with lib;
 with pkgs;
 let
+  oldNodesPackages = import (builtins.fetchTarball {
+    url =
+      "https://github.com/NixOS/nixpkgs/archive/824421b1796332ad1bcb35bc7855da832c43305f.tar.gz";
+  }) { };
+
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
   development = [
     xcbuild
-    python2Full
     deno
-    go
+    unstable.go
     docker
     watch
     cloc
@@ -14,12 +20,19 @@ let
     act # Local github actions
     nodePackages.git-run
     gitAndTools.delta
+    tree-sitter
+
+    # formatters
+    luaformatter
+    eslint_d
+    prettierd
+    nixfmt
   ];
 
-  commandLineTools = [ htop neofetch awscli awsebcli ];
+  commandLineTools = [ htop neofetch awscli awsebcli sketchybar ];
 
-  node = nodejs-16_x;
-  # node = nodejs-slim-14_x;
+  # node = nodejs-18_x;
+  node = oldNodesPackages.nodejs_16;
 
   web = [
     heroku
@@ -39,7 +52,16 @@ in {
 
   home.packages = concatLists [
     # misc
-    [ fzf ripgrep bat nixfmt mktemp tree unrar material-icons ]
+    [
+      fzf
+      ripgrep
+      bat
+      nixfmt
+      mktemp
+      tree
+      unrar
+      (nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
+    ]
     development
     commandLineTools
     web
@@ -64,11 +86,13 @@ in {
       enable = true;
     };
 
-  programs.nixvim = (import ./configs/vim/config.nix { inherit pkgs; }) // {
-    enable = true;
-  };
+  programs.nixvim = (import ./configs/vim/config.nix { inherit config pkgs; })
+    // {
+      enable = true;
+    };
 
   programs.alacritty = (import ./configs/alacritty.nix { inherit config; }) // {
+    package = pkgs.alacritty;
     enable = true;
   };
 

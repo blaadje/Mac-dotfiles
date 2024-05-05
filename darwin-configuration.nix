@@ -4,11 +4,11 @@ let
   nix-colors = import <nix-colors> { };
 
   # wallpaperPath = ./paul-blenkhorn-cceo9QCekD0-unsplash.jpg;
-  # wallpaperPath = ./pawel-czerwinski-oykbZuvajO0-unsplash.jpg;
-  wallpaperPath = builtins.fetchurl {
-    url = "https://wallpaperaccess.com/full/42259.jpg";
-    sha256 = "19zqgy30dm266b2qjiacg8jgl5xcvd7hlc6g3vwlbnfhpaimccwj";
-  };
+  wallpaperPath = ./nix/assets/pawel-czerwinski-oykbZuvajO0-unsplash.jpg;
+  # wallpaperPath = builtins.fetchurl {
+  #   url = "https://wallpaperaccess.com/full/42259.jpg";
+  #   sha256 = "19zqgy30dm266b2qjiacg8jgl5xcvd7hlc6g3vwlbnfhpaimccwj";
+  # };
 
   nix-colors-lib = nix-colors.lib.contrib { inherit pkgs; };
 in {
@@ -23,25 +23,30 @@ in {
   #   kind = "dark";
   # };
 
-  colorScheme = nix-colors.colorSchemes.zenburn;
+  colorScheme = nix-colors.colorSchemes.katy;
+  # colorScheme = nix-colors.colorSchemes.ocean;
 
   nixpkgs.overlays = [ (import ./nix/overlays) ];
+
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "python-2.7.18.7"
-    "nodejs-16.20.2"
-    "nodejs-slim-14.21.3"
+    # "python-2.7.18.7"
+    "nodejs-16.20.0"
     "openssl-1.1.1w"
   ];
 
+  # nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
   users.users.alex.home = "/Users/alex";
-  users.nix.configureBuildUsers = true;
+  nix.configureBuildUsers = true;
 
   programs.fish.enable = true; # Needed to be here for correct $NIX_PATH
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   home-manager.users.alex = { lib, ... }: {
+    fonts = { fontconfig.enable = true; };
+
     imports = [ (import ./nix/packages.nix { inherit config pkgs lib; }) ];
 
     home.activation.changeWallpaper =
@@ -51,10 +56,12 @@ in {
 
     home.stateVersion = "23.05";
 
-    fonts.fontconfig.enable = true;
   };
 
-  fonts = { fontDir.enable = true; };
+  # fonts = {
+  #   fontDir.enable = true;
+  #   fontconfig.enable = true;
+  # };
 
   system.defaults = {
     finder.AppleShowAllExtensions = true;

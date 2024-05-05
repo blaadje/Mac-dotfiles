@@ -4,8 +4,8 @@
     layout = "bsp";
     window_border = "on";
     window_border_width = 3;
-    active_window_border_color = "0xFF${config.colorScheme.colors.base05}";
-    normal_window_border_color = "0xFF${config.colorScheme.colors.base00}";
+    active_window_border_color = "0xFF${config.colorScheme.palette.base05}";
+    normal_window_border_color = "0xFF${config.colorScheme.palette.base00}";
     window_placement = "second_child";
     bottom_padding = 10;
     top_padding = 10;

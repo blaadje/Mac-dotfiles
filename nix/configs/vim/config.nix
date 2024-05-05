@@ -1,45 +1,80 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 with pkgs;
 let
-  custom-plugins =
-    callPackage ./vimcustomplugins.nix { inherit (vimUtils) buildVimPlugin; };
-  plugins = vimPlugins // custom-plugins;
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
-  myVimPlugins = with plugins; [
+  folderPath = builtins.toString ./.;
+
+  myVimPlugins = with vimPlugins; [
     nvim-base16
-    fugitive
     material-vim
-    indent-blankline-nvim
-    vim-devicons
-    nerdtree
-    ghc-mod-vim
-    haskell-vim
-    LanguageClient-neovim
-    nerdcommenter
-    neomake
-    polyglot
-    ranger-vim
-    rust-vim
-    SpaceCamp
-    syntastic
-    vim-vue
-    ctrlp-vim
     vim-nix
-    vim-colorschemes
-    vim-airline
-    vim-airline-themes
-    vim-autoformat
-    YouCompleteMe
+    nvim-treesitter.withAllGrammars
+    rainbow-delimiters-nvim
+    unstable.vimPlugins.indent-blankline-nvim
+    telescope-nvim
+    nvim-web-devicons
+    mason-nvim
+    mason-lspconfig-nvim
+    nvim-lspconfig
+    nvim-cmp
+    cmp-nvim-lsp
+    neoformat
+    gitsigns-nvim
+    nvim-ts-autotag
+    nvim-autopairs
+    luasnip
+    typescript-tools-nvim
+    lualine-nvim
+    # pears-nvim
+    # nerdtree
+    # ghc-mod-vim
+    # haskell-vim
+    # LanguageClient-neovim
+    # nerdcommenter
+    # neomake
+    # polyglot
+    # ranger-vim
+    # rust-vim
+    # SpaceCamp
+    # syntastic
+    # vim-vue
+    # ctrlp-vim
+    # vim-airline
+    # vim-airline-themes
+    # vim-autoformat
+    # YouCompleteMe (failing deps)
   ];
 in {
   options = {
     number = true; # Show line numbers
-    relativenumber = false; # Show relative line numbers
-
+    relativenumber = true; # Show relative line numbers
     shiftwidth = 2; # Tab width should be 2
+    numberwidth = 4;
   };
   extraPlugins = myVimPlugins;
   extraConfigLua = ''
-    require("ibl").setup()
+    require('base16-colorscheme').setup({
+      base00 = "#${config.colorScheme.palette.base00}",
+      base01 = "#${config.colorScheme.palette.base01}",
+      base02 = "#${config.colorScheme.palette.base02}",
+      base03 = "#${config.colorScheme.palette.base03}",
+      base04 = "#${config.colorScheme.palette.base04}",
+      base05 = "#${config.colorScheme.palette.base05}",
+      base06 = "#${config.colorScheme.palette.base06}",
+      base07 = "#${config.colorScheme.palette.base07}",
+      base08 = "#${config.colorScheme.palette.base08}",
+      base09 = "#${config.colorScheme.palette.base09}",
+      base0A = "#${config.colorScheme.palette.base0A}",
+      base0B = "#${config.colorScheme.palette.base0B}",
+      base0C = "#${config.colorScheme.palette.base0C}",
+      base0D = "#${config.colorScheme.palette.base0D}",
+      base0E = "#${config.colorScheme.palette.base0E}",
+      base0F = "#${config.colorScheme.palette.base0F}",
+    })
+
+    package.path = package.path .. ";${folderPath}/?.lua"
+
+    require("init")
   '';
 }
