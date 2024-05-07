@@ -3,12 +3,24 @@ require("gitsigns").setup()
 require("nvim-autopairs").setup()
 require("mason").setup()
 require("mason-lspconfig").setup()
--- require("typescript-tools").setup()
 require("lualine").setup {options = {theme = "base16"}}
 require("nvim-treesitter.configs").setup {
     autotag = {enable = true},
     highlight = {enable = true}
 }
+require("telescope").setup({
+    defaults = {file_ignore_patterns = {'node_modules'}},
+    extensions = {
+        frecency = {
+            -- matcher = "fuzzy",
+            default_workspace = "CWD",
+            ignore_patterns = {'node_modules'},
+            show_filter_column = false
+        }
+    }
+})
+require("telescope").load_extension("recent-files")
+require('move').setup()
 
 local builtin = require("telescope.builtin")
 local lspconfig = require("lspconfig")
@@ -43,6 +55,34 @@ lspconfig.tsserver.setup {
     }
 }
 
+lspconfig.eslint.setup {
+    on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre",
+                                    {buffer = bufnr, command = "EslintFixAll"})
+    end,
+    settings = {workingDirectory = {mode = 'location'}},
+    root_dir = lspconfig.util.find_git_ancestor
+}
+
+lspconfig.tsserver.setup({
+    on_attach = on_attach,
+    single_file_support = false,
+    root_dir = lspconfig.util.find_git_ancestor,
+    filetypes = {
+        "javascript", "typescript", "javascriptreact", "typescriptreact",
+        "typescript.ts"
+    },
+    settings = {
+        diagnostics = true,
+        preferences = {includeCompletionsForImportStatements = true}
+    }
+})
+
+lspconfig.vuels.setup({
+    on_attach = on_attach,
+    init_options = {config = {vetur = {completion = {autoImport = true}}}}
+})
+
 -- Autocomplete
 cmp.setup({
     snippet = {
@@ -65,24 +105,10 @@ cmp.setup({
     sources = cmp.config.sources({{name = "nvim_lsp"}, {name = "buffer"}})
 })
 
--- Language server protocol (lsp)
-
-vim.lsp.set_log_level("debug")
-
 -- Formating
 
-vim.g.neoformat_vue_eslint_d = {
-    exe = "eslint_d",
-    args = {"--stdin", "--stdin-filename", "%:p", "--fix-to-stdout"},
-    stdin = 1,
-    try_node_exe = 1
-}
-vim.g.neoformat_enabled_typescript = {"eslint_d"}
-vim.g.neoformat_enabled_javascript = {"eslint_d"}
-vim.g.neoformat_enabled_vue = {"eslint_d"}
-
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = {"*.js", "*.lua", "*.vue", "*.ts", "*.html", "*.nix", "*.go"},
+    pattern = {"*.lua", "*.nix", "*.go"},
     command = "Neoformat"
 })
 
@@ -96,7 +122,6 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "RainbowGreen", {fg = "#98C379"})
     vim.api.nvim_set_hl(0, "RainbowViolet", {fg = "#C678DD"})
     vim.api.nvim_set_hl(0, "RainbowCyan", {fg = "#56B6C2"})
-    vim.api.nvim_set_hl(0, "Background", {fg = "#292d3e"})
 end)
 
 require("ibl").setup {
@@ -133,12 +158,4 @@ vim.g.rainbow_delimiters = {
     highlight = highlight
 }
 
--- Keymaps
-
-vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-
-vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>",
-                        {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>",
-                        {noremap = true, silent = true})
-
+require('keybinds')

@@ -23,8 +23,8 @@ in {
   #   kind = "dark";
   # };
 
-  colorScheme = nix-colors.colorSchemes.katy;
-  # colorScheme = nix-colors.colorSchemes.ocean;
+  #colorScheme = nix-colors.colorSchemes.katy;
+  colorScheme = nix-colors.colorSchemes.ocean;
 
   nixpkgs.overlays = [ (import ./nix/overlays) ];
 

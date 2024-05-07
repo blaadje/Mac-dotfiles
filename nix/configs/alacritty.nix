@@ -16,6 +16,14 @@
       };
     };
 
+    keyboard = {
+      bindings = [{
+        key = "Tab";
+        mods = "Control";
+        chars = "\\x1b[27;5;9~";
+      }];
+    };
+
     colors = {
       # Default colors
       primary = {

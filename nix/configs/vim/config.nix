@@ -3,11 +3,17 @@ with pkgs;
 let
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
+  custom-plugins = pkgs.callPackage ./customPlugins.nix {
+    inherit (pkgs.vimUtils) buildVimPlugin;
+    inherit (pkgs) fetchFromGitHub;
+  };
+
+  plugins = pkgs.vimPlugins // custom-plugins;
+
   folderPath = builtins.toString ./.;
 
-  myVimPlugins = with vimPlugins; [
+  myVimPlugins = with plugins; [
     nvim-base16
-    material-vim
     vim-nix
     nvim-treesitter.withAllGrammars
     rainbow-delimiters-nvim
@@ -23,11 +29,13 @@ let
     gitsigns-nvim
     nvim-ts-autotag
     nvim-autopairs
-    luasnip
-    typescript-tools-nvim
+    luasnip # Snippet for autocomplete
     lualine-nvim
+    telescope-recent-files-nvim
+    move-nvim # move line with arrow keys
     # pears-nvim
-    # nerdtree
+    vim-devicons
+    nerdtree
     # ghc-mod-vim
     # haskell-vim
     # LanguageClient-neovim
@@ -74,6 +82,8 @@ in {
     })
 
     package.path = package.path .. ";${folderPath}/?.lua"
+
+    vim.api.nvim_set_hl(0, "Background", {fg = "#${config.colorScheme.palette.base00}"})
 
     require("init")
   '';
