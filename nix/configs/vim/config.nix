@@ -36,6 +36,7 @@ let
     # pears-nvim
     vim-devicons
     nerdtree
+    vim-wordmotion
     # ghc-mod-vim
     # haskell-vim
     # LanguageClient-neovim

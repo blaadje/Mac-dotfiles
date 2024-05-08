@@ -4,7 +4,7 @@ ctrl + shift - f : yabai -m window --toggle float
 ctrl + shift - r : skhd --restart-service
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-ctrl - return : open -na alacritty
+ctrl - return : open -na kitty
 
 ctrl + shift - return : open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
 # cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty

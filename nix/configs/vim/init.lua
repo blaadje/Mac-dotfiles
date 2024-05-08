@@ -47,6 +47,18 @@ require("mason-lspconfig").setup_handlers {
     end
 }
 
+vim.diagnostic.config({
+    float = {focusable = true, style = "minimal", border = "rounded"},
+    diagnostic = {
+        -- virtual_text = true,
+        virtual_text = {spacing = 4, prefix = "●"},
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+        float = {focusable = true, style = "minimal", border = "rounded"}
+    }
+})
+
 lspconfig.tsserver.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -139,8 +151,17 @@ vim.api.nvim_set_hl(0, "DiagnosticHInt", {fg = "#10B981"})
 
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", {fg = "#F24B42"})
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", {fg = "#e0af68"})
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfor", {fg = "#0db9d7"})
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", {fg = "#0db9d7"})
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHInt", {fg = "#10B981"})
+
+vim.cmd(
+    [[highlight DiagnosticUnderlineError cterm=undercurl gui=undercurl guisp=#F24B42]])
+vim.cmd(
+    [[highlight DiagnosticUnderlineWarn cterm=undercurl gui=undercurl guisp=#e0af68]])
+vim.cmd(
+    [[highlight DiagnosticUnderlineInfo cterm=undercurl gui=undercurl guisp=#0db9d7]])
+vim.cmd(
+    [[highlight DiagnosticUnderlineHint cterm=undercurl gui=undercurl guisp=#10B981]])
 
 vim.g.rainbow_delimiters = {
     strategy = {

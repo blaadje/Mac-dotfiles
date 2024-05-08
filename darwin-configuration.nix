@@ -29,15 +29,9 @@ in {
   nixpkgs.overlays = [ (import ./nix/overlays) ];
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    # "python-2.7.18.7"
-    "nodejs-16.20.0"
-    "openssl-1.1.1w"
-  ];
-
-  # nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
   users.users.alex.home = "/Users/alex";
+
   nix.configureBuildUsers = true;
 
   programs.fish.enable = true; # Needed to be here for correct $NIX_PATH
@@ -58,11 +52,6 @@ in {
 
   };
 
-  # fonts = {
-  #   fontDir.enable = true;
-  #   fontconfig.enable = true;
-  # };
-
   system.defaults = {
     finder.AppleShowAllExtensions = true;
     dock = {
@@ -80,6 +69,7 @@ in {
       "com.apple.swipescrolldirection" = false;
     };
   };
+
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;

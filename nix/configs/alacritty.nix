@@ -1,6 +1,6 @@
 { config }: {
   settings = {
-    env = { "TERM" = "xterm-256color"; };
+    env = { "TERM" = "alacritty"; };
 
     window = {
       padding.x = 15;
@@ -14,6 +14,7 @@
         family = "MesloLGL Nerd Font";
         style = "Regular";
       };
+      glyph_offset = { y = 5; };
     };
 
     keyboard = {

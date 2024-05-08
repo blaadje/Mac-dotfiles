@@ -5,7 +5,7 @@ let
   oldNodesPackages = import (builtins.fetchTarball {
     url =
       "https://github.com/NixOS/nixpkgs/archive/824421b1796332ad1bcb35bc7855da832c43305f.tar.gz";
-  }) { };
+  }) { config = { permittedInsecurePackages = [ "nodejs-16.20.0" ]; }; };
 
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
@@ -60,7 +60,7 @@ in {
       mktemp
       tree
       unrar
-      (nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
+      (nerdfonts.override { fonts = [ "Meslo" ]; })
     ]
     development
     commandLineTools
@@ -77,6 +77,10 @@ in {
     enableFishIntegration = true;
   };
 
+  programs.kitty = (import ./configs/kitty.nix { inherit config; }) // {
+    enable = true;
+  };
+
   programs.fish = (import ./configs/fish/config.nix { inherit config; }) // {
     enable = true;
   };
@@ -91,10 +95,10 @@ in {
       enable = true;
     };
 
-  programs.alacritty = (import ./configs/alacritty.nix { inherit config; }) // {
-    package = pkgs.alacritty;
-    enable = true;
-  };
+  # programs.alacritty = (import ./configs/alacritty.nix { inherit config; }) // {
+  ##   package = pkgs.alacritty;
+  ##   enable = true;
+  ## };
 
   programs.git = (import ./configs/git.nix) // { enable = true; };
 }
