@@ -21,18 +21,15 @@ require("telescope").setup({
 })
 require("telescope").load_extension("recent-files")
 require('move').setup()
+require('nvim-highlight-colors').setup()
 
 local builtin = require("telescope.builtin")
 local lspconfig = require("lspconfig")
 local rainbow_delimiters = require "rainbow-delimiters"
-local hooks = require "ibl.hooks"
+local hooks = require("ibl.hooks")
 local cmp = require("cmp")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-local highlight = {
-    "RainbowRed", "RainbowYellow", "RainbowBlue", "RainbowOrange",
-    "RainbowGreen", "RainbowViolet", "RainbowCyan"
-}
+local colors = require('mycolors')
 
 local on_attach = function(client, bufnr)
     require("lsp-format").on_attach(client, bufnr)
@@ -114,7 +111,10 @@ cmp.setup({
         ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({select = true}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
-    sources = cmp.config.sources({{name = "nvim_lsp"}, {name = "buffer"}})
+    sources = cmp.config.sources({
+        {name = "nvim_lsp"}, {name = "buffer"},
+        {name = "nvim_lsp_signature_help"}
+    })
 })
 
 -- Formating
@@ -126,42 +126,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- Colors
 
-hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-    vim.api.nvim_set_hl(0, "RainbowRed", {fg = "#E06C75"})
-    vim.api.nvim_set_hl(0, "RainbowYellow", {fg = "#E5C07B"})
-    vim.api.nvim_set_hl(0, "RainbowBlue", {fg = "#61AFEF"})
-    vim.api.nvim_set_hl(0, "RainbowOrange", {fg = "#D19A66"})
-    vim.api.nvim_set_hl(0, "RainbowGreen", {fg = "#98C379"})
-    vim.api.nvim_set_hl(0, "RainbowViolet", {fg = "#C678DD"})
-    vim.api.nvim_set_hl(0, "RainbowCyan", {fg = "#56B6C2"})
-end)
-
 require("ibl").setup {
     indent = {highlight = "Background"},
-    scope = {highlight = highlight}
+    scope = {highlight = colors.highlight}
 }
 
 hooks.register(hooks.type.SCOPE_HIGHLIGHT,
                hooks.builtin.scope_highlight_from_extmark)
-
-vim.api.nvim_set_hl(0, "DiagnosticError", {fg = "#F24B42"})
-vim.api.nvim_set_hl(0, "DiagnosticWarn", {fg = "#e0af68"})
-vim.api.nvim_set_hl(0, "DiagnosticInfo", {fg = "#0db9d7"})
-vim.api.nvim_set_hl(0, "DiagnosticHInt", {fg = "#10B981"})
-
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", {fg = "#F24B42"})
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", {fg = "#e0af68"})
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", {fg = "#0db9d7"})
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHInt", {fg = "#10B981"})
-
-vim.cmd(
-    [[highlight DiagnosticUnderlineError cterm=undercurl gui=undercurl guisp=#F24B42]])
-vim.cmd(
-    [[highlight DiagnosticUnderlineWarn cterm=undercurl gui=undercurl guisp=#e0af68]])
-vim.cmd(
-    [[highlight DiagnosticUnderlineInfo cterm=undercurl gui=undercurl guisp=#0db9d7]])
-vim.cmd(
-    [[highlight DiagnosticUnderlineHint cterm=undercurl gui=undercurl guisp=#10B981]])
 
 vim.g.rainbow_delimiters = {
     strategy = {
@@ -176,7 +147,10 @@ vim.g.rainbow_delimiters = {
     },
     priority = {[""] = 110, lua = 210},
     blacklist = {"c", "cpp", "html"},
-    highlight = highlight
+    highlight = colors.highlight
 }
 
 require('keybinds')
+
+vim.lsp.handlers["textDocument/hover"] =
+    vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"})

@@ -31,8 +31,8 @@ let
 
   commandLineTools = [ htop neofetch awscli awsebcli sketchybar ];
 
-  # node = nodejs-18_x;
-  node = oldNodesPackages.nodejs_16;
+  node = nodejs_20;
+  #  node = oldNodesPackages.nodejs_16;
 
   web = [
     heroku

@@ -33,10 +33,13 @@ let
     lualine-nvim
     telescope-recent-files-nvim
     move-nvim # move line with arrow keys
+    feline-nvim
     # pears-nvim
     vim-devicons
     nerdtree
-    vim-wordmotion
+    vim-wordmotion # words motions working with lettercasing
+    hover-nvim
+    nvim-highlight-colors
     # ghc-mod-vim
     # haskell-vim
     # LanguageClient-neovim
@@ -60,9 +63,13 @@ in {
     relativenumber = true; # Show relative line numbers
     shiftwidth = 2; # Tab width should be 2
     numberwidth = 4;
+    #scrolloff = 999;
+    #  scroll = 40;
   };
   extraPlugins = myVimPlugins;
   extraConfigLua = ''
+    package.path = package.path .. ";${folderPath}/?.lua"
+
     require('base16-colorscheme').setup({
       base00 = "#${config.colorScheme.palette.base00}",
       base01 = "#${config.colorScheme.palette.base01}",
@@ -82,7 +89,6 @@ in {
       base0F = "#${config.colorScheme.palette.base0F}",
     })
 
-    package.path = package.path .. ";${folderPath}/?.lua"
 
     vim.api.nvim_set_hl(0, "Background", {fg = "#${config.colorScheme.palette.base00}"})
 

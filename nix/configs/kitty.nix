@@ -51,6 +51,7 @@
     modify_font underline_thickness 200%
     modify_font underline_position 10px
     map ctrl+tab send_text normal,application \x1b[9;5u
+    map ctrl+shift+tab send_text normal,application \x1b[9;6u
     shell_integration no-cursor
   '';
 
