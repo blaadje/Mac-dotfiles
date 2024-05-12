@@ -1,0 +1,266 @@
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: jq: command not found
+[!] Set: Item not found 'space.'
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: jq: command not found
+[!] Set: Item not found 'space.'
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: jq: command not found
+[!] Set: Item not found 'space.'
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /nix/store/colors.sh: No such file or directory
+test
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: echo: write error: Broken pipe
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: echo: write error: Broken pipe
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 6: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: echo: write error: Broken pipe
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: echo: write error: Broken pipe
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: echo: write error: Broken pipe
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space_windows.sh: line 7: jq: command not found
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+[!] Set: Item not found 'space.'
+[!] Set: Item not found 'space.'
+[!] Set: Item not found 'space.'
+[!] Set: Item not found 'space.'
+[!] Set: Item not found 'space.'
+[!] Set: Item not found 'space.'
+[!] Set: Item not found 'space.'
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory
+/Users/alex/.nixpkgs/nix/configs/sketchybar/plugins/space.sh: line 4: /colors.sh: No such file or directory

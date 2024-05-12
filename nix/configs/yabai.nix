@@ -23,6 +23,8 @@
     normal_window_opacity = "0.9";
   };
   extraConfig = ''
+    yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
     SPACEBAR_HEIGHT=$(spacebar -m config height)
     yabai -m config external_bar main:$SPACEBAR_HEIGHT:0
     # rules
@@ -31,6 +33,7 @@
     yabai -m rule --add title="OBS.*" sticky=on
     yabai -m rule --add app="^Code$" space=2
     yabai -m rule --add title="vimwindow" space=2
+    echo "configuration loaded"
   '';
 
 }

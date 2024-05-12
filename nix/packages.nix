@@ -9,7 +9,11 @@ let
 
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
+  sketchy-vim =
+    import ./derivations/sketchyVim.nix { inherit (pkgs) stdenv fetchzip; };
+
   development = [
+    # sketchy-vim
     xcbuild
     deno
     unstable.go
@@ -32,7 +36,7 @@ let
   commandLineTools = [ htop neofetch awscli awsebcli sketchybar ];
 
   node = nodejs_20;
-  #  node = oldNodesPackages.nodejs_16;
+  # node = oldNodesPackages.nodejs_16;
 
   web = [
     heroku

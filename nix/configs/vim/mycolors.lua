@@ -1,4 +1,5 @@
 local hooks = require "ibl.hooks"
+local themeColors = require('base16-colorscheme').colors
 
 local colors = {
     error = "#f24b42",
@@ -38,4 +39,6 @@ vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo",
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint",
                     {undercurl = true, sp = colors.hint})
 
+vim.api.nvim_set_hl(0, "VertSplit", {fg = themeColors.base01})
+vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", {fg = themeColors.base01})
 return colors

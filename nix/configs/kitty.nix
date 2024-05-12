@@ -1,11 +1,12 @@
 { config }: {
   settings = {
+    copy_on_select = "yes";
     hide_window_decorations = "titlebar-only";
     confirm_os_window_close = 0;
     shell = "/etc/profiles/per-user/${builtins.getEnv ("USER")}/bin/fish";
     window_padding_width = 10;
     font_family = "MesloLGL Nerd Font";
-    font_size = 15;
+    font_size = 13;
     undercurl_style = "thick-dense";
     resize_debounce_time = "0 0";
     cursor_shape = "block";

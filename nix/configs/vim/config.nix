@@ -3,12 +3,12 @@ with pkgs;
 let
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
-  custom-plugins = pkgs.callPackage ./customPlugins.nix {
+  custom-plugins = callPackage ./customPlugins.nix {
     inherit (pkgs.vimUtils) buildVimPlugin;
     inherit (pkgs) fetchFromGitHub;
   };
 
-  plugins = pkgs.vimPlugins // custom-plugins;
+  plugins = vimPlugins // custom-plugins;
 
   folderPath = builtins.toString ./.;
 
@@ -36,10 +36,12 @@ let
     feline-nvim
     # pears-nvim
     vim-devicons
-    nerdtree
-    vim-wordmotion # words motions working with lettercasing
-    hover-nvim
-    nvim-highlight-colors
+    # nerdtree
+    # vim-wordmotion # words motions working with lettercasing
+    # hover-nvim
+    nvim-colorizer-lua
+    trouble-nvim
+    nvim-tree-lua
     # ghc-mod-vim
     # haskell-vim
     # LanguageClient-neovim
@@ -90,7 +92,7 @@ in {
     })
 
 
-    vim.api.nvim_set_hl(0, "Background", {fg = "#${config.colorScheme.palette.base00}"})
+    vim.api.nvim_set_hl(0, "Background", {fg = "#${config.colorScheme.palette.base01}"})
 
     require("init")
   '';
