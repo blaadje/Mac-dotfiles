@@ -10,7 +10,7 @@ vim.api
 
 vim.keymap.set('n', '<A-Down>', ':MoveLine(1)<CR>', opts)
 vim.keymap.set('n', '<A-Up>', ':MoveLine(-1)<CR>', opts)
-vim.keymap.set('n', '<C-b>', ':NERDTreeFind<CR>', opts)
+vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 vim.keymap.set({'n'}, '<C-w>', function() vim.lsp.buf.hover() end, opts)
 vim.keymap.set('n', '<C-p>', function()
     require('telescope').extensions['recent-files'].recent_files({})

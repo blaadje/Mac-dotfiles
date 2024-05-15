@@ -18,6 +18,7 @@ let
     nvim-treesitter.withAllGrammars
     rainbow-delimiters-nvim
     unstable.vimPlugins.indent-blankline-nvim
+    unstable.vimPlugins.yanky-nvim
     telescope-nvim
     nvim-web-devicons
     mason-nvim
@@ -42,6 +43,7 @@ let
     nvim-colorizer-lua
     trouble-nvim
     nvim-tree-lua
+    vim-cursorword
     # ghc-mod-vim
     # haskell-vim
     # LanguageClient-neovim
@@ -65,7 +67,7 @@ in {
     relativenumber = true; # Show relative line numbers
     shiftwidth = 2; # Tab width should be 2
     numberwidth = 4;
-    #scrolloff = 999;
+    scrolloff = 999;
     #  scroll = 40;
   };
   extraPlugins = myVimPlugins;

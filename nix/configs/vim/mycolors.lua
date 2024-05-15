@@ -41,4 +41,8 @@ vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint",
 
 vim.api.nvim_set_hl(0, "VertSplit", {fg = themeColors.base01})
 vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", {fg = themeColors.base01})
+
+vim.api.nvim_set_hl(0, 'Search',
+                    {fg = themeColors.base08, bg = themeColors.base0B})
+
 return colors

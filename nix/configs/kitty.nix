@@ -5,6 +5,8 @@
     confirm_os_window_close = 0;
     shell = "/etc/profiles/per-user/${builtins.getEnv ("USER")}/bin/fish";
     window_padding_width = 10;
+    background_opacity = "0.9";
+    background_blur = 50;
     font_family = "MesloLGL Nerd Font";
     font_size = 13;
     undercurl_style = "thick-dense";

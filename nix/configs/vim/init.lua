@@ -93,6 +93,7 @@ require("telescope").setup({
 require("telescope").load_extension("recent-files")
 require('move').setup()
 require('colorizer').setup()
+require("yanky").setup()
 
 local lspconfig = require("lspconfig")
 local rainbow_delimiters = require "rainbow-delimiters"
@@ -102,6 +103,20 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local colors = require('mycolors')
 
 local on_attach = function(client, bufnr)
+    local is_in_deno_repo = lspconfig.util.root_pattern('deno.json',
+                                                        'import_map.json',
+                                                        'deno.jsonc')(vim.fn
+                                                                          .getcwd())
+    local is_in_deno_part_of_repo = vim.fn.match(vim.fn.expand '%:p',
+                                                 'supabase/functions') > -1
+
+    if is_in_deno_repo or is_in_deno_part_of_repo then
+        if client.name == 'tsserver' then
+            client.stop()
+            return
+        end
+    end
+
     require("lsp-format").on_attach(client, bufnr)
 end
 
@@ -123,10 +138,16 @@ lspconfig.eslint.setup {
     root_dir = lspconfig.util.find_git_ancestor
 }
 
+lspconfig.denols.setup {
+    on_attach = on_attach,
+    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
+}
+
 lspconfig.tsserver.setup({
     on_attach = on_attach,
     single_file_support = false,
-    root_dir = lspconfig.util.find_git_ancestor,
+    -- root_dir = lspconfig.util.find_git_ancestor,
+    root_dir = lspconfig.util.root_pattern("package.json"),
     filetypes = {
         "javascript", "typescript", "javascriptreact", "typescriptreact",
         "typescript.ts"
@@ -211,3 +232,7 @@ require('keybinds')
 
 vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"})
+
+vim.o.hlsearch = false
+vim.o.cursorline = true
+vim.opt.clipboard:append{'unnamedplus'}
