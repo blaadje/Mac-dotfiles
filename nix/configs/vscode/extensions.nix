@@ -1,6 +1,6 @@
 [
   {
-    name = "Nix";
+    name = "nix";
     publisher = "bbenoist";
     version = "1.0.1";
     sha256 = "0zd0n9f5z1f0ckzfjr38xw2zzmcxg1gjrava7yahg5cvdcw6l35b";
@@ -13,56 +13,98 @@
   }
   {
     name = "bracket-pair-colorizer";
-    publisher = "CoenraadS";
+    publisher = "coenraads";
     version = "1.0.62";
     sha256 = "0zck9kzajfx0jl85mfaz4l92x8m1rkwq2vlz0w91kr2wq8im62lb";
   }
   {
     name = "vscode-eslint";
     publisher = "dbaeumer";
-    version = "2.4.2";
-    sha256 = "1g5mavks3m4fnn7wav659rdnd9f3lp7r96g8niad4g1vaj4xm23q";
+    version = "3.0.7";
+    sha256 = "03ii58jpvmbl5kwq34cmx0f2x08rla75sn32fv0xns5jprjxaaiy";
+  }
+  {
+    name = "apc-extension";
+    publisher = "drcika";
+    version = "0.3.9";
+    sha256 = "1hd0xr2lmq28qq9wwwrg380pb2shimi6ixz2zv36l5f0dc40iial";
   }
   {
     name = "prettier-vscode";
     publisher = "esbenp";
-    version = "10.1.0";
-    sha256 = "01s0vi2h917mqfpdrhqhp2ijwkibw95yk2js0l587wvajbbry2s9";
+    version = "10.4.0";
+    sha256 = "1iy7i0yxnhizz40llnc1dk9q8kk98rz6ki830sq7zj3ak9qp9vzk";
   }
   {
     name = "codespaces";
-    publisher = "GitHub";
-    version = "1.16.2";
-    sha256 = "1wh3kzv2s1n90gq33cx7wgg7gpf8wk5jmjyy25hs2fha7n66yhpz";
+    publisher = "github";
+    version = "1.16.22";
+    sha256 = "1q0fhs62vp5v7nq9nwdbawq8pblkfjb9r7d54vzywb09b41b1nw3";
   }
   {
     name = "copilot";
-    publisher = "GitHub";
-    version = "1.133.531";
-    sha256 = "0w8456kn9k5jdcbvs0bmc4zh6qxz77xjhy1wm75cw7qlh050mr6f";
+    publisher = "github";
+    version = "1.195.0";
+    sha256 = "114n4wv4n7bk0h70kppx4gaqwn29wvz84689z1xpm65smdy91vqy";
   }
   {
     name = "copilot-chat";
-    publisher = "GitHub";
-    version = "0.11.2023110601";
-    sha256 = "1pkv8ksc0lpi6s42ip5wq5i8h7amliizancnqiq1n4962c62w9ir";
+    publisher = "github";
+    version = "0.16.2024052402";
+    sha256 = "0hamza14ddxcgn1zb3pgf7bxlgq89qvkcdfybviykf09ah4jf78c";
   }
   {
     name = "go";
     publisher = "golang";
-    version = "0.39.1";
-    sha256 = "0kj8s71sfi1bjirdxv4wicwbmrdryll1sfnlfqwz7j2zc05961l0";
+    version = "0.41.4";
+    sha256 = "03gxgcvjk5plzkk7gjsrrck1kszzbzswkbcr33m3qlkyz4iw9nly";
+  }
+  {
+    name = "vsliveshare";
+    publisher = "ms-vsliveshare";
+    version = "1.0.5918";
+    sha256 = "1m4mpy6irj3vzjw6mzmjjp6appgf000zfhmkjwxw65sl4wmjckaf";
   }
   {
     name = "color-highlight";
     publisher = "naumovs";
-    version = "2.6.0";
-    sha256 = "1ssh5d4kn3b57gfw5w99pp3xybdk2xif8z6l7m3y2qf204wd1hsd";
+    version = "2.8.0";
+    sha256 = "14capk3b7rs105ij4pjz42zsysdfnkwfjk9lj2cawnqxa7b8ygcr";
   }
   {
     name = "vetur";
     publisher = "octref";
     version = "0.37.3";
     sha256 = "110wn2cfmdd64ry34234d3z27ph2chlgd0c9d8c918vdwqnba66y";
+  }
+  {
+    name = "vscode-styled-components";
+    publisher = "styled-components";
+    version = "1.7.8";
+    sha256 = "1k4ymnq91758qpazip78g6lv2m2a1mxc2iz0fzqk92q02y6c10jn";
+  }
+  {
+    name = "find-it-faster";
+    publisher = "tomrijndorp";
+    version = "0.0.34";
+    sha256 = "1jf2rxfyj1qs5lnvzck3xflbzgs5vh1bd4mi406xkn4nkznibfsm";
+  }
+  {
+    name = "errorlens";
+    publisher = "usernamehw";
+    version = "3.17.0";
+    sha256 = "12fjvhfx837wv07qf1xh18y5fd220zz10i541jzjnsm4ig6h0h8k";
+  }
+  {
+    name = "vim";
+    publisher = "vscodevim";
+    version = "1.27.3";
+    sha256 = "1k5sccfblslfn086rpiswgxhxmylj0bj2bi7slk7vf73ngk4dqwy";
+  }
+  {
+    name = "material-palenight-theme";
+    publisher = "whizkydee";
+    version = "2.0.3";
+    sha256 = "14js9qv3c88cr9i4b5z9bkb9rj3dncd9v2bpay7fv735sb7sjgdb";
   }
 ]

@@ -3,20 +3,20 @@
   "editor.formatOnSave" = true;
   "editor.minimap.enabled" = false;
   "editor.fontSize" = 14;
+  "editor.codeActionsOnSave" = { "source.addMissingImports" = "always"; };
   "editor.lineHeight" = 24;
+  "editor.linkedEditing" = true;
+  "editor.suggest.insertMode" = "replace";
   "editor.codeActionsOnSave" = {
     "source.fixAll.eslint" = true;
     "source.fixAll.stylelint" = true;
   };
-  "editor.fontLigatures" = false;
-  "editor.cursorStyle" = "block";
   "editor.tabSize" = 2;
   "editor.lineNumbers" = "relative";
   "vim.highlightedyank.enable" = true;
-
+  "editor.renderLineHighlight" = "all";
   # theme
   "workbench.activityBar.visible" = false;
-  "workbench.colorTheme" = "Palenight Theme";
 
   "editor.defaultFormatter" = "dbaeumer.vscode-eslint";
   "eslint.format.enable" = true;
@@ -84,26 +84,26 @@
 
     "scrollbar.shadow" = "#${config.colorScheme.palette.base01}";
     "scrollbarSlider.activeBackground" =
-      "#${config.colorScheme.palette.base04}6f";
-    "scrollbarSlider.background" = "#${config.colorScheme.palette.base02}6f";
-    "scrollbarSlider.hoverBackground" =
-      "#${config.colorScheme.palette.base03}6f";
+      "#${config.colorScheme.palette.base04}";
+    "scrollbarSlider.background" = "#${config.colorScheme.palette.base02}";
+    "scrollbarSlider.hoverBackground" = "#${config.colorScheme.palette.base03}";
 
     "badge.background" = "#${config.colorScheme.palette.base00}";
     "badge.foreground" = "#${config.colorScheme.palette.base05}";
 
     "progressBar.background" = "#${config.colorScheme.palette.base03}";
 
-    "list.activeSelectionBackground" = "#${config.colorScheme.palette.base02}";
+    "list.activeSelectionBackground" = "#${config.colorScheme.palette.base01}";
+    "list.inactiveSelectionBackground" =
+      "#${config.colorScheme.palette.base01}";
+    "list.focusBackground" = "#${config.colorScheme.palette.base01}";
+    "list.hoverBackground" = "#${config.colorScheme.palette.base01}";
+
     "list.activeSelectionForeground" = "#${config.colorScheme.palette.base05}";
     "list.dropBackground" = "#${config.colorScheme.palette.base07}";
-    "list.focusBackground" = "#${config.colorScheme.palette.base02}";
     "list.focusForeground" = "#${config.colorScheme.palette.base05}";
     "list.highlightForeground" = "#${config.colorScheme.palette.base07}";
-    "list.hoverBackground" = "#${config.colorScheme.palette.base03}";
     "list.hoverForeground" = "#${config.colorScheme.palette.base05}";
-    "list.inactiveSelectionBackground" =
-      "#${config.colorScheme.palette.base02}";
     "list.inactiveSelectionForeground" =
       "#${config.colorScheme.palette.base05}";
     "list.inactiveFocusBackground" = "#${config.colorScheme.palette.base02}";
@@ -124,15 +124,15 @@
     "activityBarBadge.foreground" = "#${config.colorScheme.palette.base07}";
     "activityBar.activeBackground" = "#${config.colorScheme.palette.base02}";
 
-    "sideBar.background" = "#${config.colorScheme.palette.base01}";
+    "sideBar.background" = "#${config.colorScheme.palette.base00}";
     "sideBar.foreground" = "#${config.colorScheme.palette.base05}";
-    "sideBar.dropBackground" = "#${config.colorScheme.palette.base02}6f";
-    "sideBarTitle.foreground" = "#${config.colorScheme.palette.base05}";
-    "sideBarSectionHeader.background" = "#${config.colorScheme.palette.base03}";
+    "sideBar.dropBackground" = "#${config.colorScheme.palette.base00}";
+    "sideBarTitle.foreground" = "#${config.colorScheme.palette.base00}";
+    "sideBarSectionHeader.background" = "#${config.colorScheme.palette.base00}";
     "sideBarSectionHeader.foreground" = "#${config.colorScheme.palette.base05}";
 
-    "minimap.findMatchHighlight" = "#${config.colorScheme.palette.base0A}6f";
-    "minimap.selectionHighlight" = "#${config.colorScheme.palette.base02}6f";
+    "minimap.findMatchHighlight" = "#${config.colorScheme.palette.base0A}";
+    "minimap.selectionHighlight" = "#${config.colorScheme.palette.base02}";
     "minimap.errorHighlight" = "#${config.colorScheme.palette.base08}";
     "minimap.warningHighlight" = "#${config.colorScheme.palette.base0A}";
     "minimap.background" = "#${config.colorScheme.palette.base00}";
@@ -144,11 +144,11 @@
     "minimapGutter.deletedBackground" = "#${config.colorScheme.palette.base08}";
 
     "editorGroup.background" = "#${config.colorScheme.palette.base00}";
-    "editorGroup.dropBackground" = "#${config.colorScheme.palette.base02}6f";
+    "editorGroup.dropBackground" = "#${config.colorScheme.palette.base02}";
     "editorGroupHeader.noTabsBackground" =
-      "#${config.colorScheme.palette.base01}";
+      "#${config.colorScheme.palette.base00}";
     "editorGroupHeader.tabsBackground" =
-      "#${config.colorScheme.palette.base01}";
+      "#${config.colorScheme.palette.base00}";
     "editorGroup.emptyBackground" = "#${config.colorScheme.palette.base00}";
     "editorGroup.dropIntoPromptForeground" =
       "#${config.colorScheme.palette.base06}";
@@ -182,23 +182,20 @@
       "#${config.colorScheme.palette.base02}";
     "editor.selectionHighlightBackground" =
       "#${config.colorScheme.palette.base01}";
-    "editor.wordHighlightBackground" =
-      "#${config.colorScheme.palette.base02}6f";
+    "editor.wordHighlightBackground" = "#${config.colorScheme.palette.base02}";
     "editor.wordHighlightStrongBackground" =
-      "#${config.colorScheme.palette.base03}6f";
-    "editor.findMatchBackground" = "#${config.colorScheme.palette.base0A}6f";
+      "#${config.colorScheme.palette.base03}";
+    "editor.findMatchBackground" = "#${config.colorScheme.palette.base0A}";
     "editor.findMatchHighlightBackground" =
-      "#${config.colorScheme.palette.base09}6f";
+      "#${config.colorScheme.palette.base09}";
     "editor.findRangeHighlightBackground" =
-      "#${config.colorScheme.palette.base01}6f";
+      "#${config.colorScheme.palette.base01}";
     "searchEditor.findMatchBackground" =
-      "#${config.colorScheme.palette.base0A}6f";
-    "editor.hoverHighlightBackground" =
-      "#${config.colorScheme.palette.base02}6f";
+      "#${config.colorScheme.palette.base0A}";
+    "editor.hoverHighlightBackground" = "#${config.colorScheme.palette.base02}";
     "editor.lineHighlightBackground" = "#${config.colorScheme.palette.base01}";
     "editorLink.activeForeground" = "#${config.colorScheme.palette.base0D}";
-    "editor.rangeHighlightBackground" =
-      "#${config.colorScheme.palette.base01}6f";
+    "editor.rangeHighlightBackground" = "#${config.colorScheme.palette.base01}";
     "editorWhitespace.foreground" = "#${config.colorScheme.palette.base03}";
     "editorIndentGuide.background" = "#${config.colorScheme.palette.base03}";
     "editorIndentGuide.activeBackground" =
@@ -232,15 +229,15 @@
     "editorBracketHighlight.unexpectedBracket.foreground" =
       "#${config.colorScheme.palette.base0F}";
     "editorOverviewRuler.findMatchForeground" =
-      "#${config.colorScheme.palette.base0A}6f";
+      "#${config.colorScheme.palette.base0A}";
     "editorOverviewRuler.rangeHighlightForeground" =
-      "#${config.colorScheme.palette.base03}6f";
+      "#${config.colorScheme.palette.base03}";
     "editorOverviewRuler.selectionHighlightForeground" =
-      "#${config.colorScheme.palette.base02}6f";
+      "#${config.colorScheme.palette.base02}";
     "editorOverviewRuler.wordHighlightForeground" =
-      "#${config.colorScheme.palette.base07}6f";
+      "#${config.colorScheme.palette.base07}";
     "editorOverviewRuler.wordHighlightStrongForeground" =
-      "#${config.colorScheme.palette.base0D}6f";
+      "#${config.colorScheme.palette.base0D}";
     "editorOverviewRuler.modifiedForeground" =
       "#${config.colorScheme.palette.base0E}";
     "editorOverviewRuler.addedForeground" =
@@ -272,9 +269,9 @@
       "#${config.colorScheme.palette.base05}";
 
     "diffEditor.insertedTextBackground" =
-      "#${config.colorScheme.palette.base0B}20";
+      "#${config.colorScheme.palette.base0B}";
     "diffEditor.removedTextBackground" =
-      "#${config.colorScheme.palette.base08}20";
+      "#${config.colorScheme.palette.base08}";
     "diffEditor.diagonalFill" = "#${config.colorScheme.palette.base02}";
 
     "editorWidget.foreground" = "#${config.colorScheme.palette.base05}";
@@ -301,21 +298,21 @@
     "editorMarkerNavigationInfo.background" =
       "#${config.colorScheme.palette.base0D}";
     "editorMarkerNavigationError.headerBackground" =
-      "#${config.colorScheme.palette.base08}20";
+      "#${config.colorScheme.palette.base08}";
     "editorMarkerNavigationWarning.headerBackground" =
-      "#${config.colorScheme.palette.base0A}20";
+      "#${config.colorScheme.palette.base0A}";
     "editorMarkerNavigationInfo.headerBackground" =
-      "#${config.colorScheme.palette.base0C}20";
+      "#${config.colorScheme.palette.base0C}";
 
     "peekViewEditor.background" = "#${config.colorScheme.palette.base01}";
     "peekViewEditorGutter.background" = "#${config.colorScheme.palette.base01}";
     "peekViewEditor.matchHighlightBackground" =
-      "#${config.colorScheme.palette.base09}6f";
+      "#${config.colorScheme.palette.base09}";
     "peekViewResult.background" = "#${config.colorScheme.palette.base00}";
     "peekViewResult.fileForeground" = "#${config.colorScheme.palette.base05}";
     "peekViewResult.lineForeground" = "#${config.colorScheme.palette.base03}";
     "peekViewResult.matchHighlightBackground" =
-      "#${config.colorScheme.palette.base09}6f";
+      "#${config.colorScheme.palette.base09}";
     "peekViewResult.selectionBackground" =
       "#${config.colorScheme.palette.base02}";
     "peekViewResult.selectionForeground" =
@@ -340,18 +337,19 @@
       "#${config.colorScheme.palette.base0F}";
 
     "panel.background" = "#${config.colorScheme.palette.base00}";
-    "panel.dropBackground" = "#${config.colorScheme.palette.base01}6f";
-    "panel.dropBorder" = "#${config.colorScheme.palette.base01}6f";
+    "panel.dropBackground" = "#${config.colorScheme.palette.base01}";
+    "panel.dropBorder" = "#${config.colorScheme.palette.base01}";
     "panelTitle.activeForeground" = "#${config.colorScheme.palette.base05}";
     "panelTitle.inactiveForeground" = "#${config.colorScheme.palette.base03}";
 
-    "statusBar.background" = "#${config.colorScheme.palette.base0D}";
-    "statusBar.foreground" = "#${config.colorScheme.palette.base07}";
+    "statusBar.border" = "#${config.colorScheme.palette.base00}";
+    "statusBar.background" = "#${config.colorScheme.palette.base00}";
+    "statusBar.foreground" = "#${config.colorScheme.palette.base03}";
     "statusBar.debuggingBackground" = "#${config.colorScheme.palette.base09}";
     "statusBar.debuggingForeground" = "#${config.colorScheme.palette.base07}";
     "statusBar.noFolderBackground" = "#${config.colorScheme.palette.base0E}";
     "statusBar.noFolderForeground" = "#${config.colorScheme.palette.base07}";
-    "statusBarItem.activeBackground" = "#${config.colorScheme.palette.base03}";
+    "statusBarItem.activeBackground" = "#${config.colorScheme.palette.base00}";
     "statusBarItem.hoverBackground" = "#${config.colorScheme.palette.base02}";
     "statusBarItem.prominentForeground" =
       "#${config.colorScheme.palette.base07}";
@@ -488,11 +486,11 @@
     "testing.message.error.decorationForeground" =
       "#${config.colorScheme.palette.base05}";
     "testing.message.error.lineBackground" =
-      "#${config.colorScheme.palette.base08}20";
+      "#${config.colorScheme.palette.base08}";
     "testing.message.info.decorationForeground" =
       "#${config.colorScheme.palette.base05}";
     "testing.message.info.lineBackground" =
-      "#${config.colorScheme.palette.base0D}20";
+      "#${config.colorScheme.palette.base0D}";
 
     "welcomePage.background" = "#${config.colorScheme.palette.base00}";
     "welcomePage.buttonBackground" = "#${config.colorScheme.palette.base01}";
@@ -647,4 +645,83 @@
       "#${config.colorScheme.palette.base09}";
   };
   "workbench.activityBar.location" = "hidden";
+
+  # new config
+  "workbench.tree.renderIndentGuides" = "none";
+  "workbench.statusBar.visible" = true;
+  "workbench.editor.showTabs" = false;
+  "workbench.layoutControl.enabled" = false;
+  "workbench.startupEditor" = "none";
+  "workbench.tips.enabled" = false;
+  "editor.guides.indentation" = false;
+  "editor.matchBrackets" = "never";
+  "editor.lightbulb.enabled" = false;
+  "editor.hover.enabled" = true;
+  "editor.action.showDefinitionPreviewHover" = true;
+  "editor.showFoldingControls" = "never";
+  "editor.scrollbar.horizontal" = "hidden";
+  "editor.scrollbar.vertical" = "hidden";
+  "editor.overviewRulerBorder" = false;
+  "editor.cursorBlinking" = "solid";
+  "editor.cursorSmoothCaretAnimation" = "on";
+  "editor.detectIndentation" = false;
+  "editor.fontLigatures" = true;
+  "breadcrumbs.enabled" = false;
+  "explorer.confirmDragAndDrop" = false;
+  "explorer.confirmDelete" = false;
+  "explorer.compactFolders" = false;
+  "git.decorations.enabled" = true;
+  "files.insertFinalNewline" = true;
+  "extensions.ignoreRecommendations" = false;
+  "terminal.integrated.tabs.enabled" = false;
+  "terminal.integrated.lineHeight" = 1.5;
+  "terminal.integrated.fontSize" = 14;
+  "terminal.integrated.env.osx" = { FIG_NEW_SESSION = "1"; };
+  "window.titleBarStyle" = "native";
+  "apc.electron" = {
+    titleBarStyle = "hidden";
+    trafficLightPosition = {
+      x = 70;
+      y = 70000;
+    };
+  };
+  "window.menuBarVisibility" = "toggle";
+  "window.commandCenter" = false;
+  "apc.listRow" = {
+    lists = [ "explorer-folders-view" "quick-input-list" "results" ];
+    height = 30;
+  };
+  "apc.stylesheet" = {
+    ".title-actions" = "display: none !important";
+    ".quick-input-widget.show-file-icons, .editor-widget.find-widget" =
+      "box-shadow: none !important";
+    ".filematch .monaco-icon-label:before, .custom-list-row.results .monaco-list-row .monaco-icon-label:before" =
+      "background-position: 0 bottom !important";
+    ".filematch .monaco-count-badge" = "padding: 5px 6px 0 6px !important";
+    ".sidebar .title-label" = "padding: 0 !important";
+    ".monaco-workbench .monaco-list:not(.element-focused):focus:before" =
+      "outline: none !important";
+    ".sidebar" = "border: none !important";
+    ".monaco-editor .cursors-layer .cursor" =
+      "background-image: linear-gradient(135deg, #67D0FF 10%, #C45DFF 100%)";
+    ".quick-input-list-row div" =
+      "display: flex !important; align-items: center !important";
+    ".panel .composite.title" = "visibility: hidden !important";
+    ".title.show-file-icons .label-container .monaco-icon-label.file-icon" =
+      "padding-bottom: 6px !important";
+    ".sidebar .title-label h2" = "line-height: 2.8 !important";
+    ".monaco-editor .scroll-decoration" = "display: none !important";
+    ".monaco-scrollable-element > .shadow.top" = "display: none !important";
+  };
+  "animations.Install-Method" = "Apc Customize UI++";
+  "extensions.experimental.affinity" = { "vscodevim.vim" = 1; };
+  "vim.easymotion" = true;
+  "vim.incsearch" = true;
+  "vim.useSystemClipboard" = false;
+  "vim.useCtrlKeys" = true;
+  "vim.hlsearch" = true;
+  "vim.insertModeKeyBindings" = [{
+    before = [ "h" "h" ];
+    after = [ "<Esc>" ];
+  }];
 }

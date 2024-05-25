@@ -94,7 +94,6 @@ in {
     })
 
 
-    vim.api.nvim_set_hl(0, "Background", {fg = "#${config.colorScheme.palette.base01}"})
 
     require("init")
   '';

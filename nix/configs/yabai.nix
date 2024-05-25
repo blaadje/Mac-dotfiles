@@ -23,16 +23,18 @@
     normal_window_opacity = "0.9";
   };
   extraConfig = ''
-    yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-
     SPACEBAR_HEIGHT=$(spacebar -m config height)
-    yabai -m config external_bar main:$SPACEBAR_HEIGHT:0
+
+    yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+    sudo yabai -m config window_shadow off
+    sudo yabai -m config external_bar main:$SPACEBAR_HEIGHT:0
+
     # rules
-    yabai -m rule --add app="^System Preferences$" sticky=on
-    yabai -m rule --add title="^Todolist$" sticky=on
-    yabai -m rule --add title="OBS.*" sticky=on
-    yabai -m rule --add app="^Code$" space=2
-    yabai -m rule --add title="vimwindow" space=2
+    sudo yabai -m rule --add app="^System Preferences$" sticky=on
+    sudo yabai -m rule --add title="^Todolist$" sticky=on
+    sudo yabai -m rule --add title="OBS.*" sticky=on
+    sudo yabai -m rule --add app="^Code$" space=2
+    sudo yabai -m rule --add title="vimwindow" space=2
     echo "configuration loaded"
   '';
 

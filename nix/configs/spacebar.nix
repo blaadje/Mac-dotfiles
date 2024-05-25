@@ -6,8 +6,8 @@
   text_font = "FiraCode Nerd Font:Medium:16.0";
   icon_font = "FiraCode Nerd Font:Medium:16.0";
   background_color = "0xff${config.colorScheme.palette.base00}";
-  foreground_color = "0xff${config.colorScheme.palette.base05}";
-  space_icon_color = "0xffc86663";
+  foreground_color = "0xff${config.colorScheme.palette.base03}";
+  space_icon_color = "0xff${config.colorScheme.palette.base0F}";
   power_icon_color = "0xffcd950c";
   battery_icon_color = "0xffd75f5f";
   dnd_icon_color = "0xffa8a8a8";

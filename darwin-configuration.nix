@@ -23,11 +23,11 @@ in {
   #   kind = "dark";
   # };
 
-  #colorScheme = nix-colors.colorSchemes.katy;
+  # colorScheme = nix-colors.colorSchemes.katy;
+  #colorScheme = nix-colors.colorSchemes.tokyo-night-dark;
   colorScheme = nix-colors.colorSchemes.ocean;
-  #colorScheme = nix-colors.colorSchemes.dracula;
-  #colorScheme = nix-colors.colorSchemes.edge-light;
-  #colorScheme = nix-colors.colorSchemes.katy;
+  # colorScheme = nix-colors.colorSchemes.dracula;
+  # colorScheme = nix-colors.colorSchemes.katy;
 
   # colorScheme = {
 

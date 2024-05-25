@@ -140,7 +140,8 @@ lspconfig.eslint.setup {
 
 lspconfig.denols.setup {
     on_attach = on_attach,
-    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
+    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc",
+                                           "import_map.json")
 }
 
 lspconfig.tsserver.setup({
@@ -227,12 +228,14 @@ vim.g.rainbow_delimiters = {
 }
 
 vim.o.ignorecase = true
-
-require('keybinds')
-
 vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"})
 
 vim.o.hlsearch = false
 vim.o.cursorline = true
-vim.opt.clipboard:append{'unnamedplus'}
+vim.o.clipboard = "unnamedplus"
+vim.o.mouse = "a"
+vim.keymap.set("n", " ", "<Nop>", {silent = true, remap = false})
+vim.g.mapleader = " "
+
+require('keybinds')

@@ -60,7 +60,6 @@ in {
       fzf
       ripgrep
       bat
-      nixfmt
       mktemp
       tree
       unrar
@@ -89,12 +88,12 @@ in {
     enable = true;
   };
 
-  programs.vscode =
+   programs.vscode =
     (import ./configs/vscode/config.nix { inherit pkgs config; }) // {
       enable = true;
     };
-
-  programs.nixvim = (import ./configs/vim/config.nix { inherit config pkgs; })
+   
+   programs.nixvim = (import ./configs/vim/config.nix { inherit config pkgs; }) 
     // {
       enable = true;
     };
