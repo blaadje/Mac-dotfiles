@@ -71,11 +71,12 @@
   end
 
   function back-start
-    gr @main docker-compose up -d
+    # mud -nl=databases docker-compose up -d
+    gr @main docker compose up -d --remove-orphans
   end
 
   function back-stop
-    gr @main docker-compose down
+    mud -nl=databases docker-compose down
   end
 
   function back-service

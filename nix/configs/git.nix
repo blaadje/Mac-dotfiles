@@ -5,13 +5,31 @@
   };
   userName = "blaadje";
   userEmail = "acharlot91@gmail.com";
-  extraConfig = { core = { ignoreCase = false; }; };
+  extraConfig = {
+    url."git@github.com:".insteadOf = "https://github.com/";
+    core = { ignoreCase = false; };
+    push = {
+      autoSetupRemote =  true;
+    };
+    pull = {
+      rebase = true;
+    };
+    color = {
+      ui = "auto";
+      branch = {
+        current = "yellow reverse";
+        local = "yellow";
+        remote = "green";
+      };
+    };
+  };
   aliases = {
     push = "push.default current";
     st = "status";
     ci = "commit";
     co = "checkout";
     br = "branch";
+    bra = "!sh -c \"git branch --sort=-committerdate | fzf --layout=reverse | xargs -I{} git switch '{}'\"";
     di = "diff";
     sdi = "diff --cached";
     dis = "diff --ignore-all-space";

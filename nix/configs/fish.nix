@@ -71,7 +71,7 @@
   end
 
   function back-start
-    gr @main docker-compose up -d
+    gr @main docker compose up -d --remove-orphans
   end
 
   function back-stop

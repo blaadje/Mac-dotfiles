@@ -13,7 +13,7 @@ let
   folderPath = builtins.toString ./.;
 
   myVimPlugins = with plugins; [
-    nvim-base16
+    base16-nvim
     vim-nix
     nvim-treesitter.withAllGrammars
     rainbow-delimiters-nvim

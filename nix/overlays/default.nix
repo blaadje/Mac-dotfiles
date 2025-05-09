@@ -9,6 +9,24 @@ self: super: {
     };
   });
 
+  ghostscript = super.ghostscript.overrideAttrs (oldAttrs: {
+    preConfigure = oldAttrs.preConfigure or "" + ''
+      # Ajout du chemin pour Darwin
+      ${super.lib.optionalString super.stdenv.hostPlatform.isDarwin ''
+        export DARWIN_LDFLAGS_SO_PREFIX=$out/lib/
+      ''}
+    '';
+
+    buildPhase = oldAttrs.buildPhase or "" + ''
+      # Application des flags spécifiques à Darwin si nécessaire
+      ${super.lib.optionalString super.stdenv.hostPlatform.isDarwin ''
+        export LDFLAGS="$LDFLAGS -headerpad_max_install_names"
+      ''}
+    '';
+  });
+
+
+
   # karabiner-elements = super.karabiner-elements.overrideAttrs (o: rec {
   #   version = "14.11.0";
 

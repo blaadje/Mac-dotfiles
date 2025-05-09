@@ -1,23 +1,5 @@
 [
   {
-    name = "nix";
-    publisher = "bbenoist";
-    version = "1.0.1";
-    sha256 = "0zd0n9f5z1f0ckzfjr38xw2zzmcxg1gjrava7yahg5cvdcw6l35b";
-  }
-  {
-    name = "nixfmt-vscode";
-    publisher = "brettm12345";
-    version = "0.0.1";
-    sha256 = "07w35c69vk1l6vipnq3qfack36qcszqxn8j3v332bl0w6m02aa7k";
-  }
-  {
-    name = "bracket-pair-colorizer";
-    publisher = "coenraads";
-    version = "1.0.62";
-    sha256 = "0zck9kzajfx0jl85mfaz4l92x8m1rkwq2vlz0w91kr2wq8im62lb";
-  }
-  {
     name = "vscode-eslint";
     publisher = "dbaeumer";
     version = "3.0.7";
@@ -36,40 +18,22 @@
     sha256 = "1iy7i0yxnhizz40llnc1dk9q8kk98rz6ki830sq7zj3ak9qp9vzk";
   }
   {
-    name = "codespaces";
-    publisher = "github";
-    version = "1.16.22";
-    sha256 = "1q0fhs62vp5v7nq9nwdbawq8pblkfjb9r7d54vzywb09b41b1nw3";
+    name = "ts-error-translator";
+    publisher = "mattpocock";
+    version = "0.10.1";
+    sha256 = "02wv0m289pyg6b7bpkhxmckqdam1aga8051cmsn4jac6ar26s5sq";
   }
+  # {
+  #   name = "nix";
+  #   publisher = "bbenoist";
+  #   version = "1.0.1";
+  #   sha256 = "0zd0n9f5z1f0ckzfjr38xw2zzmcxg1gjrava7yahg5cvdcw6l35b";
+  # }
   {
-    name = "copilot";
-    publisher = "github";
-    version = "1.195.0";
-    sha256 = "114n4wv4n7bk0h70kppx4gaqwn29wvz84689z1xpm65smdy91vqy";
-  }
-  {
-    name = "copilot-chat";
-    publisher = "github";
-    version = "0.16.2024052402";
-    sha256 = "0hamza14ddxcgn1zb3pgf7bxlgq89qvkcdfybviykf09ah4jf78c";
-  }
-  {
-    name = "go";
-    publisher = "golang";
-    version = "0.41.4";
-    sha256 = "03gxgcvjk5plzkk7gjsrrck1kszzbzswkbcr33m3qlkyz4iw9nly";
-  }
-  {
-    name = "vsliveshare";
-    publisher = "ms-vsliveshare";
-    version = "1.0.5918";
-    sha256 = "1m4mpy6irj3vzjw6mzmjjp6appgf000zfhmkjwxw65sl4wmjckaf";
-  }
-  {
-    name = "color-highlight";
-    publisher = "naumovs";
-    version = "2.8.0";
-    sha256 = "14capk3b7rs105ij4pjz42zsysdfnkwfjk9lj2cawnqxa7b8ygcr";
+    name = "nixfmt-vscode";
+    publisher = "brettm12345";
+    version = "0.0.1";
+    sha256 = "07w35c69vk1l6vipnq3qfack36qcszqxn8j3v332bl0w6m02aa7k";
   }
   {
     name = "vetur";
@@ -100,11 +64,5 @@
     publisher = "vscodevim";
     version = "1.27.3";
     sha256 = "1k5sccfblslfn086rpiswgxhxmylj0bj2bi7slk7vf73ngk4dqwy";
-  }
-  {
-    name = "material-palenight-theme";
-    publisher = "whizkydee";
-    version = "2.0.3";
-    sha256 = "14js9qv3c88cr9i4b5z9bkb9rj3dncd9v2bpay7fv735sb7sjgdb";
   }
 ]

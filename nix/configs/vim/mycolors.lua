@@ -39,13 +39,13 @@ vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo",
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint",
                     {undercurl = true, sp = colors.hint})
 
-vim.api.nvim_set_hl(0, "VertSplit", {fg = themeColors.base02})
+vim.api.nvim_set_hl(0, "VertSplit", {fg = themeColors.base01})
 vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", {fg = themeColors.base02})
 
 vim.api.nvim_set_hl(0, 'Search',
                     {fg = themeColors.base08, bg = themeColors.base04})
 
 vim.api.nvim_set_hl(0, 'CursorLine', {bg = themeColors.base02})
-vim.api.nvim_set_hl(0, "Background", {fg = themeColors.base02})
+vim.api.nvim_set_hl(0, "Background", {fg = themeColors.base00})
 
 return colors

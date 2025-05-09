@@ -23,10 +23,11 @@ in {
   #   kind = "dark";
   # };
 
-  # colorScheme = nix-colors.colorSchemes.katy;
-  #colorScheme = nix-colors.colorSchemes.tokyo-night-dark;
-  colorScheme = nix-colors.colorSchemes.ocean;
-  # colorScheme = nix-colors.colorSchemes.dracula;
+  #colorScheme = nix-colors.colorSchemes.katy;
+  # colorScheme = nix-colors.colorSchemes.nova;
+  # colorScheme = nix-colors.colorSchemes.tokyo-night-dark;
+  # colorScheme = nix-colors.colorSchemes.ocean;
+  colorScheme = nix-colors.colorSchemes.dracula;
   # colorScheme = nix-colors.colorSchemes.katy;
 
   # colorScheme = {
@@ -62,6 +63,8 @@ in {
 
   nix.configureBuildUsers = true;
 
+  ids.uids.nixbld = 300;
+
   programs.fish.enable = true; # Needed to be here for correct $NIX_PATH
   programs.bash.enable = true;
 
@@ -71,6 +74,9 @@ in {
     fonts = { fontconfig.enable = true; };
 
     imports = [ (import ./nix/packages.nix { inherit config pkgs lib; }) ];
+
+    home.sessionVariables.PATH =
+      "$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH";
 
     home.activation.changeWallpaper =
       lib.hm.dag.entryAfter [ "writeBoundary" ] ''
