@@ -1,15 +1,13 @@
 { pkgs, config, ... }:
-with pkgs;
-let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
-  custom-plugins = callPackage ./customPlugins.nix {
+let
+  # setup (identique à ce que tu as)
+  custom-plugins = pkgs.callPackage ./customPlugins.nix {
     inherit (pkgs.vimUtils) buildVimPlugin;
     inherit (pkgs) fetchFromGitHub;
   };
 
-  plugins = vimPlugins // custom-plugins;
-
+  plugins = pkgs.vimPlugins // custom-plugins;
   folderPath = builtins.toString ./.;
 
   myVimPlugins = with plugins; [
@@ -17,8 +15,8 @@ let
     vim-nix
     nvim-treesitter.withAllGrammars
     rainbow-delimiters-nvim
-    unstable.vimPlugins.indent-blankline-nvim
-    unstable.vimPlugins.yanky-nvim
+    indent-blankline-nvim
+    yanky-nvim
     telescope-nvim
     nvim-web-devicons
     mason-nvim
@@ -30,47 +28,27 @@ let
     gitsigns-nvim
     nvim-ts-autotag
     nvim-autopairs
-    luasnip # Snippet for autocomplete
+    luasnip
     lualine-nvim
     telescope-recent-files-nvim
-    move-nvim # move line with arrow keys
-    feline-nvim
-    # pears-nvim
+    move-nvim
+    # feline-nvim - deprecated
     vim-devicons
-    # nerdtree
-    # vim-wordmotion # words motions working with lettercasing
-    # hover-nvim
     nvim-colorizer-lua
     trouble-nvim
     nvim-tree-lua
     vim-cursorword
-    # ghc-mod-vim
-    # haskell-vim
-    # LanguageClient-neovim
-    # nerdcommenter
-    # neomake
-    # polyglot
-    # ranger-vim
-    # rust-vim
-    # SpaceCamp
-    # syntastic
-    # vim-vue
-    # ctrlp-vim
-    # vim-airline
-    # vim-airline-themes
-    # vim-autoformat
-    # YouCompleteMe (failing deps)
   ];
 in {
-  options = {
-    number = true; # Show line numbers
-    relativenumber = true; # Show relative line numbers
-    shiftwidth = 2; # Tab width should be 2
-    numberwidth = 4;
-    scrolloff = 999;
-    #  scroll = 40;
-  };
+  # options = {
+  #   number = true;
+  #   relativenumber = true;
+  #   shiftwidth = 2;
+  #   numberwidth = 4;
+  #   scrolloff = 999;
+  # };
   extraPlugins = myVimPlugins;
+
   extraConfigLua = ''
     package.path = package.path .. ";${folderPath}/?.lua"
 
@@ -93,8 +71,7 @@ in {
       base0F = "#${config.colorScheme.palette.base0F}",
     })
 
-
-
     require("init")
   '';
+
 }

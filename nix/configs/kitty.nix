@@ -3,14 +3,13 @@
     copy_on_select = "yes";
     hide_window_decorations = "titlebar-only";
     confirm_os_window_close = 0;
-    shell = "/etc/profiles/per-user/${builtins.getEnv ("USER")}/bin/fish";
     window_padding_width = 10;
     background_opacity = "1";
     background_blur = 50;
     font_family = "MesloLGL Nerd Font";
     font_size = 15;
     undercurl_style = "thick-dense";
-    resize_debounce_time = "0 0";
+    resize_debounce_time = 0;
     cursor_shape = "block";
     color0 = "#${config.colorScheme.palette.base00}";
     color1 = "#${config.colorScheme.palette.base08}";
@@ -51,6 +50,7 @@
   };
 
   extraConfig = ''
+        shell /etc/profiles/per-user/alexandre.charlot/bin/fish
         modify_font underline_thickness 200%
         modify_font underline_position 10px
         map ctrl+tab send_text normal,application \x1b[9;5u

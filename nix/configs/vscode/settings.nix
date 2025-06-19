@@ -9,10 +9,11 @@ in editor // colors // {
   "deno.enablePaths" = [ "./supabase/functions" ];
   "deno.importMap" = "./supabase/import_map.json";
 
-  "[javascript]" = { "editor.defaultFormatter" = "dbaeumer.vscode-eslint"; };
+  "[javascript]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
   "[typescriptreact]" = {
-    "editor.defaultFormatter" = "dbaeumer.vscode-eslint";
+    "editor.defaultFormatter" = "esbenp.prettier-vscode";
   };
+  "editor.defaultFormatter" = "esbenp.prettier-vscode";
   "[scss]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
   "[nix]" = { "editor.defaultFormatter" = "brettm12345.nixfmt-vscode"; };
 

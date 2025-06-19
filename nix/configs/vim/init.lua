@@ -120,14 +120,16 @@ local on_attach = function(client, bufnr)
     require("lsp-format").on_attach(client, bufnr)
 end
 
-require("mason-lspconfig").setup_handlers {
-    function(server_name) -- default handler (optional)
-        lspconfig[server_name].setup {
-            on_attach = on_attach,
-            capabilities = capabilities
-        }
+require("mason-lspconfig").setup({
+  handlers = {
+    function(server_name)
+      require("lspconfig")[server_name].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
     end
-}
+  }
+})
 
 lspconfig.eslint.setup {
     on_attach = function(client, bufnr)
@@ -144,7 +146,7 @@ lspconfig.denols.setup {
                                            "import_map.json")
 }
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
     on_attach = on_attach,
     single_file_support = false,
     -- root_dir = lspconfig.util.find_git_ancestor,
