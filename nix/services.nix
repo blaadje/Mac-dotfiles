@@ -13,9 +13,8 @@ let
 
   logs = ./configs/sketchybar/foo.txt;
 in {
-  services.nix-daemon.enable = true;
-
-  services.karabiner-elements.enable = true;
+  system.primaryUser = "alexandre.charlot";
+  # services.karabiner-elemen¡¡™ts.enable = true;
 
   # custom service
   launchd.user.agents.jankyborders = {
@@ -26,15 +25,15 @@ in {
     serviceConfig.RunAtLoad = true;
   };
 
-  launchd.user.agents.sketchybar.serviceConfig = {
-    StandardErrorPath = logs;
-    StandardInPath = logs;
-    StandardOutPath = logs;
-  };
+  #  launchd.user.agents.sketchybar.serviceConfig = {
+  #   StandardErrorPath = logs;
+  #   StandardInPath = logs;
+  #   StandardOutPath = logs;
+  #  };
 
-  services.sketchybar = (import ./configs/sketchybar/config.nix) // {
-    enable = false; # config not working properly
-  };
+  #  services.sketchybar = (import ./configs/sketchybar/config.nix) // {
+  #   enable = false; # config not working properly
+  # };
 
   services.spacebar = {
     enable = true;

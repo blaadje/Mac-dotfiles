@@ -3,17 +3,19 @@
     enable = true;
     options = { side-by-side = true; };
   };
-  userName = "blaadje";
-  userEmail = "acharlot91@gmail.com";
+  userName = "alexandre-charlot_qonto";
+  userEmail = "alexandre.charlot@qonto.com";
   extraConfig = {
     url."git@github.com:".insteadOf = "https://github.com/";
-    core = { ignoreCase = false; };
-    push = {
-      autoSetupRemote =  true;
+    core = {
+      ignoreCase = false;
+      editor = "vim";
     };
-    pull = {
-      rebase = true;
-    };
+    push = { autoSetupRemote = true; };
+    pull = { rebase = true; };
+    gpg.format = "ssh";
+    user.signingKey = "~/.ssh/id_ed25519.pub"; # chemin vers la clé publique
+    commit.gpgSign = true;
     color = {
       ui = "auto";
       branch = {
@@ -29,7 +31,8 @@
     ci = "commit";
     co = "checkout";
     br = "branch";
-    bra = "!sh -c \"git branch --sort=-committerdate | fzf --layout=reverse | xargs -I{} git switch '{}'\"";
+    bra = ''
+      !sh -c "git branch --sort=-committerdate | fzf --layout=reverse | xargs -I{} git switch '{}'"'';
     di = "diff";
     sdi = "diff --cached";
     dis = "diff --ignore-all-space";
