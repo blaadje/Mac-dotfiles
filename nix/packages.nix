@@ -29,6 +29,16 @@ let
     eslint_d
     prettierd
     nixfmt
+    pnpm
+  ];
+
+  lsp = [
+    lua-language-server
+    pyright
+    deno
+    nodePackages.vscode-langservers-extracted
+    nodePackages.eslint
+    nodePackages.typescript-language-server
   ];
 
   commandLineTools = [ htop neofetch sketchybar ];
@@ -48,6 +58,7 @@ in {
     development
     commandLineTools
     web
+    lsp
   ];
 
   programs.autojump = {
@@ -73,8 +84,8 @@ in {
       enable = true;
     };
 
-  programs.nixvim = (import ./configs/vim/config.nix { inherit config pkgs; })
-    // {
+  programs.nixvim =
+    (import ./configs/vim/config.nix { inherit config pkgs lib; }) // {
       enable = true;
     };
 
