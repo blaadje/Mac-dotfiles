@@ -1,7 +1,8 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
+
+with lib;
 
 let
-  # setup (identique à ce que tu as)
   custom-plugins = pkgs.callPackage ./customPlugins.nix {
     inherit (pkgs.vimUtils) buildVimPlugin;
     inherit (pkgs) fetchFromGitHub;
@@ -10,43 +11,74 @@ let
   plugins = pkgs.vimPlugins // custom-plugins;
   folderPath = builtins.toString ./.;
 
-  myVimPlugins = with plugins; [
-    base16-nvim
-    vim-nix
-    nvim-treesitter.withAllGrammars
-    rainbow-delimiters-nvim
-    indent-blankline-nvim
-    yanky-nvim
-    telescope-nvim
-    nvim-web-devicons
-    mason-nvim
-    mason-lspconfig-nvim
-    nvim-lspconfig
-    nvim-cmp
-    cmp-nvim-lsp
-    neoformat
-    gitsigns-nvim
-    nvim-ts-autotag
-    nvim-autopairs
-    luasnip
-    lualine-nvim
-    telescope-recent-files-nvim
-    move-nvim
-    # feline-nvim - deprecated
-    vim-devicons
-    nvim-colorizer-lua
-    trouble-nvim
-    nvim-tree-lua
-    vim-cursorword
+  # 🧠 LSP & Autocompletion
+  lspPlugins = with plugins; [
+    nvim-lspconfig # LSP client configuration for Neovim
+    lsp_lines-nvim # Inline diagnostics display (ErrorLens-style)
+    nvim-cmp # Autocompletion engine
+    cmp-nvim-lsp # LSP source for nvim-cmp
+    luasnip # Snippet engine
+  ];
+
+  # 🧹 Formatting & Editing
+  editingPlugins = with plugins; [
+    neoformat # Formatter via external tools
+    nvim-ts-autotag # Auto-close & rename tags (HTML/JSX)
+    nvim-autopairs # Auto-insert pairs (brackets, quotes, etc.)
+    yanky-nvim # Enhanced yank/paste with history
+  ];
+
+  # 🎨 UI & Visual Enhancements
+  uiPlugins = with plugins; [
+    base16-nvim # Base16 colorscheme support
+    nvim-web-devicons # File icons
+    vim-devicons # Legacy devicons support
+    lualine-nvim # Statusline
+    indent-blankline-nvim # Indentation guides
+    nvim-colorizer-lua # Highlights color codes
+    rainbow-delimiters-nvim # Bracket pair coloring
+    vim-cursorword # Highlight word under cursor
+  ];
+
+  # 📁 Navigation & Search
+  navPlugins = with plugins; [
+    telescope-nvim # Fuzzy finder
+    telescope-recent-files-nvim # Recent files in Telescope
+    nvim-tree-lua # File explorer
+    move-nvim # Move lines/blocks
+    trouble-nvim # Diagnostics view
+  ];
+
+  # 🛠 Language-Specific / Syntax
+  langPlugins = with plugins; [
+    nvim-treesitter.withAllGrammars # Tree-sitter with all grammars
+    vim-nix # Nix language support
+  ];
+
+  # 🔧 Git Integration
+  gitPlugins = with plugins;
+    [
+      gitsigns-nvim # Git diff signs
+    ];
+
+  # 📦 Final list
+  myVimPlugins = concatLists [
+    lspPlugins
+    editingPlugins
+    uiPlugins
+    navPlugins
+    langPlugins
+    gitPlugins
   ];
 in {
-  # options = {
-  #   number = true;
-  #   relativenumber = true;
-  #   shiftwidth = 2;
-  #   numberwidth = 4;
-  #   scrolloff = 999;
-  # };
+  opts = {
+    number = true;
+    relativenumber = true;
+    shiftwidth = 2;
+    numberwidth = 4;
+    scrolloff = 999;
+  };
+
   extraPlugins = myVimPlugins;
 
   extraConfigLua = ''

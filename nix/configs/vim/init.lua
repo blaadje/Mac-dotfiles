@@ -1,8 +1,6 @@
 require('output')
 require("gitsigns").setup()
 require("nvim-autopairs").setup()
-require("mason").setup()
-require("mason-lspconfig").setup()
 require("lualine").setup {options = {theme = "base16"}}
 require("nvim-treesitter.configs").setup {
     autotag = {enable = true},
@@ -75,10 +73,27 @@ require("trouble").setup({
     },
     use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 })
+
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
+
+local open_after_tree = function(prompt_bufnr)
+  local entry = action_state.get_selected_entry()
+  actions.close(prompt_bufnr)
+
+  vim.defer_fn(function()
+    vim.cmd("edit " .. vim.fn.fnameescape(entry.path or entry.value))
+  end, 100) 
+end
+
 -- Use this to add more results without clearing the trouble list
 require("telescope").setup({
     defaults = {
         -- mappings = {n = {["<C-e>"] = open_with_trouble}},
+         mappings = {
+          i = { ["<CR>"] = open_after_tree },
+          n = { ["<CR>"] = open_after_tree },
+        },
         file_ignore_patterns = {'node_modules'}
     },
     extensions = {
@@ -94,6 +109,12 @@ require("telescope").load_extension("recent-files")
 require('move').setup()
 require('colorizer').setup()
 require("yanky").setup()
+
+require("lsp_lines").setup()
+    vim.diagnostic.config({
+      virtual_text = false,
+      virtual_lines = true
+    })
 
 local lspconfig = require("lspconfig")
 local rainbow_delimiters = require "rainbow-delimiters"
@@ -117,27 +138,22 @@ local on_attach = function(client, bufnr)
         end
     end
 
-    require("lsp-format").on_attach(client, bufnr)
 end
 
-require("mason-lspconfig").setup({
-  handlers = {
-    function(server_name)
-      require("lspconfig")[server_name].setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-      })
-    end
-  }
-})
-
 lspconfig.eslint.setup {
-    on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePre",
-                                    {buffer = bufnr, command = "EslintFixAll"})
-    end,
-    settings = {workingDirectory = {mode = 'location'}},
-    root_dir = lspconfig.util.find_git_ancestor
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll"
+    })
+  end,
+  settings = {
+    workingDirectory = {mode = "location"}
+  },
+  root_dir = function(fname)
+    return lspconfig.util.root_pattern("node_modules/eslint")(fname)
+        or lspconfig.util.root_pattern("package.json", ".git")(fname)
+  end
 }
 
 lspconfig.denols.setup {
