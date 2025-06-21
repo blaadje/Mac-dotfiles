@@ -58,6 +58,7 @@
         shell_integration no-cursor
         # Map Command key to Meta
     map cmd+c send_text all \x03
+    map ctrl+w none
 
   '';
 

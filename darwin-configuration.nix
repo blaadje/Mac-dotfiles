@@ -45,6 +45,9 @@ in {
     imports = [
       nixvim.homeManagerModules.nixvim
       (import ./nix/packages.nix { inherit config pkgs lib; })
+      (import ./nix/configs/sketchybar/sketchybar.nix {
+        inherit config pkgs lib;
+      })
     ];
 
     home.sessionVariables.PATH =

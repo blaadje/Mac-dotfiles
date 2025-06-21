@@ -31,12 +31,8 @@ in {
   #   StandardOutPath = logs;
   #  };
 
-  #  services.sketchybar = (import ./configs/sketchybar/config.nix) // {
-  #   enable = false; # config not working properly
-  # };
-
   services.spacebar = {
-    enable = true;
+    enable = false;
     package = pkgs.spacebar;
     config = import ./configs/spacebar.nix { inherit config; };
   };
@@ -46,7 +42,7 @@ in {
     skhdConfig = builtins.readFile ./configs/shkd-configuration;
   };
 
-  services.yabai = (import ./configs/yabai.nix { inherit config; }) // {
-    enable = true;
-  };
+  # services.yabai = (import ./configs/yabai.nix { inherit config; }) // {
+  # enable = true;
+  # };
 }
