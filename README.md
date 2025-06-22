@@ -7,43 +7,33 @@
 
 
 ```bash
+# 1. Installer Rosetta 2 (si tu es sur Apple Silicon)
+sudo softwareupdate --install-rosetta --agree-to-license
 
-# rosetta 2
-/usr/sbin/softwareupdate --install-rosetta --agree-to-license
-
-#nix (https://github.com/NixOS/nix/issues/2925#issuecomment-539570232)
+# 2. Installer Nix (multi-user / daemon mode + volume non chiffré)
 sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
 
-# bash
-echo ". $HOME/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
-source ~/.bashrc
+# 3. Activer l'environnement Nix (bash)
+. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 
-# home manager
-nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
+# 4. Activer les flakes (optionnel selon la version de Nix)
+mkdir -p ~/.config/nix
+echo 'experimental-features = nix-command flakes' >> ~/.config/nix/nix.conf
 
-NIX_PATH=~/.nix-defexpr/channels:nixpkgs=~/.nix-defexpr/channels/nixpkgs nix-shell '<home-manager>' -A install
+# 5. Cloner ta configuration flake
+git clone https://github.com/blaadje/Mac-dotfiles.git ~/.nixpkgs
+cd ~/.nixpkgs
 
-# config
-nix-shell -p git
-...
-git clone https://github.com/blaadje/Mac-dotfiles.git $HOME/.nixpkgs
-cd $HOME/.nixpkgs
+# 6. Installer nix-darwin via flake
+nix run github:lnl7/nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.nixpkgs#<hostname>
 
-# nix darwin
-nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
-./result/bin/darwin-installer
+# Remplace <hostname> par celui défini dans ton darwin-configuration.nix (par ex. : "macbook-air-pete")
 
-# git
-ssh-keygen  # then, add to Github
+# 7. Ajouter ta clé SSH (si nécessaire)
+ssh-keygen -t ed25519 -C "your@email.com"
+cat ~/.ssh/id_ed25519.pub  # ajouter à GitHub
 
-# case of failing diskutils
-export PATH=$PATH:/usr/sbin
+# (Optionnel) Cas particuliers
+export PATH=$PATH:/usr/sbin  # pour diskutil si nécessaire
 
-#case of certificate issue
-https://github.com/NixOS/nix/issues/2899#issuecomment-699299567
-
-# case of permission issue
-sudo rm /etc/ssl/certs/ca-certificates.crt && sudo ln -s /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt
 ```
