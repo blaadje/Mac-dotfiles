@@ -1,6 +1,7 @@
 # My Nix MacOS configuration
 
-![image](https://user-images.githubusercontent.com/24897042/98952066-4d777e00-24fb-11eb-8b82-49cef6bc12bc.png)
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/6229f9b1-c79a-4df0-9e66-9a58c2dd3811" />
+
 
 ## Setup
 
