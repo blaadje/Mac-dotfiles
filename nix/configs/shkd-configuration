@@ -1,4 +1,4 @@
-ctrl + shift - f : yabai -m window --toggle float
+# ctrl + shift - f : yabai -m window --toggle float
 
 # reload config
 ctrl + shift - r : skhd --restart-service
@@ -6,7 +6,7 @@ ctrl + shift - r : skhd --restart-service
 # open terminal, blazingly fast compared to iTerm/Hyper
 ctrl - return : open -na kitty
 
-ctrl + shift - return : open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
+# ctrl + shift - return : open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
 # cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # focus space
@@ -17,32 +17,56 @@ ctrl + shift - return : open -na "Google Chrome" --args --disable-web-security -
 #ctrl - 5 : yabai -m space --focus 5
 
 # focus display
-ctrl - 0x32 : yabai -m display --focus 2
+# ctrl - 0x32 : yabai -m display --focus 2
 
 #rotate tree
-ctrl - r : yabai -m space --rotate 90
+# ctrl - r : yabai -m space --rotate 90
 
 # move window to display
-ctrl + shift - 0x32 : yabai -m window --display 2
+# ctrl + shift - 0x32 : yabai -m window --display 2
 
-# move window to space
-ctrl + shift - 1 : yabai -m window --space 1
-ctrl + shift - 2 : yabai -m window --space 2
-ctrl + shift - 3 : yabai -m window --space 3
-ctrl + shift - 4 : yabai -m window --space 4
-ctrl + shift - 5 : yabai -m window --space 5
+# # move window to space
+# ctrl + shift - 1 : yabai -m window --space 1
+# ctrl + shift - 2 : yabai -m window --space 2
+# ctrl + shift - 3 : yabai -m window --space 3
+# ctrl + shift - 4 : yabai -m window --space 4
+# ctrl + shift - 5 : yabai -m window --space 5
 
 # change window size
-ctrl + cmd - left : yabai -m window --warp west
-ctrl + cmd - down : yabai -m window --warp south
-ctrl + cmd - up : yabai -m window --warp north
-ctrl + cmd - right : yabai -m window --warp east
+# ctrl + cmd - left : yabai -m window --warp west
+# ctrl + cmd - down : yabai -m window --warp south
+# ctrl + cmd - up : yabai -m window --warp north
+# ctrl + cmd - right : yabai -m window --warp east
 
 # focus window
-ctrl - left : yabai -m window --focus west
-ctrl - down : yabai -m window --focus south
-ctrl - up : yabai -m window --focus north
-ctrl - right : yabai -m window --focus east
+# ctrl - left : yabai -m window --focus west
+# ctrl - down : yabai -m window --focus south
+# ctrl - up : yabai -m window --focus north
+# ctrl - right : yabai -m window --focus east
+
+ctrl - left : aerospace focus left
+ctrl - down : aerospace focus down
+ctrl - up : aerospace focus up
+ctrl - right : aerospace focus right
+
+ctrl + shift - left : aerospace move left
+ctrl + shift - down : aerospace move down
+ctrl + shift - up : aerospace move up
+ctrl + shift - right : aerospace move right
+
+ctrl + shift - 1 : aerospace move-node-to-workspace 1
+ctrl + shift - 2 : aerospace move-node-to-workspace 2
+ctrl + shift - 3 : aerospace move-node-to-workspace 3
+ctrl + shift - 4 : aerospace move-node-to-workspace 4
+ctrl + shift - 5 : aerospace move-node-to-workspace 5
+
+ctrl - 1 : aerospace workspace 1
+ctrl - 2 : aerospace workspace 2
+ctrl - 3 : aerospace workspace 3
+ctrl - 4 : aerospace workspace 4
+ctrl - 5 : aerospace workspace 5
+
+ctrl - f : aerospace fullscreen
 
 # swap window
 #shift + alt - h : window --swap west
@@ -51,4 +75,4 @@ ctrl - right : yabai -m window --focus east
 #shift + alt - l : window --swap east
 
 # toggle window fullscreen
-ctrl - f : yabai -m window --toggle zoom-fullscreen
+# ctrl - f : yabai -m window --toggle zoom-fullscreen

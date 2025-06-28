@@ -1,0 +1,82 @@
+{ config, pkgs, lib, ... }:
+
+{
+  home.file.".config/sketchybar/sketchybarrc" = {
+    text = ''
+      # SketchyBar Configuration
+      CONFIG_DIR="$HOME/.config/sketchybar"
+      PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+      sketchybar --bar position=top height=25 color="0xff${config.colorScheme.palette.base00}"
+
+      source "$PLUGIN_DIR/items.sh"
+
+      sketchybar --update
+    '';
+    executable = true;
+    onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";
+  };
+
+  home.file.".config/sketchybar/plugins/items.sh" = {
+    text = ''
+      #!/usr/bin/env bash
+
+      CONFIG_DIR="$HOME/.config/sketchybar"
+      PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+      # Clear existing items
+      sketchybar --remove '/.*/'
+
+      sketchybar --add event aerospace_workspace_change
+
+      for sid in 1 2 3 4 5 6; do
+        sketchybar --add item space.$sid left \
+          --subscribe space.$sid aerospace_workspace_change \
+          --set space.$sid \
+            label="$sid" \
+            label.font="SF Pro:Bold:13.0" \
+            label.padding_left=12 \
+            label.padding_right=12 \
+            label.color = 0xff${config.colorScheme.palette.base03} \
+            background.corner_radius=3 \
+            background.height=18 \
+            background.color=0xff${config.colorScheme.palette.base0F} \
+            background.drawing=off \
+            click_script="aerospace workspace $sid" \
+            script="$PLUGIN_DIR/aerospace.sh $sid"
+      done
+
+      sketchybar --add item clock right \
+        --set clock \
+          icon.font="SF Pro:Bold:14.0" \
+          label.font="SF Pro:Bold:14.0" \
+          update_freq=10 \
+          script="$PLUGIN_DIR/clock.sh"
+    '';
+    executable = true;
+    onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";
+  };
+
+  home.file.".config/sketchybar/plugins/aerospace.sh" = {
+    text = ''
+      #!/usr/bin/env bash
+
+      if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
+        sketchybar --set "$NAME" background.drawing=on
+      else
+        sketchybar --set "$NAME" background.drawing=off
+      fi
+    '';
+    executable = true;
+    onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";
+  };
+
+  home.file.".config/sketchybar/plugins/clock.sh" = {
+    text = ''
+      #!/usr/bin/env bash
+      sketchybar --set clock label="$(date '+%H:%M')"
+    '';
+    executable = true;
+    onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";
+  };
+}

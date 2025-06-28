@@ -27,6 +27,7 @@ let
     tree-sitter
     luaformatter
     eslint_d
+    autoraise
     prettierd
     nixfmt
     pnpm
@@ -39,9 +40,11 @@ let
     nodePackages.vscode-langservers-extracted
     nodePackages.eslint
     nodePackages.typescript-language-server
+    ember-language-server
+    nil
   ];
 
-  commandLineTools = [ htop neofetch sketchybar ];
+  commandLineTools = [ htop neofetch ];
 
   node = nodejs_20;
 
@@ -86,6 +89,16 @@ in {
 
   programs.nixvim =
     (import ./configs/vim/config.nix { inherit config pkgs lib; }) // {
+      enable = true;
+    };
+
+  programs.sketchybar = {
+    enable = true;
+    service = { enable = true; };
+  };
+
+  programs.aerospace = (import ./configs/aerospace.nix { inherit config pkgs; })
+    // {
       enable = true;
     };
 

@@ -1,7 +1,7 @@
 require('output')
 require("gitsigns").setup()
+local themeColors = require('base16-colorscheme').colors
 require("nvim-autopairs").setup()
-require("lualine").setup {options = {theme = "base16"}}
 require("nvim-treesitter.configs").setup {
     autotag = {enable = true},
     highlight = {enable = true}
@@ -76,23 +76,73 @@ require("trouble").setup({
 
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
-
+local colors = require('mycolors')
 local open_after_tree = function(prompt_bufnr)
-  local entry = action_state.get_selected_entry()
-  actions.close(prompt_bufnr)
+    local entry = action_state.get_selected_entry()
+    actions.close(prompt_bufnr)
 
-  vim.defer_fn(function()
-    vim.cmd("edit " .. vim.fn.fnameescape(entry.path or entry.value))
-  end, 100) 
+    vim.defer_fn(function()
+        vim.cmd("edit " .. vim.fn.fnameescape(entry.path or entry.value))
+    end, 100)
 end
+
+vim.api.nvim_set_hl(0, "InclineNormal",
+                    {fg = "#ffffff", bg = themeColors.base00, bold = true})
+vim.api.nvim_set_hl(0, "InclineInsert",
+                    {fg = "#000000", bg = "#fdd835", bold = true}) -- jaune
+vim.api.nvim_set_hl(0, "InclineVisual",
+                    {fg = "#ffffff", bg = "#43a047", bold = true}) -- vert
+vim.api.nvim_set_hl(0, "InclineCommand",
+                    {fg = "#ffffff", bg = "#1976d2", bold = true}) -- bleu
+vim.api.nvim_set_hl(0, "InclineReplace",
+                    {fg = "#ffffff", bg = "#e53935", bold = true}) -- rouge
+
+require("incline").setup({
+    render = function(props)
+        local mode_map = {
+            n = "NORMAL",
+            i = "INSERT",
+            v = "VISUAL",
+            V = "V-LINE",
+            ["\22"] = "V-BLOCK",
+            c = "COMMAND",
+            s = "SELECT",
+            R = "REPLACE"
+        }
+        local hl_map = {
+            n = "InclineNormal",
+            i = "InclineInsert",
+            v = "InclineVisual",
+            V = "InclineVisual",
+            ["\22"] = "InclineVisual",
+            c = "InclineCommand",
+            s = "InclineVisual",
+            R = "InclineReplace"
+        }
+
+        local mode = vim.fn.mode()
+        local hl = hl_map[mode] or "InclineNormal"
+
+        return {{mode_map[mode] or mode, group = hl}}
+    end,
+
+    window = {
+        placement = {vertical = "bottom", horizontal = "right"},
+        margin = {horizontal = 0, vertical = 0}
+    }
+})
+
+vim.opt.laststatus = 0
+
+require('Comment').setup()
 
 -- Use this to add more results without clearing the trouble list
 require("telescope").setup({
     defaults = {
         -- mappings = {n = {["<C-e>"] = open_with_trouble}},
-         mappings = {
-          i = { ["<CR>"] = open_after_tree },
-          n = { ["<CR>"] = open_after_tree },
+        mappings = {
+            i = {["<CR>"] = open_after_tree},
+            n = {["<CR>"] = open_after_tree}
         },
         file_ignore_patterns = {'node_modules'}
     },
@@ -115,13 +165,58 @@ require("lsp_lines").setup()
       virtual_text = false,
       virtual_lines = true
     })
+vim.o.winbar = " "
+
+require("bufferline").setup {
+    options = {
+        mode = "tabs",
+        indicator = {style = "underline"},
+        separator_style = "slant",
+        style_preset = {
+            require("bufferline").style_preset.no_italic,
+            require("bufferline").style_preset.no_bold
+        },
+        padding = 2
+        --  },
+        --  highlights = {
+        --    buffer_selected = {
+        --      gui = "bold,underline",
+        --    },
+        --  },
+    },
+    highlights = {
+        fill = {bg = themeColors.base00},
+        background = {bg = themeColors.base00, fg = themeColors.base05},
+        buffer_visible = {bg = themeColors.base00, fg = themeColors.base05},
+        buffer = {bg = themeColors.base00, fg = themeColors.base05},
+        buffer_selected = {
+            bg = themeColors.base00,
+            fg = themeColors.base05,
+            bold = true,
+            underline = true
+        },
+        separator = {bg = themeColors.base00, fg = themeColors.base00},
+        separator_visible = {bg = themeColors.base00, fg = themeColors.base00},
+        separator_selected = {bg = themeColors.base00, fg = themeColors.base00},
+        close_button = {fg = themeColors.base05, bg = themeColors.base00},
+        tab = {bg = themeColors.base00},
+        tab_selected = {bg = themeColors.base00},
+        tab_separator = {bg = themeColors.base00, fg = themeColors.base00},
+        tab_separator_selected = {
+            bg = themeColors.base00,
+            fg = themeColors.base00
+        }
+    }
+}
+
+require("lsp_lines").setup()
+vim.diagnostic.config({virtual_text = false, virtual_lines = true})
 
 local lspconfig = require("lspconfig")
 local rainbow_delimiters = require "rainbow-delimiters"
 local hooks = require("ibl.hooks")
 local cmp = require("cmp")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local colors = require('mycolors')
 
 local on_attach = function(client, bufnr)
     local is_in_deno_repo = lspconfig.util.root_pattern('deno.json',
@@ -176,6 +271,8 @@ lspconfig.ts_ls.setup({
         preferences = {includeCompletionsForImportStatements = true}
     }
 })
+
+lspconfig.ember.setup({on_attach = on_attach})
 
 lspconfig.vuels.setup({
     on_attach = on_attach,
@@ -256,4 +353,3 @@ vim.o.mouse = "a"
 vim.keymap.set("n", " ", "<Nop>", {silent = true, remap = false})
 vim.g.mapleader = " "
 
-require('keybinds')

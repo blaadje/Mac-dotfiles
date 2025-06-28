@@ -6,7 +6,7 @@
     darwin.url = "github:lnl7/nix-darwin";
     nixvim.url = "github:nix-community/nixvim";
     nix-colors.url = "github:misterio77/nix-colors";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/master";
 
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +23,6 @@
 
         modules = [
           ./darwin-configuration.nix
-          home-manager.darwinModules.home-manager
           nix-colors.homeManagerModule
           home-manager.darwinModules.home-manager
         ];

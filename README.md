@@ -2,9 +2,7 @@
 
 <img width="1512" alt="image" src="https://github.com/user-attachments/assets/6229f9b1-c79a-4df0-9e66-9a58c2dd3811" />
 
-
 ## Setup
-
 
 ```bash
 
