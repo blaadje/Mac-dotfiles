@@ -124,22 +124,6 @@
         "type": "github"
       }
     },
-    "my-nixpkgs": {
-      "locked": {
-        "lastModified": 1750970991,
-        "narHash": "sha256-STk23szv4Xi/KbtYqpHIbpCjatNicpbzleQGIWytT4U=",
-        "owner": "qskkk",
-        "repo": "nixpkgs",
-        "rev": "50075006519590d041893e1a5ba8967fbb24abbe",
-        "type": "github"
-      },
-      "original": {
-        "owner": "qskkk",
-        "ref": "feat-add-git-fleet",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
@@ -240,7 +224,6 @@
       "inputs": {
         "darwin": "darwin",
         "home-manager": "home-manager",
-        "my-nixpkgs": "my-nixpkgs",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim"

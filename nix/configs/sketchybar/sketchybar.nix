@@ -49,9 +49,23 @@
       sketchybar --add item clock right \
         --set clock \
           icon.font="SF Pro:Bold:14.0" \
-          label.font="SF Pro:Bold:14.0" \
+          label.font="SF Pro:Heavy:14.0" \
+          label.y_offset=0 \
+          icon.y_offset=0 \
           update_freq=10 \
           script="$PLUGIN_DIR/clock.sh"
+
+      sketchybar --add item battery right \
+        --set battery \
+          icon.font="SF Pro:Bold:14.0" \
+          label.font="SF Pro:Bold:14.0" \
+          label.y_offset=3 \
+          icon.y_offset=1 \
+          label.align=center \
+          icon.y_offset=0 \
+          label.padding_right=10 \
+          update_freq=60 \
+          script="$PLUGIN_DIR/battery.sh"
     '';
     executable = true;
     onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";
@@ -66,6 +80,38 @@
       else
         sketchybar --set "$NAME" background.drawing=off
       fi
+    '';
+    executable = true;
+    onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";
+  };
+
+  home.file.".config/sketchybar/plugins/battery.sh" = {
+    text = ''
+      #!/usr/bin/env bash
+      PERCENTAGE="$(pmset -g batt | grep -Eo '\d+%' | cut -d% -f1)"
+      CHARGING="$(pmset -g batt | grep 'AC Power')"
+
+      if [ "$PERCENTAGE" = "" ]; then
+        exit 0
+      fi
+
+      if [[ "$CHARGING" != "" ]]; then
+        ICON="⚡"
+      else
+        if [ "$PERCENTAGE" -gt 80 ]; then
+          ICON="🔋"
+        elif [ "$PERCENTAGE" -gt 60 ]; then
+          ICON="🔋"
+        elif [ "$PERCENTAGE" -gt 40 ]; then
+          ICON="🔋"
+        elif [ "$PERCENTAGE" -gt 20 ]; then
+          ICON="🪫"
+        else
+          ICON="🪫"
+        fi
+      fi
+
+      sketchybar --set battery label="$ICON $PERCENTAGE%"
     '';
     executable = true;
     onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";
