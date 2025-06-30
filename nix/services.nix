@@ -25,11 +25,12 @@ in {
     serviceConfig.RunAtLoad = true;
   };
 
-  #  launchd.user.agents.sketchybar.serviceConfig = {
-  #   StandardErrorPath = logs;
-  #   StandardInPath = logs;
-  #   StandardOutPath = logs;
-  #  };
+  launchd.user.agents.autoraise = {
+    serviceConfig.ProgramArguments =
+      [ "${pkgs.autoraise}/bin/AutoRaise" "-pollMillis" "20" ];
+    serviceConfig.KeepAlive = true;
+    serviceConfig.RunAtLoad = true;
+  };
 
   services.spacebar = {
     enable = false;
