@@ -14,7 +14,8 @@ let
   # 🧠 LSP & Autocompletion
   lspPlugins = with plugins; [
     nvim-lspconfig # LSP client configuration for Neovim
-    lsp_lines-nvim # Inline diagnostics display (ErrorLens-style)
+    # lsp_lines-nvim # Inline diagnostics display (ErrorLens-style)
+    # diagflow-nvim
     nvim-cmp # Autocompletion engine
     cmp-nvim-lsp # LSP source for nvim-cmp
     luasnip # Snippet engine
@@ -39,8 +40,8 @@ let
     nvim-colorizer-lua # Highlights color codes
     rainbow-delimiters-nvim # Bracket pair coloring
     vim-cursorword # Highlight word under cursor
-    bufferline-nvim
-    incline-nvim
+    bufferline-nvim # Tabs
+    incline-nvim # sticky bar displaying : INSERT, VISUAL etc.
   ];
 
   # 📁 Navigation & Search
@@ -79,150 +80,11 @@ in {
     shiftwidth = 2;
     numberwidth = 4;
     scrolloff = 999;
+    clipboard = "";
   };
 
   extraPlugins = myVimPlugins;
-  keymaps = [
-    {
-      mode = "n";
-      key = "<C-m>";
-      action = "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>";
-      options = {
-        noremap = true;
-        silent = true;
-      };
-    }
-    {
-      mode = "v";
-      key = "<C-m>";
-      action =
-        "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>";
-      options = {
-        noremap = true;
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-Tab>";
-      action = "<cmd>tabnext<CR>";
-    }
-    {
-      mode = "n";
-      key = "<C-S-Tab>";
-      action = "<cmd>tabprev<CR>";
-    }
-    {
-      mode = "n";
-      key = "gd";
-      action = "<cmd>lua vim.lsp.buf.definition()<CR>";
-    }
-    {
-      mode = "n";
-      key = "gD";
-      action = "<cmd>lua vim.lsp.buf.declaration()<CR>";
-    }
-    {
-      mode = "n";
-      key = "<A-Down>";
-      action = "<cmd>MoveLine(1)<CR>";
-    }
-    {
-      mode = "n";
-      key = "<A-Up>";
-      action = "<cmd>MoveLine(-1)<CR>";
-    }
-    {
-      mode = "n";
-      key = "<C-b>";
-      action = "<cmd>NvimTreeToggle<CR>";
-    }
-    {
-      mode = "n";
-      key = "<C-p>";
-      action = ''
-        <cmd>lua require("telescope").extensions["recent-files"].recent_files({})<CR>'';
-    }
-    {
-      mode = "n";
-      key = "<C-e>";
-      action = "<cmd>lua require('trouble').toggle()<CR>";
-    }
-    {
-      mode = "n";
-      key = "<C-w>";
-      action = "<cmd>lua vim.lsp.buf.hover()<CR>";
-    }
-    {
-      mode = "n";
-      key = "<leader>ff";
-      action = "<cmd>lua require('telescope.builtin').find_files()<CR>";
-    }
-    {
-      mode = "n";
-      key = "<C-d>";
-      action = "<Plug>(VM-Find-Under)";
-      options = { noremap = false; };
-    }
-    {
-      mode = "n";
-      key = "<C-S-Down>";
-      action = "<Plug>(VM-Add-Cursor-Down)";
-      options = { noremap = false; };
-    }
-    {
-      mode = "n";
-      key = "<C-S-Up>";
-      action = "<Plug>(VM-Add-Cursor-Up)";
-      options = { noremap = false; };
-    }
-    {
-      mode = "n";
-      key = "<C-S-f>";
-      action = "<cmd>lua require('telescope.builtin').live_grep()<CR>";
-    }
-    {
-      mode = "n";
-      key = "<leader>fb";
-      action = "<cmd>lua require('telescope.builtin').buffers()<CR>";
-    }
-    {
-      mode = "n";
-      key = "<leader>fh";
-      action = "<cmd>lua require('telescope.builtin').help_tags()<CR>";
-    }
-
-    {
-      mode = "i";
-      key = "hh";
-      action = "<Esc>";
-    }
-    {
-      mode = "n";
-      key = "hh";
-      action = "<Esc>";
-    }
-    {
-      mode = "v";
-      key = "hh";
-      action = "<Esc>";
-    }
-    {
-      mode = "v";
-      key = "<C-c>";
-      action = "+y";
-    }
-    {
-      mode = "n";
-      key = "<S-Down>";
-      action = "5j";
-    }
-    {
-      mode = "n";
-      key = "<S-Up>";
-      action = "5k";
-    }
-  ];
+  keymaps = import ./keybinds.nix;
 
   extraConfigLua = ''
     package.path = package.path .. ";${folderPath}/?.lua"

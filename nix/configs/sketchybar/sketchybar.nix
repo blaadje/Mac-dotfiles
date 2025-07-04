@@ -29,7 +29,17 @@
 
       sketchybar --add event aerospace_workspace_change
 
-      for sid in 1 2 3 4 5 6; do
+      workspace_ids=$(${pkgs.aerospace}/bin/aerospace list-workspaces --monitor focused | grep -Eo '^[0-9]+')
+
+      # Détermine le plus grand numéro
+      max_sid=$(echo "$workspace_ids" | sort -nr | head -n1)
+
+      # Si vide, fallback à 6 (ou autre valeur par défaut)
+      if [ -z "$max_sid" ]; then
+        max_sid=6
+      fi
+
+      for sid in $(seq 1 "$max_sid"); do
         sketchybar --add item space.$sid left \
           --subscribe space.$sid aerospace_workspace_change \
           --set space.$sid \

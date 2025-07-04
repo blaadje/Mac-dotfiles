@@ -28,8 +28,8 @@ in {
   # colorScheme = nix-colors.colorSchemes.katy;
   # colorScheme = nix-colors.colorSchemes.nova;
   # colorScheme = nix-colors.colorSchemes.tokyo-night-dark;
-  colorScheme = nix-colors.colorSchemes.ocean;
-  #  colorScheme = nix-colors.colorSchemes.dracula;
+  # colorScheme = nix-colors.colorSchemes.ocean;
+  colorScheme = nix-colors.colorSchemes.dracula;
 
   nixpkgs.overlays = [ (import ./nix/overlays) ];
   nixpkgs.config.allowUnfree = true;

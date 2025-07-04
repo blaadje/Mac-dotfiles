@@ -22,6 +22,28 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "RainbowCyan", {fg = "#56B6C2"})
 end)
 
+vim.api.nvim_set_hl(0, "BufferlineOffsetSeparator", {
+    fg = themeColors.base02, -- ligne verticale (couleur du trait)
+    bg = themeColors.base00 -- fond homogène avec le reste
+})
+
+-- Incline highlights
+vim.api.nvim_set_hl(0, "InclineNormal",
+                    {fg = "#ffffff", bg = themeColors.base00, bold = true})
+vim.api.nvim_set_hl(0, "InclineInsert",
+                    {fg = "#000000", bg = "#fdd835", bold = true})
+vim.api.nvim_set_hl(0, "InclineVisual",
+                    {fg = "#ffffff", bg = "#43a047", bold = true})
+vim.api.nvim_set_hl(0, "InclineCommand",
+                    {fg = "#ffffff", bg = "#1976d2", bold = true})
+vim.api.nvim_set_hl(0, "InclineReplace",
+                    {fg = "#ffffff", bg = "#e53935", bold = true})
+
+-- Telescope highlights
+vim.api.nvim_set_hl(0, "TelescopeBorder", {fg = themeColors.base02})
+vim.api.nvim_set_hl(0, "TelescopeResultsNormal", {bg = themeColors.base00})
+
+-- Diagnostic highlights
 vim.api.nvim_set_hl(0, "DiagnosticError", {fg = colors.error})
 vim.api.nvim_set_hl(0, "DiagnosticWarn", {fg = colors.warning})
 vim.api.nvim_set_hl(0, "DiagnosticInfo", {fg = colors.info})
@@ -39,13 +61,18 @@ vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo",
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint",
                     {undercurl = true, sp = colors.hint})
 
-vim.api.nvim_set_hl(0, "VertSplit", {fg = themeColors.base01})
+-- Window separators
+vim.api.nvim_set_hl(0, "VertSplit",
+                    {fg = themeColors.base02, bg = themeColors.base00})
+vim.api.nvim_set_hl(0, "WinSeparator",
+                    {fg = themeColors.base02, bg = themeColors.base00})
 vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", {fg = themeColors.base02})
 
+-- Search and UI elements
 vim.api.nvim_set_hl(0, 'Search',
                     {fg = themeColors.base08, bg = themeColors.base04})
-
 vim.api.nvim_set_hl(0, 'CursorLine', {bg = themeColors.base02})
 vim.api.nvim_set_hl(0, "Background", {fg = themeColors.base00})
+vim.api.nvim_set_hl(0, "LineNr", {fg = themeColors.base02})
 
 return colors
