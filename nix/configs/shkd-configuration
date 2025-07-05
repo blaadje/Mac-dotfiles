@@ -49,10 +49,10 @@ ctrl - down : aerospace focus down
 ctrl - up : aerospace focus up
 ctrl - right : aerospace focus right
 
-ctrl + shift - left : aerospace move left
-ctrl + shift - down : aerospace move down
-ctrl + shift - up : aerospace move up
-ctrl + shift - right : aerospace move right
+ctrl + cmd - left : aerospace move left
+ctrl + cmd - down : aerospace move down
+ctrl + cmd - up : aerospace move up
+ctrl + cmd - right : aerospace move right
 
 ctrl + shift - 1 : aerospace move-node-to-workspace 1
 ctrl + shift - 2 : aerospace move-node-to-workspace 2
