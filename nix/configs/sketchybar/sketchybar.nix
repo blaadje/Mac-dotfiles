@@ -7,7 +7,7 @@
       CONFIG_DIR="$HOME/.config/sketchybar"
       PLUGIN_DIR="$CONFIG_DIR/plugins"
 
-      sketchybar --bar position=top height=25 color="0xff${config.colorScheme.palette.base00}"
+      sketchybar --bar position=top height=25 color="0xff${config.colorScheme.palette.base00}" display=all
 
       source "$PLUGIN_DIR/items.sh"
 
@@ -29,31 +29,26 @@
 
       sketchybar --add event aerospace_workspace_change
 
-      workspace_ids=$(${pkgs.aerospace}/bin/aerospace list-workspaces --monitor focused | grep -Eo '^[0-9]+')
-
-      # Détermine le plus grand numéro
-      max_sid=$(echo "$workspace_ids" | sort -nr | head -n1)
-
-      # Si vide, fallback à 6 (ou autre valeur par défaut)
-      if [ -z "$max_sid" ]; then
-        max_sid=6
-      fi
-
-      for sid in $(seq 1 "$max_sid"); do
-        sketchybar --add item space.$sid left \
-          --subscribe space.$sid aerospace_workspace_change \
-          --set space.$sid \
-            label="$sid" \
-            label.font="SF Pro:Bold:13.0" \
-            label.padding_left=12 \
-            label.padding_right=12 \
-            label.color = 0xff${config.colorScheme.palette.base03} \
-            background.corner_radius=3 \
-            background.height=18 \
-            background.color=0xff${config.colorScheme.palette.base0F} \
-            background.drawing=off \
-            click_script="aerospace workspace $sid" \
-            script="$PLUGIN_DIR/aerospace.sh $sid"
+      for monitor_id in $(${pkgs.aerospace}/bin/aerospace list-monitors | grep -E "^[0-9]+" | cut -d' ' -f1); do
+        workspace_ids=$(${pkgs.aerospace}/bin/aerospace list-workspaces --monitor "$monitor_id")
+        
+        for sid in $workspace_ids; do
+          sketchybar --add item space.$sid left \
+            --subscribe space.$sid aerospace_workspace_change \
+            --set space.$sid \
+              label="$sid" \
+              label.font="SF Pro:Bold:13.0" \
+              label.padding_left=12 \
+              label.padding_right=12 \
+              label.color = 0xff${config.colorScheme.palette.base03} \
+              background.corner_radius=3 \
+              background.height=18 \
+              background.color=0xff${config.colorScheme.palette.base0F} \
+              background.drawing=off \
+              display="$monitor_id" \
+              click_script="aerospace workspace $sid" \
+              script="$PLUGIN_DIR/aerospace.sh $sid"
+        done
       done
 
       sketchybar --add item clock right \

@@ -140,13 +140,12 @@
     mode = "n";
     key = "<C-S-n>";
     action =
-      "<cmd>lua local file = vim.fn.expand('%:p'); if file ~= '' then os.execute('kitty nvim ' .. vim.fn.fnameescape(file) .. ' &') else os.execute('kitty nvim &') end<CR>";
+      "<cmd>lua local file = vim.fn.expand('%:p'); local path = file ~= '' and vim.fn.fnameescape(file) or ''; os.execute('kitty nvim ' .. path .. ' >/dev/null 2>&1 &')<CR>";
     options = {
-      desc = "Open current file in new terminal with Neovim";
+      desc = "Open file in new Kitty window silently";
       silent = true;
     };
   }
-
   # 📄 Copy/Paste
   {
     mode = "v";
