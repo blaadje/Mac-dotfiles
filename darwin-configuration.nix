@@ -48,6 +48,9 @@ in {
       (import ./nix/configs/sketchybar/sketchybar.nix {
         inherit config pkgs lib;
       })
+      (import ./nix/configs/karabiner/karabiner.nix {
+        inherit config pkgs lib;
+      })
     ];
 
     home.sessionVariables.PATH =

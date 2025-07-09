@@ -1,0 +1,26 @@
+[
+    {
+        "identifiers": {
+            "is_keyboard": true,
+            "product_id": 9090,
+            "vendor_id": 13613
+        },
+        "treat_as_built_in_keyboard": true
+    },
+    {
+        "identifiers": {
+            "is_keyboard": true,
+            "product_id": 11406,
+            "vendor_id": 7805
+        },
+        "ignore": true
+    },
+    {
+        "identifiers": {
+            "is_keyboard": true,
+            "product_id": 45930,
+            "vendor_id": 1133
+        },
+        "treat_as_built_in_keyboard": true
+    }
+]

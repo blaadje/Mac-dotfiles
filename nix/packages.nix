@@ -59,7 +59,7 @@ let
   ];
 in {
   home.packages = concatLists [
-    [ fzf ripgrep bat mktemp tree unrar pkgs.nerd-fonts.meslo-lg ]
+    [ fzf ripgrep bat mktemp tree unrar pkgs.nerd-fonts.meslo-lg karabiner-elements ]
     development
     commandLineTools
     web

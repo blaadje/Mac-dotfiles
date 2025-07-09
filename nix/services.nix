@@ -8,10 +8,7 @@ let
 in {
   system.primaryUser = "alexandre.charlot";
 
-  services.karabiner-elements = {
-    enable = true;
-    config = import ./configs/karabiner.nix { inherit config; };
-  };
+  # services.karabiner-elements.enable = true;
 
   # custom service
   launchd.user.agents.jankyborders = {
