@@ -41,7 +41,7 @@ require("incline").setup({
 -- Bufferline configuration
 require("bufferline").setup {
     options = {
-        mode = "tabs",
+        mode = "buffer",
         indicator = {style = "underline"},
         separator_style = "slant",
         disabled_filetypes = {'NvimTree'},
@@ -98,6 +98,12 @@ require("nvim-tree").setup({
         highlight_git = true,
         root_folder_label = false,
         indent_markers = {enable = true}
+    },
+    tab = {
+        sync = {
+            open = false, -- ⛔ ne pas ouvrir automatiquement le tree quand tu changes de tab
+            close = false -- ⛔ ne pas fermer automatiquement
+        }
     }
 })
 

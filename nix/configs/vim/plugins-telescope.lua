@@ -3,13 +3,12 @@ local action_state = require("telescope.actions.state")
 
 local open_after_tree = function(prompt_bufnr)
     local entry = action_state.get_selected_entry()
-    if not entry then
-        return
-    end
+    if not entry then return end
     actions.close(prompt_bufnr)
 
     vim.defer_fn(function()
-        vim.cmd("edit " .. vim.fn.fnameescape(entry.path or entry.value))
+        vim.cmd("edit " ..
+                    vim.fn.fnameescape(tostring(entry.path or entry.value)))
     end, 100)
 end
 
