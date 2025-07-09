@@ -9,6 +9,16 @@
 
       sketchybar --bar position=top height=25 color="0xff${config.colorScheme.palette.base00}" display=all
 
+      sketchybar --add event focus_change
+      sketchybar --subscribe monitor_watcher focus_change
+
+      sketchybar --add item monitor_watcher hidden \
+        --set monitor_watcher \
+          script="$PLUGIN_DIR/monitor_watch.sh" \
+          updates=on \
+          update_freq=1 \
+          drawing=off
+
       source "$PLUGIN_DIR/items.sh"
 
       sketchybar --update
@@ -40,7 +50,7 @@
               label.font="SF Pro:Bold:13.0" \
               label.padding_left=12 \
               label.padding_right=12 \
-              label.color = 0xff${config.colorScheme.palette.base03} \
+              label.color=0xff${config.colorScheme.palette.base03} \
               background.corner_radius=3 \
               background.height=18 \
               background.color=0xff${config.colorScheme.palette.base0F} \
@@ -81,9 +91,9 @@
       #!/usr/bin/env bash
 
       if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-        sketchybar --set "$NAME" background.drawing=on
+        sketchybar --set "$NAME" background.drawing=on label.color=0xffffffff
       else
-        sketchybar --set "$NAME" background.drawing=off
+        sketchybar --set "$NAME" background.drawing=off label.color=0xff${config.colorScheme.palette.base03}
       fi
     '';
     executable = true;
@@ -126,6 +136,25 @@
     text = ''
       #!/usr/bin/env bash
       sketchybar --set clock label="$(date '+%H:%M')"
+    '';
+    executable = true;
+    onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";
+  };
+
+  home.file.".config/sketchybar/plugins/monitor_watch.sh" = {
+    text = ''
+      #!/usr/bin/env bash
+
+      MONITOR_LIST="$(${pkgs.aerospace}/bin/aerospace list-monitors | grep -E '^[0-9]+' | cut -d' ' -f1 | sort | tr '\n' ' ')"
+      CHECKSUM=$(echo "$MONITOR_LIST" | shasum)
+
+      STATE_FILE="/tmp/sketchybar-monitors-checksum"
+      OLD_CHECKSUM=$(cat "$STATE_FILE" 2>/dev/null)
+
+      if [ "$CHECKSUM" != "$OLD_CHECKSUM" ]; then
+        echo "$CHECKSUM" > "$STATE_FILE"
+        "$HOME/.config/sketchybar/plugins/items.sh"
+      fi
     '';
     executable = true;
     onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";

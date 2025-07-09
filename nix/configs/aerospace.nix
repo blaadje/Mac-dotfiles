@@ -24,10 +24,6 @@
     key-mapping.preset = "qwerty";
 
     workspace-to-monitor-force-assignment = {
-      "1" = "main";
-      "2" = "main";
-      "3" = "main";
-      "4" = "main";
       "5" = "secondary";
       "6" = "secondary";
     };
@@ -40,7 +36,7 @@
       outer = {
         left = 10;
         bottom = 10;
-        top = [ { monitor.main = 34; } 10 ];
+        top = 10;
         right = 10;
       };
     };

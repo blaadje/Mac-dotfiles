@@ -5,16 +5,13 @@ let
     inherit (pkgs) stdenv fetchFromGitHub gcc make darwin;
   };
 
-  sketchy-vim = import ./derivations/sketchyVim.nix {
-    inherit (pkgs) stdenv fetchFromGitHub;
-  };
-
-  folderPath = builtins.toString ./configs/sketchybar;
-
-  logs = ./configs/sketchybar/foo.txt;
 in {
   system.primaryUser = "alexandre.charlot";
-  # services.karabiner-elemen¡¡™ts.enable = true;
+
+  services.karabiner-elements = {
+    enable = true;
+    config = import ./configs/karabiner.nix { inherit config; };
+  };
 
   # custom service
   launchd.user.agents.jankyborders = {
@@ -31,6 +28,13 @@ in {
     serviceConfig.KeepAlive = true;
     serviceConfig.RunAtLoad = true;
   };
+
+  # Ne fonctionne pas avec les arrows / tous les inputs
+  # launchd.user.agents.sketchyvim = {
+  #   serviceConfig.ProgramArguments = [ "${sketchy-vim}/bin/svim" ];
+  #   serviceConfig.KeepAlive = true;
+  #   serviceConfig.RunAtLoad = true;
+  # };
 
   services.spacebar = {
     enable = false;

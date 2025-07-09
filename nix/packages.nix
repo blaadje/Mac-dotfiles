@@ -31,6 +31,8 @@ let
     prettierd
     nixfmt
     pnpm
+    sshfs
+    macfuse-stubs
   ];
 
   lsp = [

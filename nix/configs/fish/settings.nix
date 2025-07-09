@@ -1,4 +1,8 @@
 { config }: ''
+  function mount_cod2
+    sudo mount -t nfs -o nolock,rw,tcp,noatime,hard,intr,rsize=32768,wsize=32768 192.168.1.215:/C/Users/aukx/projects/cod2-asi ~/mnt/windows/cod2-asi
+  end
+
   # Docker Compose aliases
   function dcu
       docker-compose up

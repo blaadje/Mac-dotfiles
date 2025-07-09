@@ -61,7 +61,6 @@
     map cmd+c send_text all \x03
     map ctrl+w none
     map ctrl+shift+n no_op
-
   '';
 
 }
