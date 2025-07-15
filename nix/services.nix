@@ -20,8 +20,13 @@ in {
   };
 
   launchd.user.agents.autoraise = {
-    serviceConfig.ProgramArguments =
-      [ "${pkgs.autoraise}/bin/AutoRaise" "-pollMillis" "20" ];
+    serviceConfig.ProgramArguments = [
+      "${pkgs.autoraise}/bin/AutoRaise"
+      "-pollMillis"
+      "20"
+      "-disableKey"
+      "disabled"
+    ];
     serviceConfig.KeepAlive = true;
     serviceConfig.RunAtLoad = true;
   };
@@ -33,11 +38,11 @@ in {
   #   serviceConfig.RunAtLoad = true;
   # };
 
-  services.spacebar = {
-    enable = false;
-    package = pkgs.spacebar;
-    config = import ./configs/spacebar.nix { inherit config; };
-  };
+  # services.spacebar = {
+  #   enable = false;
+  #   package = pkgs.spacebar;
+  #   config = import ./configs/spacebar.nix { inherit config; };
+  # };
 
   services.skhd = {
     enable = true;

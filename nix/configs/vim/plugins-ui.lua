@@ -1,5 +1,8 @@
 local themeColors = require('base16-colorscheme').colors
 
+local wilder = require('wilder')
+wilder.setup({modes = {':', '/', '?'}})
+
 -- Incline configuration
 require("incline").setup({
     render = function(props)
@@ -41,8 +44,8 @@ require("incline").setup({
 -- Bufferline configuration
 require("bufferline").setup {
     options = {
-        mode = "buffer",
-        indicator = {style = "underline"},
+        mode = "buffers",
+        indicator = {style = "none"},
         separator_style = "slant",
         disabled_filetypes = {'NvimTree'},
         offsets = {
@@ -67,14 +70,13 @@ require("bufferline").setup {
     },
     highlights = {
         fill = {bg = themeColors.base00},
-        background = {bg = themeColors.base00, fg = themeColors.base05},
-        buffer_visible = {bg = themeColors.base00, fg = themeColors.base05},
-        buffer = {bg = themeColors.base00, fg = themeColors.base05},
+        background = {bg = themeColors.base00, fg = themeColors.base03},
+        buffer_visible = {bg = themeColors.base00, fg = themeColors.base03},
+        buffer = {bg = themeColors.base00, fg = themeColors.base03},
         buffer_selected = {
             bg = themeColors.base00,
             fg = themeColors.base05,
-            bold = true,
-            underline = true
+            bold = true
         },
         separator = {bg = themeColors.base00, fg = themeColors.base00},
         separator_visible = {bg = themeColors.base00, fg = themeColors.base00},
@@ -90,6 +92,38 @@ require("bufferline").setup {
     }
 }
 
+require("dashboard").setup({
+    theme = 'hyper',
+    config = {
+        week_header = {enable = true},
+        shortcut = {
+            {
+                desc = '󰊳 Update',
+                group = '@property',
+                action = 'Lazy update',
+                key = 'u'
+            }, {
+                icon = ' ',
+                icon_hl = '@variable',
+                desc = 'Files',
+                group = 'Label',
+                action = 'Telescope find_files',
+                key = 'f'
+            }, {
+                desc = ' Apps',
+                group = 'DiagnosticHint',
+                action = 'Telescope app',
+                key = 'a'
+            }, {
+                desc = ' dotfiles',
+                group = 'Number',
+                action = 'Telescope dotfiles',
+                key = 'd'
+            }
+        }
+    }
+})
+
 -- NvimTree configuration
 require("nvim-tree").setup({
     update_focused_file = {enable = true, update_root = false, ignore_list = {}},
@@ -97,7 +131,7 @@ require("nvim-tree").setup({
     renderer = {
         highlight_git = true,
         root_folder_label = false,
-        indent_markers = {enable = true}
+        indent_markers = {enable = false}
     },
     tab = {
         sync = {
@@ -159,9 +193,19 @@ require("trouble").setup({
 
 -- Indent blankline configuration
 local colors = require('highlights')
+
 require("ibl").setup {
-    indent = {highlight = "Background"},
-    scope = {highlight = colors.highlight}
+    enabled = true,
+    indent = {
+        char = " " -- Use space character (invisible)
+    },
+    scope = {
+        enabled = true,
+        show_start = false,
+        show_end = false,
+        char = "┃", -- Visible character for scope
+        highlight = colors.highlight
+    }
 }
 
 local hooks = require("ibl.hooks")

@@ -4,7 +4,6 @@ vim.opt.statuscolumn = "%s%l   "
 vim.o.ignorecase = true
 vim.o.hlsearch = false
 vim.o.cursorline = true
-vim.o.clipboard = "unnamedplus"
 vim.o.mouse = "a"
 vim.o.winbar = " "
 

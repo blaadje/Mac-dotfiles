@@ -27,6 +27,8 @@ in {
 
   # colorScheme = nix-colors.colorSchemes.katy;
   # colorScheme = nix-colors.colorSchemes.nova;
+  # colorScheme = nix-colors.colorSchemes.catppuccin-frappe;
+  # colorScheme = nix-colors.colorSchemes.catppuccin-macchiato;
   # colorScheme = nix-colors.colorSchemes.tokyo-night-dark;
   # colorScheme = nix-colors.colorSchemes.ocean;
   colorScheme = nix-colors.colorSchemes.dracula;
@@ -39,30 +41,37 @@ in {
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
-  home-manager.users."alexandre.charlot" = { lib, ... }: {
-    fonts = { fontconfig.enable = true; };
+  home-manager.users."alexandre.charlot" = { lib, ... }:
+    let
+      fontConfig = {
+        family = "MesloLGL Nerd Font";
+        size = "15";
+        package = pkgs.nerd-fonts.meslo-lg;
+      };
+    in {
+      fonts = { fontconfig.enable = true; };
 
-    imports = [
-      nixvim.homeManagerModules.nixvim
-      (import ./nix/packages.nix { inherit config pkgs lib; })
-      (import ./nix/configs/sketchybar/sketchybar.nix {
-        inherit config pkgs lib;
-      })
-      (import ./nix/configs/karabiner/karabiner.nix {
-        inherit config pkgs lib;
-      })
-    ];
+      imports = [
+        nixvim.homeManagerModules.nixvim
+        (import ./nix/packages.nix { inherit config pkgs lib fontConfig; })
+        (import ./nix/configs/sketchybar/sketchybar.nix {
+          inherit config pkgs lib fontConfig;
+        })
+        (import ./nix/configs/karabiner/karabiner.nix {
+          inherit config pkgs lib;
+        })
+      ];
 
-    home.sessionVariables.PATH =
-      "$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH";
+      home.sessionVariables.PATH =
+        "$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH";
 
-    home.activation.changeWallpaper =
-      lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        bash ${./change-wallpaper.sh} "${wallpaperPath}"
-      '';
+      home.activation.changeWallpaper =
+        lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          bash ${./change-wallpaper.sh} "${wallpaperPath}"
+        '';
 
-    home.stateVersion = "23.05";
-  };
+      home.stateVersion = "23.05";
+    };
 
   system.defaults = {
     finder = {

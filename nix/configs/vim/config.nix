@@ -29,6 +29,7 @@ let
     yanky-nvim # Enhanced yank/paste with history
     vim-visual-multi
     comment-nvim
+    resession-nvim # Session management
   ];
 
   # 🎨 UI & Visual Enhancements
@@ -42,6 +43,8 @@ let
     vim-cursorword # Highlight word under cursor
     bufferline-nvim # Tabs
     incline-nvim # sticky bar displaying : INSERT, VISUAL etc.
+    dashboard-nvim # dashboard when opening nvim
+    wilder-nvim # vim commands autocompletion
   ];
 
   # 📁 Navigation & Search
@@ -51,6 +54,7 @@ let
     nvim-tree-lua # File explorer
     move-nvim # Move lines/blocks
     trouble-nvim # Diagnostics view
+    telescope-fzf-native-nvim
   ];
 
   # 🛠 Language-Specific / Syntax
