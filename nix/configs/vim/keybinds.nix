@@ -3,7 +3,8 @@
   {
     mode = [ "n" ];
     key = "<C-S-f>";
-    action = "<cmd>lua require('telescope.builtin').live_grep()<CR>";
+    action =
+      "<cmd>lua require('telescope.builtin').live_grep({  additional_args = function() return { '--fixed-strings' } end })<CR>";
     options = {
       noremap = true;
       silent = true;
@@ -197,6 +198,26 @@
     mode = [ "i" ];
     key = "<C-i>";
     action = "<cmd>lua require('cmp').complete()<CR>";
+    options = {
+      noremap = true;
+      silent = true;
+    };
+  }
+
+  # 💬 Comments
+  {
+    mode = [ "n" ];
+    key = "<CR>";
+    action = "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>";
+    options = {
+      noremap = true;
+      silent = true;
+    };
+  }
+  {
+    mode = [ "v" ];
+    key = "<CR>";
+    action = "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>";
     options = {
       noremap = true;
       silent = true;

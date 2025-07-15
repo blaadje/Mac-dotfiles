@@ -1,16 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, fontConfig, ... }:
 
 with lib;
 with pkgs;
 
 let
-  oldNodesPackages = import (builtins.fetchTarball {
-    url =
-      "https://github.com/NixOS/nixpkgs/archive/824421b1796332ad1bcb35bc7855da832c43305f.tar.gz";
-  }) { config = { permittedInsecurePackages = [ "nodejs-16.20.0" ]; }; };
-
-  unstable = import pkgs.path { inherit (pkgs) system config; };
-
   development = [
     xcbuild
     deno
@@ -59,7 +52,16 @@ let
   ];
 in {
   home.packages = concatLists [
-    [ fzf ripgrep bat mktemp tree unrar pkgs.nerd-fonts.meslo-lg karabiner-elements ]
+    [
+      fzf
+      ripgrep
+      bat
+      mktemp
+      tree
+      unrar
+      karabiner-elements
+      fontConfig.package
+    ]
     development
     commandLineTools
     web
@@ -76,9 +78,10 @@ in {
     enableFishIntegration = true;
   };
 
-  programs.kitty = (import ./configs/kitty.nix { inherit config; }) // {
-    enable = true;
-  };
+  programs.kitty = (import ./configs/kitty.nix { inherit config fontConfig; })
+    // {
+      enable = true;
+    };
 
   programs.fish = (import ./configs/fish/config.nix { inherit config; }) // {
     enable = true;

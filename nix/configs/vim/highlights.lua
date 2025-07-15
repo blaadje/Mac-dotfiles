@@ -68,11 +68,16 @@ vim.api.nvim_set_hl(0, "WinSeparator",
                     {fg = themeColors.base02, bg = themeColors.base00})
 vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", {fg = themeColors.base02})
 
+-- NvimTree file highlights
+vim.api.nvim_set_hl(0, "NvimTreeNormal", {fg = themeColors.base03})
+vim.api.nvim_set_hl(0, "NvimTreeCursorLine", {fg = themeColors.base05, bg = themeColors.base02})
+vim.api.nvim_set_hl(0, "NvimTreeFocusedFile", {fg = themeColors.base05, bold = true})
+
 -- Search and UI elements
 vim.api.nvim_set_hl(0, 'Search',
                     {fg = themeColors.base08, bg = themeColors.base04})
 vim.api.nvim_set_hl(0, 'CursorLine', {bg = themeColors.base02})
-vim.api.nvim_set_hl(0, "Background", {fg = themeColors.base00})
+vim.api.nvim_set_hl(0, "Background", {fg = "NONE"})
 vim.api.nvim_set_hl(0, "LineNr", {fg = themeColors.base02})
 
 return colors

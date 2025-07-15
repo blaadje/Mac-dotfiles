@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, fontConfig, ... }:
 
 {
   home.file.".config/sketchybar/sketchybarrc" = {
@@ -47,7 +47,7 @@
             --subscribe space.$sid aerospace_workspace_change \
             --set space.$sid \
               label="$sid" \
-              label.font="SF Pro:Bold:13.0" \
+              label.font="${fontConfig.family}:Heavy:${fontConfig.size}.0" \
               label.padding_left=12 \
               label.padding_right=12 \
               label.color=0xff${config.colorScheme.palette.base03} \
@@ -63,8 +63,8 @@
 
       sketchybar --add item clock right \
         --set clock \
-          icon.font="SF Pro:Bold:14.0" \
-          label.font="SF Pro:Heavy:14.0" \
+          icon.font="${fontConfig.family}:Bold:${fontConfig.size}.0" \
+          label.font="${fontConfig.family}:Heavy:${fontConfig.size}.0" \
           label.y_offset=0 \
           icon.y_offset=0 \
           update_freq=10 \
@@ -72,8 +72,8 @@
 
       sketchybar --add item battery right \
         --set battery \
-          icon.font="SF Pro:Bold:14.0" \
-          label.font="SF Pro:Bold:14.0" \
+          icon.font="${fontConfig.family}:Bold:${fontConfig.size}.0" \
+          label.font="${fontConfig.family}:Heavy:${fontConfig.size}.0" \
           label.y_offset=3 \
           icon.y_offset=1 \
           label.align=center \

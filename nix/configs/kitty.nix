@@ -1,4 +1,4 @@
-{ config }: {
+{ config, fontConfig }: {
   settings = {
     copy_on_select = "yes";
     hide_window_decorations = "titlebar-only";
@@ -6,8 +6,8 @@
     window_padding_width = 10;
     background_opacity = "1";
     background_blur = 50;
-    font_family = "MesloLGL Nerd Font";
-    font_size = 15;
+    font_family = "${fontConfig.family}";
+    font_size = "${fontConfig.size}";
     undercurl_style = "thick-dense";
     resize_debounce_time = 0;
     cursor_shape = "block";
