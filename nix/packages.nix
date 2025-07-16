@@ -39,7 +39,7 @@ let
     nil
   ];
 
-  commandLineTools = [ htop neofetch ];
+  commandLineTools = [ gtop neofetch nix-tree btop ];
 
   node = nodejs_20;
 
@@ -52,16 +52,7 @@ let
   ];
 in {
   home.packages = concatLists [
-    [
-      fzf
-      ripgrep
-      bat
-      mktemp
-      tree
-      unrar
-      karabiner-elements
-      fontConfig.package
-    ]
+    [ fzf ripgrep bat mktemp tree unrar karabiner-elements fontConfig.package ]
     development
     commandLineTools
     web

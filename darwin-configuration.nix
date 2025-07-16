@@ -1,16 +1,4 @@
-{ config, pkgs, lib, users, nix-colors, nixvim, ... }:
-
-let
-  # wallpaperPath = ./paul-blenkhorn-cceo9QCekD0-unsplash.jpg;
-  wallpaperPath = ./nix/assets/pawel-czerwinski-oykbZuvajO0-unsplash.jpg;
-  # wallpaperPath = builtins.fetchurl {
-  #   url = "https://wallpaperaccess.com/full/42259.jpg";
-  #   sha256 = "19zqgy30dm266b2qjiacg8jgl5xcvd7hlc6g3vwlbnfhpaimccwj";
-  # };
-
-  nix-colors-lib = nix-colors.lib.contrib { inherit pkgs; };
-
-in {
+{ config, pkgs, lib, users, nix-colors, nixvim, ... }: {
   imports = [ nix-colors.homeManagerModule ./nix/services.nix ];
 
   system.primaryUser = "alexandre.charlot";
@@ -65,13 +53,10 @@ in {
       home.sessionVariables.PATH =
         "$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH";
 
-      home.activation.changeWallpaper =
-        lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-          bash ${./change-wallpaper.sh} "${wallpaperPath}"
-        '';
-
       home.stateVersion = "23.05";
     };
+
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system.defaults = {
     finder = {

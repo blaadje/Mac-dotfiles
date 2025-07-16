@@ -93,15 +93,27 @@
     action = "<cmd>MoveLine(-1)<CR>";
   }
 
-  # 🏃 Fast Movement
+  # 🏃 Fast Movement - Paragraph navigation
   {
     mode = [ "n" "i" "v" ];
     key = "<S-Down>";
-    action = "5j";
+    action = "}";
   }
   {
     mode = [ "n" "i" "v" ];
     key = "<S-Up>";
+    action = "{";
+  }
+  
+  # 🏃 Fast Movement - 5 lines with cmd+arrows
+  {
+    mode = [ "n" "i" "v" ];
+    key = "<D-Down>";
+    action = "5j";
+  }
+  {
+    mode = [ "n" "i" "v" ];
+    key = "<D-Up>";
     action = "5k";
   }
 
@@ -131,7 +143,7 @@
   {
     mode = [ "v" ];
     key = "<C-c>";
-    action = "+y";
+    action = "\"+y";
   }
 
   # 🔄 Mode Switching - Quick Escape
