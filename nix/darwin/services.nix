@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 with lib;
 let
-  janky-borders = import ./derivations/jankyBorders.nix {
+  janky-borders = import ../derivations/jankyBorders.nix {
     inherit (pkgs) stdenv fetchFromGitHub gcc make darwin;
   };
 
@@ -14,7 +14,7 @@ in {
   launchd.user.agents.jankyborders = {
     serviceConfig.ProgramArguments = [ "${janky-borders}/bin/jankyBorders" ]
       ++ mapAttrsToList (attr: value: "${attr}=${value}")
-      (import ./configs/jankyBorders.nix { inherit config; });
+      (import ../configs/jankyBorders.nix { inherit config; });
     serviceConfig.KeepAlive = true;
     serviceConfig.RunAtLoad = true;
   };
@@ -70,7 +70,7 @@ in {
 
   services.skhd = {
     enable = true;
-    skhdConfig = builtins.readFile ./configs/shkd-configuration;
+    skhdConfig = builtins.readFile ../configs/shkd-configuration;
   };
 
   # services.yabai = (import ./configs/yabai.nix { inherit config; }) // {

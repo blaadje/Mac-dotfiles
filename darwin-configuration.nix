@@ -1,5 +1,5 @@
 { config, pkgs, lib, users, nix-colors, nixvim, ... }: {
-  imports = [ nix-colors.homeManagerModule ./nix/services.nix ];
+  imports = [ nix-colors.homeManagerModule ./nix/darwin/services.nix ];
 
   system.primaryUser = "alexandre.charlot";
 
