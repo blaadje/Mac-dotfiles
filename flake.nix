@@ -14,17 +14,29 @@
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, nix-colors, nixvim, ... }:
-    let system = "aarch64-darwin"; # ou "x86_64-darwin" selon ton architecture
+    let 
+      darwinSystem = "aarch64-darwin"; # ou "x86_64-darwin" selon ton architecture
+      linuxSystem = "x86_64-linux";   # Pour WSL NixOS
     in {
+      # Configuration macOS avec nix-darwin
       darwinConfigurations."JP4N99N4TV" = darwin.lib.darwinSystem {
-        inherit system;
-
+        system = darwinSystem;
         specialArgs = { inherit nix-colors nixvim; };
-
         modules = [
           ./darwin-configuration.nix
           nix-colors.homeManagerModule
           home-manager.darwinModules.home-manager
+        ];
+      };
+
+      # Configuration WSL NixOS
+      nixosConfigurations."nixos-wsl" = nixpkgs.lib.nixosSystem {
+        system = linuxSystem;
+        specialArgs = { inherit nix-colors nixvim; };
+        modules = [
+          ./nixos-configuration.nix
+          nix-colors.homeManagerModules.default
+          home-manager.nixosModules.home-manager
         ];
       };
     };
