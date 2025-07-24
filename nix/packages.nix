@@ -22,10 +22,11 @@ let
     eslint_d
     autoraise
     prettierd
-    nixfmt
+    nixfmt-classic
     pnpm
     sshfs
     macfuse-stubs
+    ccusage
   ];
 
   lsp = [
@@ -39,7 +40,7 @@ let
     nil
   ];
 
-  commandLineTools = [ gtop neofetch nix-tree btop ];
+  commandLineTools = [ gtop neofetch nix-tree btop eza ];
 
   node = nodejs_20;
 
@@ -52,7 +53,18 @@ let
   ];
 in {
   home.packages = concatLists [
-    [ fzf ripgrep bat mktemp tree unrar karabiner-elements fontConfig.package ]
+    [
+      fzf
+      ripgrep
+      bat
+      mktemp
+      tree
+      unrar
+      karabiner-elements
+      fontConfig.package
+      # firefox
+      firefox-bin
+    ]
     development
     commandLineTools
     web

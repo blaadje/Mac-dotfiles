@@ -121,12 +121,12 @@
   {
     mode = [ "n" ];
     key = "<C-Tab>";
-    action = "<cmd>bnext<CR>";
+    action = "<cmd>lua require('telescope.builtin').buffers()<CR>";
   }
   {
     mode = [ "n" ];
     key = "<C-S-Tab>";
-    action = "<cmd>bprevious<CR>";
+    action = "<cmd>lua require('telescope.builtin').buffers()<CR>";
   }
   {
     mode = [ "n" ];

@@ -1,5 +1,5 @@
 { pkgs,config, ... }:with pkgs;{
-  extensions = with vscode-utils;
+  profiles.default.extensions = with vscode-utils;
     (extensionsFromVscodeMarketplace (import ./extensions.nix));
-  userSettings = import ./settings.nix { inherit config; };
+  profiles.default.userSettings = import ./settings.nix { inherit config; };
 }

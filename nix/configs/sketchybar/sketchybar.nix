@@ -1,4 +1,4 @@
-{ config, pkgs, lib, fontConfig, ... }:
+{ config, pkgs, fontConfig, ... }:
 
 {
   home.file.".config/sketchybar/sketchybarrc" = {
@@ -91,7 +91,7 @@
       #!/usr/bin/env bash
 
       if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-        sketchybar --set "$NAME" background.drawing=on label.color=0xffffffff
+        sketchybar --set "$NAME" background.drawing=on label.color=0xff${config.colorScheme.palette.base00}
       else
         sketchybar --set "$NAME" background.drawing=off label.color=0xff${config.colorScheme.palette.base03}
       fi

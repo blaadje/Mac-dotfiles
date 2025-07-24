@@ -16,8 +16,7 @@ let
     nvim-lspconfig # LSP client configuration for Neovim
     # lsp_lines-nvim # Inline diagnostics display (ErrorLens-style)
     # diagflow-nvim
-    nvim-cmp # Autocompletion engine
-    cmp-nvim-lsp # LSP source for nvim-cmp
+    blink-cmp # Fast autocompletion engine
     luasnip # Snippet engine
   ];
 
@@ -45,6 +44,9 @@ let
     incline-nvim # sticky bar displaying : INSERT, VISUAL etc.
     dashboard-nvim # dashboard when opening nvim
     wilder-nvim # vim commands autocompletion
+    satellite-nvim
+    marks-nvim
+    nvim-numbertoggle
   ];
 
   # 📁 Navigation & Search
@@ -64,10 +66,11 @@ let
   ];
 
   # 🔧 Git Integration
-  gitPlugins = with plugins;
-    [
-      gitsigns-nvim # Git diff signs
-    ];
+  gitPlugins = with plugins; [
+    gitsigns-nvim # Git diff signs
+    telescope-git-conflicts-nvim
+    git-conflict-nvim
+  ];
 
   myVimPlugins = concatLists [
     lspPlugins
@@ -85,6 +88,8 @@ in {
     numberwidth = 4;
     scrolloff = 999;
     clipboard = "";
+    ruler = false;
+    wrap = false;
   };
 
   extraPlugins = myVimPlugins;

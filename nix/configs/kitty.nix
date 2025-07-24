@@ -4,10 +4,10 @@
     hide_window_decorations = "titlebar-only";
     confirm_os_window_close = 0;
     window_padding_width = 10;
-    background_opacity = "1";
-    background_blur = 50;
+    background_opacity = 1;
+    background_blur = 30;
     font_family = "${fontConfig.family}";
-    font_size = "${fontConfig.size}";
+    font_size = "13";
     undercurl_style = "thick-dense";
     resize_debounce_time = 0;
     cursor_shape = "block";

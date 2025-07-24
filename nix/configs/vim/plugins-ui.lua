@@ -3,46 +3,10 @@ local themeColors = require('base16-colorscheme').colors
 local wilder = require('wilder')
 wilder.setup({modes = {':', '/', '?'}})
 
--- Incline configuration
-require("incline").setup({
-    render = function(props)
-        if vim.bo.filetype == "NvimTree" then return {} end
+require('marks').setup({mark_line = false})
 
-        local mode = vim.fn.mode()
-        local hl_map = {
-            n = "InclineNormal",
-            i = "InclineInsert",
-            v = "InclineVisual",
-            V = "InclineVisual",
-            ["\22"] = "InclineVisual",
-            c = "InclineCommand",
-            s = "InclineVisual",
-            R = "InclineReplace"
-        }
-        local hl = hl_map[mode] or "InclineNormal"
-        local path = vim.fn.expand("%:.")
-
-        return {
-            {
-                path,
-                group = hl,
-                clickable = true,
-                on_click = function()
-                    vim.fn.setreg('+', path)
-                    vim.notify("Chemin copié dans le presse-papiers",
-                               vim.log.levels.INFO)
-                end
-            }
-        }
-    end,
-    window = {
-        placement = {vertical = "bottom", horizontal = "right"},
-        margin = {horizontal = 1, vertical = 0}
-    }
-})
-
--- Bufferline configuration
-require("bufferline").setup {
+-- Bufferline configuration (disabled for now)
+--[[ require("bufferline").setup {
     options = {
         mode = "buffers",
         indicator = {style = "none"},
@@ -91,6 +55,7 @@ require("bufferline").setup {
         }
     }
 }
+--]]
 
 require("dashboard").setup({
     theme = 'hyper',
@@ -127,7 +92,13 @@ require("dashboard").setup({
 -- NvimTree configuration
 require("nvim-tree").setup({
     update_focused_file = {enable = true, update_root = false, ignore_list = {}},
-    view = {adaptive_size = false, centralize_selection = false, width = 50},
+    view = {
+        signcolumn = "no",
+        number = false,
+        adaptive_size = false,
+        centralize_selection = false,
+        width = 50
+    },
     renderer = {
         highlight_git = true,
         root_folder_label = false,
@@ -211,3 +182,13 @@ require("ibl").setup {
 local hooks = require("ibl.hooks")
 hooks.register(hooks.type.SCOPE_HIGHLIGHT,
                hooks.builtin.scope_highlight_from_extmark)
+
+-- Satellite configuration (disable for NvimTree)
+require('satellite').setup({
+    current_only = false,
+    winblend = 50,
+    zindex = 40,
+    excluded_filetypes = {
+        'NvimTree', 'help', 'dashboard', 'telescope', 'trouble'
+    }
+})

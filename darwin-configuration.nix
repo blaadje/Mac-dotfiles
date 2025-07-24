@@ -15,11 +15,11 @@
 
   # colorScheme = nix-colors.colorSchemes.katy;
   # colorScheme = nix-colors.colorSchemes.nova;
-  # colorScheme = nix-colors.colorSchemes.catppuccin-frappe;
-  # colorScheme = nix-colors.colorSchemes.catppuccin-macchiato;
+  colorScheme = nix-colors.colorSchemes.catppuccin-frappe;
+  # colorScheme = nix-colors.colorSchemes.catppuccin-macchiato; # very nice one
   # colorScheme = nix-colors.colorSchemes.tokyo-night-dark;
   # colorScheme = nix-colors.colorSchemes.ocean;
-  colorScheme = nix-colors.colorSchemes.dracula;
+  # colorScheme = nix-colors.colorSchemes.dracula;
 
   nixpkgs.overlays = [ (import ./nix/overlays) ];
   nixpkgs.config.allowUnfree = true;
@@ -77,6 +77,9 @@
       NSAutomaticQuoteSubstitutionEnabled = false;
       NSAutomaticSpellingCorrectionEnabled = false;
       "com.apple.swipescrolldirection" = false;
+      InitialKeyRepeat = 20;
+      KeyRepeat = 1;
+      ApplePressAndHoldEnabled = false;
     };
   };
 
