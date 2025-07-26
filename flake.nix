@@ -35,7 +35,6 @@
         specialArgs = { inherit nix-colors nixvim; };
         modules = [
           ./nixos-configuration.nix
-          nix-colors.homeManagerModules.default
           home-manager.nixosModules.home-manager
         ];
       };
