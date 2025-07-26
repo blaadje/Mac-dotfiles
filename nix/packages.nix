@@ -40,7 +40,7 @@ let
     nil
   ];
 
-  commandLineTools = [ gtop neofetch nix-tree btop eza ];
+  commandLineTools = [ gtop neofetch nix-tree btop eza fswatch ];
 
   node = nodejs_20;
 

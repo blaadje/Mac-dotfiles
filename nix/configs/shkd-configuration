@@ -1,7 +1,10 @@
 # ctrl + shift - f : yabai -m window --toggle float
 
 # reload config
-ctrl + shift - r : skhd --restart-service
+cmd + shift - r : skhd --restart-service
+
+# rotate layout (horizontal/vertical)
+ctrl + shift - r : aerospace layout toggle horizontal vertical
 
 # open terminal, blazingly fast compared to iTerm/Hyper
 ctrl - return : open -na kitty
@@ -67,6 +70,11 @@ ctrl - 4 : aerospace workspace 4
 ctrl - 5 : aerospace workspace 5
 
 ctrl - f : aerospace fullscreen
+
+ctrl + alt - left : aerospace join-with left
+ctrl + alt - down : aerospace join-with down
+ctrl + alt - up : aerospace join-with up
+ctrl + alt - right : aerospace join-with right
 
 # swap window
 #shift + alt - h : window --swap west

@@ -10,14 +10,6 @@
       sketchybar --bar position=top height=25 color="0xff${config.colorScheme.palette.base00}" display=all
 
       sketchybar --add event focus_change
-      sketchybar --subscribe monitor_watcher focus_change
-
-      sketchybar --add item monitor_watcher hidden \
-        --set monitor_watcher \
-          script="$PLUGIN_DIR/monitor_watch.sh" \
-          updates=on \
-          update_freq=1 \
-          drawing=off
 
       source "$PLUGIN_DIR/items.sh"
 
@@ -40,7 +32,12 @@
       sketchybar --add event aerospace_workspace_change
 
       for monitor_id in $(${pkgs.aerospace}/bin/aerospace list-monitors | grep -E "^[0-9]+" | cut -d' ' -f1); do
-        workspace_ids=$(${pkgs.aerospace}/bin/aerospace list-workspaces --monitor "$monitor_id")
+        # Définir les workspaces selon le moniteur
+        if [ "$monitor_id" = "1" ]; then
+          workspace_ids="1 2 3 4"  # Moniteur principal
+        else
+          workspace_ids="5 6"      # Moniteur secondaire
+        fi
         
         for sid in $workspace_ids; do
           sketchybar --add item space.$sid left \
@@ -141,22 +138,4 @@
     onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";
   };
 
-  home.file.".config/sketchybar/plugins/monitor_watch.sh" = {
-    text = ''
-      #!/usr/bin/env bash
-
-      MONITOR_LIST="$(${pkgs.aerospace}/bin/aerospace list-monitors | grep -E '^[0-9]+' | cut -d' ' -f1 | sort | tr '\n' ' ')"
-      CHECKSUM=$(echo "$MONITOR_LIST" | shasum)
-
-      STATE_FILE="/tmp/sketchybar-monitors-checksum"
-      OLD_CHECKSUM=$(cat "$STATE_FILE" 2>/dev/null)
-
-      if [ "$CHECKSUM" != "$OLD_CHECKSUM" ]; then
-        echo "$CHECKSUM" > "$STATE_FILE"
-        "$HOME/.config/sketchybar/plugins/items.sh"
-      fi
-    '';
-    executable = true;
-    onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";
-  };
 }

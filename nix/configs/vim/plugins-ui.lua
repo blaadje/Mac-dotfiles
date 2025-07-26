@@ -102,7 +102,8 @@ require("nvim-tree").setup({
     renderer = {
         highlight_git = true,
         root_folder_label = false,
-        indent_markers = {enable = false}
+        indent_markers = {enable = false},
+        indent_width = 1
     },
     tab = {
         sync = {
