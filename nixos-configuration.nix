@@ -70,6 +70,7 @@
     bash  # WSL a besoin de bash
     coreutils
     util-linux
+    neovim  # Test pour voir si les packages s'installent
   ];
 
   # System configuration
