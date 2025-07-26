@@ -15,6 +15,7 @@
     useUserPackages = true;
     users.alexandre = { lib, ... }: {
       imports = [
+        nix-colors.homeManagerModules.default
         nixvim.homeManagerModules.nixvim
         (import ./nix/common/packages.nix {
           inherit config pkgs lib;
