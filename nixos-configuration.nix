@@ -1,17 +1,8 @@
 { config, pkgs, lib, nix-colors, nixvim, ... }:
 
 {
-  # Import du module NixOS-WSL officiel
-  imports = [
-    <nixos-wsl/modules>
-  ];
-
-  # Configuration WSL
-  wsl = {
-    enable = true;
-    defaultUser = "alexandre";
-    startMenuLaunchers = true;
-  };
+  # Configuration minimale pour WSL (sans module spécialisé)
+  # Ne pas toucher au boot/filesystem - laisser WSL gérer
 
   # User configuration
   users.users.alexandre = {
@@ -91,4 +82,14 @@
   # Basic system settings
   networking.hostName = "nixos-wsl";
   time.timeZone = "Europe/Paris";
+
+  # CRITIQUE : Créer les liens symboliques nécessaires pour WSL
+  system.activationScripts.wslCompat = ''
+    # Créer /bin/bash pour WSL
+    mkdir -p /bin
+    ln -sf /run/current-system/sw/bin/bash /bin/bash
+    
+    # S'assurer que bash est dans le PATH
+    ln -sf /run/current-system/sw/bin/bash /usr/bin/bash || true
+  '';
 }
