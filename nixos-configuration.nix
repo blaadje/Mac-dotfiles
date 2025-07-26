@@ -56,6 +56,9 @@
     };
   };
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # Enable programs au niveau système
   programs = {
     fish.enable = true;
