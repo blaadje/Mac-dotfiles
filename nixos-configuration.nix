@@ -1,6 +1,13 @@
 { config, pkgs, lib, nix-colors, nixvim, ... }:
 
 {
+  # Configuration de base NixOS/WSL
+  boot.isContainer = true;  # WSL est un container
+  
+  # Configuration minimal pour WSL
+  fileSystems."/" = { device = "/dev/disk/by-label/nixos"; fsType = "ext4"; };
+  boot.loader.grub.enable = false;
+
   # User configuration
   users.users.alexandre = {
     isNormalUser = true;
