@@ -85,4 +85,7 @@
   };
 
   system.stateVersion = 4;
+
+  # Enable nix flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
