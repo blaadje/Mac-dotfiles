@@ -16,8 +16,8 @@
     users.alexandre = { lib, ... }: {
       imports = [
         nixvim.homeManagerModules.nixvim
-        (import ./nix/common/packages.nix { 
-          inherit config pkgs lib; 
+        (import ./nix/common/packages.nix {
+          inherit config pkgs lib;
           fontConfig = {
             family = "MesloLGL Nerd Font";
             size = "15";
@@ -27,7 +27,7 @@
         (import ./nix/linux/packages.nix { inherit config pkgs lib; })
         (import ./nix/linux/services.nix { inherit config pkgs lib; })
       ];
-      
+
       home = {
         username = "alexandre";
         homeDirectory = "/home/alexandre";
@@ -37,12 +37,11 @@
       # Schéma de couleurs
       colorScheme = nix-colors.colorSchemes.catppuccin-frappe;
 
-      fonts = { 
-        fontconfig.enable = true; 
-      };
+      fonts = { fontconfig.enable = true; };
 
       home.sessionVariables = {
-        PATH = "$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH";
+        PATH =
+          "$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH";
       };
 
       programs.home-manager.enable = true;
@@ -57,10 +56,10 @@
 
   # System configuration
   system.stateVersion = "23.11";
-  
+
   # Enable nix flakes
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
