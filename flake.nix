@@ -29,13 +29,12 @@
         ];
       };
 
-      # Configuration WSL NixOS
-      nixosConfigurations."nixos-wsl" = nixpkgs.lib.nixosSystem {
-        system = linuxSystem;
-        specialArgs = { inherit nix-colors nixvim; };
+      # Configuration Debian avec Home Manager standalone
+      homeConfigurations."alexandre@debian" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${linuxSystem};
+        extraSpecialArgs = { inherit nix-colors nixvim; };
         modules = [
-          ./nixos-configuration.nix
-          home-manager.nixosModules.home-manager
+          ./debian-home.nix
         ];
       };
     };
