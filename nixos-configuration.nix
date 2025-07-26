@@ -63,7 +63,6 @@
   programs = {
     fish.enable = true;
     git.enable = true;
-    bash.enable = true;  # Nécessaire pour WSL
   };
 
   # Packages système essentiels pour WSL
