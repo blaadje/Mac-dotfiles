@@ -1,15 +1,30 @@
 { config, pkgs, lib, fontConfig, ... }:
 
+let
+  aerospaceConfig = import ../configs/aerospace.nix { inherit config pkgs; };
+in
+
 # Packages spécifiques à macOS
 {
   home.packages = with pkgs; [
     # Outils macOS spécifiques
-    xcbuild
+    aerospace
     autoraise
-    macfuse-stubs
     ccusage
+    karabiner-elements
+    macfuse-stubs
+    xcbuild
     
     # Fonts pour macOS
     fontConfig.package
   ];
+
+  programs = {
+    aerospace = aerospaceConfig // { enable = true; };
+    
+    sketchybar = {
+      enable = true;
+      service = { enable = true; };
+    };
+  };
 }

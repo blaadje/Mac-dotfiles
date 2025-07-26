@@ -4,6 +4,13 @@ with lib;
 with pkgs;
 
 let
+  # Import des configurations
+  fishConfig = import ../configs/fish/config.nix { inherit config; };
+  vscodeConfig = import ../configs/vscode/config.nix { inherit config pkgs lib; };
+  kittyConfig = import ../configs/kitty.nix { inherit config fontConfig; };
+  nixvimConfig = import ../configs/vim/config.nix { inherit config pkgs lib; };
+  gitConfig = import ../configs/git.nix;
+
   # Packages communs à macOS et Linux
   development = [
     deno
@@ -38,11 +45,12 @@ let
   ];
 
   commandLineTools = [ 
+    autojump
+    btop 
+    eza 
     gtop 
     neofetch 
     nix-tree 
-    btop 
-    eza 
   ];
 
   node = nodejs_20;
@@ -60,20 +68,37 @@ in {
     ++ lsp 
     ++ commandLineTools 
     ++ web 
-    ++ [ node ];
+    ++ [ 
+      node 
+      fzf
+      ripgrep
+      bat
+      mktemp
+      tree
+      unrar
+      firefox-bin
+    ];
 
   # Configuration commune
   programs = {
-    fish.enable = true;
-    git = {
+    fish = fishConfig // { enable = true; };
+    
+    autojump = {
       enable = true;
-      userName = "Alexandre Charlot";
-      userEmail = "your-email@example.com";
-      extraConfig = {
-        push.default = "simple";
-        pull.rebase = true;
-      };
+      enableFishIntegration = true;
     };
+    git = gitConfig // { enable = true; };
+    
+    vscode = vscodeConfig // { enable = true; };
+
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    kitty = kittyConfig // { enable = true; };
+
+    nixvim = nixvimConfig // { enable = true; };
     
     direnv = {
       enable = true;
