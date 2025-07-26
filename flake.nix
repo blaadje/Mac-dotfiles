@@ -14,9 +14,10 @@
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, nix-colors, nixvim, ... }:
-    let 
-      darwinSystem = "aarch64-darwin"; # ou "x86_64-darwin" selon ton architecture
-      linuxSystem = "x86_64-linux";   # Pour WSL NixOS
+    let
+      darwinSystem =
+        "aarch64-darwin"; # ou "x86_64-darwin" selon ton architecture
+      linuxSystem = "x86_64-linux"; # Pour WSL NixOS
     in {
       # Configuration macOS avec nix-darwin
       darwinConfigurations."JP4N99N4TV" = darwin.lib.darwinSystem {
@@ -30,12 +31,11 @@
       };
 
       # Configuration Debian avec Home Manager standalone
-      homeConfigurations."alexandre@debian" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${linuxSystem};
-        extraSpecialArgs = { inherit nix-colors nixvim; };
-        modules = [
-          ./debian-home.nix
-        ];
-      };
+      homeConfigurations."aukx@debian" =
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${linuxSystem};
+          extraSpecialArgs = { inherit nix-colors nixvim; };
+          modules = [ ./debian-home.nix ];
+        };
     };
 }
