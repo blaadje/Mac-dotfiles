@@ -73,6 +73,7 @@ in {
     skhdConfig = builtins.readFile ../configs/shkd-configuration;
   };
 
+
   # services.yabai = (import ./configs/yabai.nix { inherit config; }) // {
   # enable = true;
   # };

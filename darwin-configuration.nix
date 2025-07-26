@@ -42,7 +42,7 @@
       imports = [
         nixvim.homeManagerModules.nixvim
         (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig; })
-        (import ./nix/darwin/packages.nix { inherit config pkgs lib; })
+        (import ./nix/darwin/packages.nix { inherit config pkgs lib fontConfig; })
         (import ./nix/configs/sketchybar/sketchybar.nix {
           inherit config pkgs lib fontConfig;
         })
