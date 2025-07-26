@@ -63,7 +63,15 @@
   programs = {
     fish.enable = true;
     git.enable = true;
+    bash.enable = true;  # Nécessaire pour WSL
   };
+
+  # Packages système essentiels pour WSL
+  environment.systemPackages = with pkgs; [
+    bash  # WSL a besoin de bash
+    coreutils
+    util-linux
+  ];
 
   # System configuration
   system.stateVersion = "23.11";
