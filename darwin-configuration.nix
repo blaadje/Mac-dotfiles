@@ -1,5 +1,5 @@
 { config, pkgs, lib, users, nix-colors, nixvim, ... }: {
-  imports = [ nix-colors.homeManagerModule ./nix/services.nix ];
+  imports = [ nix-colors.homeManagerModule ./nix/darwin/services.nix ];
 
   system.primaryUser = "alexandre.charlot";
 
@@ -41,7 +41,8 @@
 
       imports = [
         nixvim.homeManagerModules.nixvim
-        (import ./nix/packages.nix { inherit config pkgs lib fontConfig; })
+        (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig; })
+        (import ./nix/darwin/packages.nix { inherit config pkgs lib fontConfig; })
         (import ./nix/configs/sketchybar/sketchybar.nix {
           inherit config pkgs lib fontConfig;
         })
@@ -84,4 +85,7 @@
   };
 
   system.stateVersion = 4;
+
+  # Enable nix flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
