@@ -1,8 +1,12 @@
 { config, pkgs, lib, nix-colors, nixvim, ... }:
 
 {
-  # Configuration minimale pour WSL (sans module spécialisé)
-  # Ne pas toucher au boot/filesystem - laisser WSL gérer
+  # Configuration minimale requise pour NixOS
+  boot.loader.grub.enable = false;
+  fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+  };
 
   # User configuration
   users.users.alexandre = {
