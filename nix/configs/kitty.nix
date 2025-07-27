@@ -53,18 +53,17 @@
   };
 
   extraConfig = ''
-    # shell /etc/profiles/per-user/${config.home.username}/bin/fish
-            modify_font underline_thickness 200%
         macos_option_as_alt yes
-            modify_font underline_position 10px
-            map ctrl+tab send_text normal,application \x1b[9;5u
-            map ctrl+shift+tab send_text normal,application \x1b[9;6u
-            map ctrl+shift+f send_text normal \x1b[91~
-            shell_integration no-cursor
-            # Map Command key to Meta
-        map cmd+c send_text all \x03
-        map ctrl+w none
-        map ctrl+shift+n no_op
+        modify_font underline_thickness 200%
+        modify_font underline_position 10px
+        map ctrl+tab send_text normal,application \x1b[9;5u
+        map ctrl+shift+tab send_text normal,application \x1b[9;6u
+        map ctrl+shift+f send_text normal \x1b[91~
+        shell_integration no-cursor
+        # Map Command key to Meta
+    map cmd+c send_text all \x03
+    map ctrl+w none
+    map ctrl+shift+n no_op
   '';
 
 }
