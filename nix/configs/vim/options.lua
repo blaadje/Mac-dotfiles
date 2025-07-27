@@ -31,4 +31,4 @@ vim.lsp.handlers["textDocument/signatureHelp"] =
     })
 
 -- Hover delay (default is 4000ms)
-vim.o.updatetime = 3000
+vim.o.updatetime = 2000
