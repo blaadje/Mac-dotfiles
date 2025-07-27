@@ -1,9 +1,11 @@
 { config, fontConfig }: {
   settings = {
     copy_on_select = "yes";
-    hide_window_decorations = "titlebar-only";
+    hide_window_decorations = "yes";
     confirm_os_window_close = 0;
     window_padding_width = 10;
+    initial_window_width = 1920;
+    initial_window_height = 1080;
     background_opacity = 1;
     background_blur = 30;
     font_family = "${fontConfig.family}";
@@ -47,21 +49,19 @@
     inactive_tab_background = "#${config.colorScheme.palette.base01}";
     inactive_tab_foreground = "#${config.colorScheme.palette.base04}";
     tab_bar_background = "#${config.colorScheme.palette.base01}";
+    shell = "fish";
   };
 
   extraConfig = ''
-        shell /etc/profiles/per-user/alexandre.charlot/bin/fish
-        modify_font underline_thickness 200%
-        modify_font underline_position 10px
-        map ctrl+tab send_text normal,application \x1b[9;5u
-        map ctrl+shift+tab send_text normal,application \x1b[9;6u
-        map ctrl+shift+f send_text normal \x1b[91~
-        shell_integration no-cursor
-        
-        # Enable alt key to send proper escape sequences to nvim
+    # shell /etc/profiles/per-user/${config.home.username}/bin/fish
+            modify_font underline_thickness 200%
         macos_option_as_alt yes
-        
-        # Map Command key to Meta for compatibility
+            modify_font underline_position 10px
+            map ctrl+tab send_text normal,application \x1b[9;5u
+            map ctrl+shift+tab send_text normal,application \x1b[9;6u
+            map ctrl+shift+f send_text normal \x1b[91~
+            shell_integration no-cursor
+            # Map Command key to Meta
         map cmd+c send_text all \x03
         map ctrl+w none
         map ctrl+shift+n no_op
