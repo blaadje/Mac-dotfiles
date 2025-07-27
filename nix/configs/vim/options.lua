@@ -22,3 +22,13 @@ vim.diagnostic.config({
 -- LSP handlers
 vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"})
+
+vim.lsp.handlers["textDocument/signatureHelp"] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, {
+        border = "rounded",
+        focusable = false,
+        relative = "cursor"
+    })
+
+-- Faster hover/signature help (default is 4000ms)
+vim.o.updatetime = 1000
