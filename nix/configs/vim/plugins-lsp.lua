@@ -27,6 +27,16 @@ local on_attach = function(client, bufnr)
     if client.server_capabilities.inlayHintProvider then
         vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
+    
+    -- Automatic hover on cursor hold
+    if client.server_capabilities.hoverProvider then
+        vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.hover()
+            end,
+        })
+    end
 end
 
 -- ESLint configuration with async formatting
