@@ -127,7 +127,10 @@ in {
     
     -- Auto-start server for remote commands
     if vim.fn.has('nvim') and not vim.env.NVIM then
-      vim.fn.serverstart('/tmp/nvim-server')
+      local server_path = '/tmp/nvim-server-' .. vim.fn.getpid()
+      vim.fn.serverstart(server_path)
+      -- Export server path for terminal to use
+      vim.env.NVIM_SERVER = server_path
     end
     
   '';
