@@ -12,7 +12,15 @@ in {
     ccusage
     karabiner-elements
     macfuse-stubs
-    xcbuild
+
+    # iOS Development tools
+    git-lfs
+    rbenv
+    ruby
+    cocoapods
+    fastlane
+    mise
+    gh
 
     # Fonts pour macOS
     fontConfig.package

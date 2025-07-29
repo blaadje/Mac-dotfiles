@@ -57,38 +57,38 @@ require('marks').setup({mark_line = false})
 }
 --]]
 
-require("dashboard").setup({
-    theme = 'hyper',
-    config = {
-        week_header = {enable = true},
-        shortcut = {
-            {
-                desc = '󰊳 Update',
-                group = '@property',
-                action = 'Lazy update',
-                key = 'u'
-            }, {
-                icon = ' ',
-                icon_hl = '@variable',
-                desc = 'Files',
-                group = 'Label',
-                action = 'Telescope find_files',
-                key = 'f'
-            }, {
-                desc = ' Apps',
-                group = 'DiagnosticHint',
-                action = 'Telescope app',
-                key = 'a'
-            }, {
-                desc = ' dotfiles',
-                group = 'Number',
-                action = 'Telescope dotfiles',
-                key = 'd'
-            }
-        }
-    }
-})
-
+-- require("dashboard").setup({
+--     theme = 'hyper',
+--     config = {
+--         week_header = {enable = true},
+--         shortcut = {
+--             {
+--                 desc = '󰊳 Update',
+--                 group = '@property',
+--                 action = 'Lazy update',
+--                 key = 'u'
+--             }, {
+--                 icon = ' ',
+--                 icon_hl = '@variable',
+--                 desc = 'Files',
+--                 group = 'Label',
+--                 action = 'Telescope find_files',
+--                 key = 'f'
+--             }, {
+--                 desc = ' Apps',
+--                 group = 'DiagnosticHint',
+--                 action = 'Telescope app',
+--                 key = 'a'
+--             }, {
+--                 desc = ' dotfiles',
+--                 group = 'Number',
+--                 action = 'Telescope dotfiles',
+--                 key = 'd'
+--             }
+--         }
+--     }
+-- })
+--
 -- NvimTree configuration
 require("nvim-tree").setup({
     update_focused_file = {enable = true, update_root = false, ignore_list = {}},
@@ -110,7 +110,13 @@ require("nvim-tree").setup({
             open = false, -- ⛔ ne pas ouvrir automatiquement le tree quand tu changes de tab
             close = false -- ⛔ ne pas fermer automatiquement
         }
-    }
+    },
+    hijack_directories = {
+        enable = false, -- ⛔ ne pas hijacker l'ouverture des répertoires
+        auto_open = false
+    },
+    disable_netrw = false, -- ⛔ garde netrw pour l'ouverture des répertoires
+    hijack_netrw = false -- ⛔ ne pas remplacer netrw
 })
 
 -- Trouble configuration

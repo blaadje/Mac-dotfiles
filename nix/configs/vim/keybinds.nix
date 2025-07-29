@@ -152,6 +152,24 @@
     key = "hh";
     action = "<Esc>";
   }
+  {
+    mode = [ "t" ];
+    key = "hh";
+    action = "<C-\\><C-n>";
+    options = {
+      desc = "Exit terminal mode";
+      silent = true;
+    };
+  }
+  {
+    mode = [ "t" ];
+    key = "<Esc>";
+    action = "<C-\\><C-n>";
+    options = {
+      desc = "Exit terminal mode with Escape";
+      silent = true;
+    };
+  }
 
   # 🔄 Word Navigation (Normal Mode)
   {
