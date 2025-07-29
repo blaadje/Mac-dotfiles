@@ -32,3 +32,10 @@ vim.lsp.handlers["textDocument/signatureHelp"] =
 
 -- Hover delay (default is 4000ms)
 vim.o.updatetime = 2000
+
+-- Always allow modifying files
+vim.o.modifiable = true
+
+-- Enable syntax highlighting
+vim.cmd('syntax on')
+vim.o.termguicolors = true

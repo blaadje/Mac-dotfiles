@@ -3,6 +3,7 @@
     enable = true;
     options = { side-by-side = true; };
   };
+  lfs.enable = true;
   userName = "alexandre-charlot_qonto";
   userEmail = "alexandre.charlot@qonto.com";
   extraConfig = {

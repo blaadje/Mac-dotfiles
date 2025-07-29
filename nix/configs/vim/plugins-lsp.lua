@@ -22,21 +22,21 @@ local on_attach = function(client, bufnr)
     if vim.api.nvim_buf_line_count(bufnr) > 10000 then
         client.server_capabilities.semanticTokensProvider = nil
     end
-    
+
     -- Enable inlay hints if supported
     if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        vim.lsp.inlay_hint.enable(true, {bufnr = bufnr})
     end
-    
+
     -- Automatic hover on cursor hold
-    if client.server_capabilities.hoverProvider then
-        vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
-            buffer = bufnr,
-            callback = function()
-                vim.lsp.buf.hover()
-            end,
-        })
-    end
+    -- if client.server_capabilities.hoverProvider then
+    --     vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+    --         buffer = bufnr,
+    --         callback = function()
+    --             vim.lsp.buf.hover()
+    --         end,
+    --     })
+    -- end
 end
 
 -- ESLint configuration with async formatting
@@ -73,33 +73,23 @@ lspconfig.eslint.setup {
 lspconfig.clangd.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = { "clangd", "--background-index" },
-    filetypes = { "c", "cpp", "objc", "objcpp", "h", "hpp" },
-    root_dir = lspconfig.util.root_pattern(
-        "compile_commands.json",
-        "compile_flags.txt", 
-        ".git",
-        "Makefile",
-        "*.sln"
-    ),
+    cmd = {"clangd", "--background-index"},
+    filetypes = {"c", "cpp", "objc", "objcpp", "h", "hpp"},
+    root_dir = lspconfig.util.root_pattern("compile_commands.json",
+                                           "compile_flags.txt", ".git",
+                                           "Makefile", "*.sln"),
     settings = {
         clangd = {
             -- Configuration pour CoD2 .asi development (MinGW32)
             fallbackFlags = {
-                "--target=i686-w64-mingw32",
-                "-std=c++17",
-                "-D_WIN32_WINNT=0x0601",
-                "-D_WINDOWS",
-                "-D_USRDLL",
-                "-D_WINDLL",
-                "-D_CRT_SECURE_NO_WARNINGS",
-                "-D_WIN32_IE=0x0600",
-                "-DWIN32_LEAN_AND_MEAN",
-            },
+                "--target=i686-w64-mingw32", "-std=c++17",
+                "-D_WIN32_WINNT=0x0601", "-D_WINDOWS", "-D_USRDLL", "-D_WINDLL",
+                "-D_CRT_SECURE_NO_WARNINGS", "-D_WIN32_IE=0x0600",
+                "-DWIN32_LEAN_AND_MEAN"
+            }
         }
     }
 }
-
 
 lspconfig.nil_ls.setup {
     on_attach = on_attach,
@@ -143,7 +133,7 @@ lspconfig.ts_ls.setup({
                 includeInlayVariableTypeHintsWhenTypeMatchesName = false,
                 includeInlayPropertyDeclarationTypeHints = true,
                 includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+                includeInlayEnumMemberValueHints = true
             }
         }
     }

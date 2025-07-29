@@ -113,7 +113,7 @@
     key = "<S-Up>";
     action = "{";
   }
-  
+
   # 🏃 Fast Movement - 5 lines with cmd+arrows
   {
     mode = [ "n" "i" "v" ];
@@ -152,7 +152,7 @@
   {
     mode = [ "v" ];
     key = "<M-c>";
-    action = "\"+y";
+    action = ''"+y'';
   }
 
   # 🔄 Mode Switching - Quick Escape
@@ -161,12 +161,11 @@
     key = "hh";
     action = "<Esc>";
   }
-<<<<<<< Updated upstream
-=======
+
   {
     mode = [ "t" ];
     key = "hh";
-    action = "<M-\\><M-n>";
+    action = "<C-\\><C-n>";
     options = {
       desc = "Exit terminal mode";
       silent = true;
@@ -175,13 +174,12 @@
   {
     mode = [ "t" ];
     key = "<Esc>";
-    action = "<M-\\><M-n>";
+    action = "<C-\\><C-n>";
     options = {
       desc = "Exit terminal mode with Escape";
       silent = true;
     };
   }
->>>>>>> Stashed changes
 
   # 🔄 Word Navigation (Normal Mode)
   {
@@ -259,10 +257,12 @@
   {
     mode = [ "v" ];
     key = "<CR>";
-    action = "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>";
+    action =
+      "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>";
     options = {
       noremap = true;
       silent = true;
     };
   }
+]
 ]
