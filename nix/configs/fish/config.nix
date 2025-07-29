@@ -1,8 +1,10 @@
 { config, ... }: {
   interactiveShellInit = ''
     ${import ./settings.nix { inherit config; }}
-    # Add Homebrew to PATH for Fish
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    # Add Homebrew to PATH for Fish (macOS only)
+    if test -f /opt/homebrew/bin/brew
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    end
     # Load Qonto environment variables (converted from .zshrc format)
     if test -f ~/.zshrc
       # Extract and convert export statements to Fish syntax
@@ -29,11 +31,11 @@
         set target_dir (pwd)
       end
       
-      if test -S /tmp/nvim-server
-        nvim --server /tmp/nvim-server --remote-send "<C-\\><C-n>:cd $target_dir<CR>:e .<CR>"
+      if test -n "$NVIM_SERVER"; and test -S "$NVIM_SERVER"
+        nvim --server "$NVIM_SERVER" --remote-send "<C-\\><C-n>:cd $target_dir<CR>:e .<CR>"
         echo "Directory changed to $target_dir in nvim"
       else
-        echo "No nvim server found at /tmp/nvim-server"
+        echo "No nvim server found (NVIM_SERVER=$NVIM_SERVER)"
       end
     '';
   };

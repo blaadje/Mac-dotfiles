@@ -26,6 +26,9 @@
 
   programs.fish.enable = true;
   programs.bash.enable = true;
+  
+  # Set Fish as default shell
+  users.users."alexandre.charlot".shell = pkgs.fish;
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
