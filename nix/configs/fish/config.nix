@@ -15,11 +15,7 @@
     if command -v nvim >/dev/null 2>&1; and test -z "$NVIM"
       nvim -c ':term' -c ':startinsert'
     end
-    
-    # Emit OSC 7 sequence when directory changes (for nvim terminal integration)
-    function __fish_osc7 --on-variable PWD
-      printf '\033]7;file://%s\033\\' $PWD
-    end
+
   '';
   functions = {
     vi.body =
@@ -30,7 +26,7 @@
       else
         set target_dir (pwd)
       end
-      
+
       if test -n "$NVIM_SERVER"; and test -S "$NVIM_SERVER"
         nvim --server "$NVIM_SERVER" --remote-send "<C-\\><C-n>:cd $target_dir<CR>:e .<CR>"
         echo "Directory changed to $target_dir in nvim"

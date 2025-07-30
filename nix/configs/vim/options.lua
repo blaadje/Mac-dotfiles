@@ -39,3 +39,6 @@ vim.o.modifiable = true
 -- Enable syntax highlighting
 vim.cmd('syntax on')
 vim.o.termguicolors = true
+
+-- Disable verbose messages
+vim.opt.shortmess:append("WwFf")
