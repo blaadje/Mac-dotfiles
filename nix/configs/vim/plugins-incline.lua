@@ -9,11 +9,12 @@ incline1.setup({
     render = function(props)
         if vim.bo.filetype == "NvimTree" then return {} end
 
-        local mode = vim.fn.mode()
+        -- Defer mode check to avoid race conditions
+        local mode = vim.schedule_wrap(function() return vim.fn.mode() end)() or vim.fn.mode()
         local hl_map = {
             n = "InclineNormal",
             i = "InclineInsert",
-            v = "InclineVisual",
+            v = "InclineVisual", 
             V = "InclineVisual",
             ["\22"] = "InclineVisual",
             c = "InclineCommand",
@@ -36,9 +37,11 @@ incline1.setup({
             end
         end
 
+        local modified_indicator = vim.bo.modified and " ●" or ""
+        
         return {
             {
-                " " .. path .. " ",
+                " " .. path .. modified_indicator .. " ",
                 group = hl,
                 clickable = true,
                 on_click = function()
@@ -59,8 +62,17 @@ incline1.setup({
 
 util1.clear_augroup()
 vim.api.nvim_create_autocmd({
-    'BufEnter', 'WinEnter', 'FocusGained', 'VimResized'
+    'BufEnter', 'WinEnter', 'FocusGained', 'VimResized', 'BufModifiedSet'
 }, {callback = function() manager1.update {refresh = true} end})
+
+-- Separate autocmd for mode changes with delay
+vim.api.nvim_create_autocmd({'ModeChanged'}, {
+    callback = function()
+        vim.defer_fn(function()
+            manager1.update {refresh = true}
+        end, 50)
+    end
+})
 
 -- Second incline bar - Git branch (top left)
 -- Clear incline modules to allow second instance
