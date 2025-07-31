@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nix-colors, nixvim, ... }:
+{ config, pkgs, lib, nix-colors, nixvim, nurpkgs, ... }:
 
 let
   fontConfig = {
@@ -10,7 +10,7 @@ in {
   imports = [
     nix-colors.homeManagerModules.default
     nixvim.homeManagerModules.nixvim
-    (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig; })
+    (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig nurpkgs; })
     (import ./nix/linux/packages.nix { inherit config pkgs lib fontConfig; })
     (import ./nix/linux/services.nix { inherit config pkgs lib; })
   ];
