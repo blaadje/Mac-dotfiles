@@ -1,4 +1,4 @@
-{ config, pkgs, lib, users, nix-colors, nixvim, ... }: {
+{ config, pkgs, lib, users, nix-colors, nixvim, nurpkgs, ... }: {
   imports = [ nix-colors.homeManagerModule ./nix/darwin/services.nix ];
 
   system.primaryUser = "alexandre.charlot";
@@ -23,6 +23,9 @@
 
   nixpkgs.overlays = [ (import ./nix/overlays) ];
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "crush"
+  ];
 
   programs.fish.enable = true;
   programs.bash.enable = true;
@@ -44,8 +47,8 @@
 
       imports = [
         nixvim.homeManagerModules.nixvim
-        (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig; })
-        (import ./nix/darwin/packages.nix { inherit config pkgs lib fontConfig; })
+        (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig nurpkgs; })
+        (import ./nix/darwin/packages.nix { inherit config pkgs lib fontConfig nurpkgs; })
         (import ./nix/configs/sketchybar/sketchybar.nix {
           inherit config pkgs lib fontConfig;
         })

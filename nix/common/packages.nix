@@ -1,10 +1,9 @@
-{ config, pkgs, lib, fontConfig, ... }:
+{ config, pkgs, lib, fontConfig, nurpkgs, ... }:
 
 with lib;
 with pkgs;
 
 let
-  # Import des configurations
   fishConfig = import ../configs/fish/config.nix { inherit config; };
   vscodeConfig =
     import ../configs/vscode/config.nix { inherit config pkgs lib; };
@@ -17,7 +16,6 @@ let
     deno
     docker
     watchman
-    claude-code
     ember-cli
     watch
     cloc
@@ -51,10 +49,10 @@ let
 
   web = [ heroku netlify-cli nodePackages.http-server ];
 
-  # Pas de packages spécifiques ici - ils sont dans darwin/ et linux/
+  ai = [ nurpkgs.repos.charmbracelet.crush claude-code ];
 
 in {
-  home.packages = development ++ lsp ++ commandLineTools ++ web ++ [
+  home.packages = development ++ lsp ++ commandLineTools ++ web ++ ai ++ [
     node
     fzf
     ripgrep
@@ -67,9 +65,6 @@ in {
     fontConfig.package
   ];
 
-  # Alias pour utiliser la version système
-  # home.shellAliases = { kitty = "/usr/bin/kitty"; };
-  # Configuration commune
   programs = {
     fish = fishConfig // { enable = true; };
 
@@ -79,14 +74,13 @@ in {
     };
     git = gitConfig // { enable = true; };
 
-    vscode = vscodeConfig // { enable = true; };
+    # vscode = vscodeConfig // { enable = true; };
 
     starship = {
       enable = true;
       enableFishIntegration = true;
     };
 
-    # kitty = kittyConfig // { enable = true; };
     nixvim = nixvimConfig // { enable = true; };
 
     direnv = {
