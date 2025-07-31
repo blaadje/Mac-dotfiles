@@ -11,7 +11,7 @@
                                 "from": {
                                     "key_code": "y",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -22,7 +22,7 @@
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -33,7 +33,7 @@
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -44,7 +44,7 @@
                                 "from": {
                                     "key_code": "o",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -60,7 +60,7 @@
                                 "from": {
                                     "key_code": "q",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -71,7 +71,7 @@
                                 "from": {
                                     "key_code": "w",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -82,7 +82,7 @@
                                 "from": {
                                     "key_code": "f",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -93,7 +93,7 @@
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -104,7 +104,7 @@
                                 "from": {
                                     "key_code": "g",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -115,7 +115,7 @@
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -126,7 +126,7 @@
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -137,7 +137,7 @@
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -148,7 +148,7 @@
                                 "from": {
                                     "key_code": "semicolon",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -159,7 +159,7 @@
                                 "from": {
                                     "key_code": "0",
                                     "modifiers": {
-                                        "mandatory": ["right_command"],
+                                        "mandatory": ["right_option"],
                                         "optional": ["any"]
                                     }
                                 },

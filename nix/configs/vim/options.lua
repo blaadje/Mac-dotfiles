@@ -22,3 +22,23 @@ vim.diagnostic.config({
 -- LSP handlers
 vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"})
+
+vim.lsp.handlers["textDocument/signatureHelp"] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, {
+        border = "rounded",
+        focusable = false,
+        relative = "cursor"
+    })
+
+-- Hover delay (default is 4000ms)
+vim.o.updatetime = 2000
+
+-- Always allow modifying files
+vim.o.modifiable = true
+
+-- Enable syntax highlighting
+vim.cmd('syntax on')
+vim.o.termguicolors = true
+
+-- Disable verbose messages
+vim.opt.shortmess:append("WwFf")

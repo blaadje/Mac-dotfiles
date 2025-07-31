@@ -71,6 +71,9 @@ ctrl - 5 : aerospace workspace 5
 
 ctrl - f : aerospace fullscreen
 
+# quit application
+ctrl - q : osascript -e 'tell application (path to frontmost application as text) to quit'
+
 ctrl + alt - left : aerospace join-with left
 ctrl + alt - down : aerospace join-with down
 ctrl + alt - up : aerospace join-with up

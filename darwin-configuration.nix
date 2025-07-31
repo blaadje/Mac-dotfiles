@@ -1,5 +1,5 @@
 { config, pkgs, lib, users, nix-colors, nixvim, ... }: {
-  imports = [ nix-colors.homeManagerModule ./nix/services.nix ];
+  imports = [ nix-colors.homeManagerModule ./nix/darwin/services.nix ];
 
   system.primaryUser = "alexandre.charlot";
 
@@ -26,6 +26,9 @@
 
   programs.fish.enable = true;
   programs.bash.enable = true;
+  
+  # Set Fish as default shell
+  users.users."alexandre.charlot".shell = pkgs.fish;
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
@@ -41,7 +44,8 @@
 
       imports = [
         nixvim.homeManagerModules.nixvim
-        (import ./nix/packages.nix { inherit config pkgs lib fontConfig; })
+        (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig; })
+        (import ./nix/darwin/packages.nix { inherit config pkgs lib fontConfig; })
         (import ./nix/configs/sketchybar/sketchybar.nix {
           inherit config pkgs lib fontConfig;
         })
@@ -84,4 +88,7 @@
   };
 
   system.stateVersion = 4;
+
+  # Enable nix flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

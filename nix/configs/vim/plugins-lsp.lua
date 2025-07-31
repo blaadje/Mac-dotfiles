@@ -22,11 +22,21 @@ local on_attach = function(client, bufnr)
     if vim.api.nvim_buf_line_count(bufnr) > 10000 then
         client.server_capabilities.semanticTokensProvider = nil
     end
-    
+
     -- Enable inlay hints if supported
     if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        vim.lsp.inlay_hint.enable(true, {bufnr = bufnr})
     end
+
+    -- Automatic hover on cursor hold
+    -- if client.server_capabilities.hoverProvider then
+    --     vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+    --         buffer = bufnr,
+    --         callback = function()
+    --             vim.lsp.buf.hover()
+    --         end,
+    --     })
+    -- end
 end
 
 -- ESLint configuration with async formatting
@@ -59,49 +69,27 @@ lspconfig.eslint.setup {
     end
 }
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = {"cpp", "c", "h", "hpp"},
-    callback = function()
-        print("FileType autocmd triggered for: " .. vim.bo.filetype)
-
-        local root_path = vim.fs.find({"compile_commands.json", ".git"},
-                                      {upward = true})[1]
-        local resolved_root_dir = ""
-        if root_path then
-            resolved_root_dir = vim.fs.dirname(root_path)
-        else
-            print("Could not find compile_commands.json or .git for root_dir.")
-        end
-        print("Resolved root_dir: " .. resolved_root_dir)
-        local clients = vim.lsp.get_clients({name = "clangd-tcp"})
-        if #clients > 0 then
-            print("clangd-tcp already running.")
-            return
-        end
-
-        local ok, err = pcall(function()
-            vim.lsp.start({
-                name = "clangd-tcp",
-                cmd = vim.lsp.rpc.connect("192.168.1.215", 9000),
-                root_dir = resolved_root_dir,
-                capabilities = capabilities,
-                on_init = function(client)
-                    print("clangd connected with id: " .. client.id)
-                end,
-                on_attach = function(client, bufnr)
-                    print("clangd attached to buffer " .. bufnr)
-                end
-            })
-
-            print("vim.lsp.start called.")
-        end)
-
-        if not ok then
-            vim.notify("Erreur lors du démarrage de clangd: " .. tostring(err),
-                       vim.log.levels.ERROR)
-        end
-    end
-})
+-- Configuration locale clangd pour WSL/CoD2 development
+lspconfig.clangd.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {"clangd", "--background-index"},
+    filetypes = {"c", "cpp", "objc", "objcpp", "h", "hpp"},
+    root_dir = lspconfig.util.root_pattern("compile_commands.json",
+                                           "compile_flags.txt", ".git",
+                                           "Makefile", "*.sln"),
+    settings = {
+        clangd = {
+            -- Configuration pour CoD2 .asi development (MinGW32)
+            fallbackFlags = {
+                "--target=i686-w64-mingw32", "-std=c++17",
+                "-D_WIN32_WINNT=0x0601", "-D_WINDOWS", "-D_USRDLL", "-D_WINDLL",
+                "-D_CRT_SECURE_NO_WARNINGS", "-D_WIN32_IE=0x0600",
+                "-DWIN32_LEAN_AND_MEAN"
+            }
+        }
+    }
+}
 
 lspconfig.nil_ls.setup {
     on_attach = on_attach,
@@ -145,7 +133,7 @@ lspconfig.ts_ls.setup({
                 includeInlayVariableTypeHintsWhenTypeMatchesName = false,
                 includeInlayPropertyDeclarationTypeHints = true,
                 includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+                includeInlayEnumMemberValueHints = true
             }
         }
     }
