@@ -39,58 +39,6 @@ local on_attach = function(client, bufnr)
     -- end
 end
 
--- ESLint configuration with async formatting
-lspconfig.eslint.setup {
-    on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            callback = function()
-                -- Async ESLint fix without blocking UI
-                vim.lsp.buf.code_action({
-                    context = {
-                        only = {"source.fixAll.eslint"},
-                        diagnostics = {}
-                    },
-                    apply = true
-                })
-            end
-        })
-    end,
-    settings = {
-        workingDirectory = {mode = "location"},
-        codeActionOnSave = {
-            enable = true,
-            mode = "problems" -- Only fix problems, not all rules
-        }
-    },
-    root_dir = function(fname)
-        return lspconfig.util.root_pattern("node_modules/eslint")(fname) or
-                   lspconfig.util.root_pattern("package.json", ".git")(fname)
-    end
-}
-
--- Configuration locale clangd pour WSL/CoD2 development
-lspconfig.clangd.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = {"clangd", "--background-index"},
-    filetypes = {"c", "cpp", "objc", "objcpp", "h", "hpp"},
-    root_dir = lspconfig.util.root_pattern("compile_commands.json",
-                                           "compile_flags.txt", ".git",
-                                           "Makefile", "*.sln"),
-    settings = {
-        clangd = {
-            -- Configuration pour CoD2 .asi development (MinGW32)
-            fallbackFlags = {
-                "--target=i686-w64-mingw32", "-std=c++17",
-                "-D_WIN32_WINNT=0x0601", "-D_WINDOWS", "-D_USRDLL", "-D_WINDLL",
-                "-D_CRT_SECURE_NO_WARNINGS", "-D_WIN32_IE=0x0600",
-                "-DWIN32_LEAN_AND_MEAN"
-            }
-        }
-    }
-}
-
 lspconfig.nil_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,

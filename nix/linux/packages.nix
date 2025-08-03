@@ -13,11 +13,11 @@ in {
     clang-tools
     cmake
     conan
-    
+
     # Cross-compilation Windows 32-bit complet
     pkgs.pkgsCross.mingw32.stdenv.cc
     pkgs.pkgsCross.mingw32.windows.mingw_w64_headers
-    
+
     # Build tools
     gnumake
     ninja
@@ -48,7 +48,8 @@ in {
 
     # Ajouts spécifiques WSL
     linux_display_server x11
-    font_size 17
+    # hide_window_decorations "no"
+    font_size 20
   '';
 
 }

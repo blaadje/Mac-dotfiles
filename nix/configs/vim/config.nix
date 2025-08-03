@@ -29,6 +29,7 @@ let
     vim-visual-multi
     comment-nvim
     resession-nvim # Session management
+    vim-textobj-user # add personnalized shortcuts e.g vil
   ];
 
   # 🎨 UI & Visual Enhancements
@@ -124,7 +125,7 @@ in {
 
     -- Disable nvim-tree auto opening when opening directory  
     vim.g.nvim_tree_hijack_netrw = 0
-    
+
     -- Auto-start server for remote commands
     if vim.fn.has('nvim') and not vim.env.NVIM then
       local server_path = '/tmp/nvim-server-' .. vim.fn.getpid()
@@ -132,7 +133,7 @@ in {
       -- Export server path for terminal to use
       vim.env.NVIM_SERVER = server_path
     end
-    
+
   '';
 
 }

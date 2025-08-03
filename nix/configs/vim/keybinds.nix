@@ -61,6 +61,11 @@
   # 🏷️ LSP / Code Navigation
   {
     mode = [ "n" ];
+    key = "k";
+    action = "<cmd>lua vim.lsp.buf.signature_help()<CR>";
+  }
+  {
+    mode = [ "n" ];
     key = "gd";
     action = "<cmd>lua vim.lsp.buf.definition()<CR>";
   }
@@ -151,7 +156,7 @@
   # 📄 Copy/Paste
   {
     mode = [ "v" ];
-    key = "<M-c>";
+    key = "<C-c>";
     action = ''"+y'';
   }
 
@@ -264,5 +269,4 @@
       silent = true;
     };
   }
-]
 ]
