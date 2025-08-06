@@ -57,10 +57,14 @@
         map ctrl+shift+tab send_text normal,application \x1b[9;6u
         map ctrl+shift+f send_text normal \x1b[91~
         shell_integration no-cursor
-        # Map Command key to Meta
-    map cmd+c send_text all \x03
-    map ctrl+w none
-    map ctrl+shift+n no_op
+        
+        # Enable alt key to send proper escape sequences to nvim
+        macos_option_as_alt yes
+        
+        # Map Command key to Meta for compatibility
+        map cmd+c send_text all \x03
+        map ctrl+w none
+        map ctrl+shift+n no_op
   '';
 
 }

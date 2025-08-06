@@ -2,7 +2,7 @@
   # 🔍 Telescope / Search
   {
     mode = [ "n" ];
-    key = "<C-S-f>";
+    key = "<M-S-f>";
     action =
       "<cmd>lua require('telescope.builtin').live_grep({  additional_args = function() return { '--fixed-strings' } end })<CR>";
     options = {
@@ -12,7 +12,7 @@
   }
   {
     mode = [ "n" ];
-    key = "<C-p>";
+    key = "<M-p>";
     action = ''
       <cmd>lua require("telescope").extensions["recent-files"].recent_files({})<CR>'';
   }
@@ -35,7 +35,7 @@
   # 📁 File Navigation
   {
     mode = [ "n" ];
-    key = "<C-b>";
+    key = "<M-b>";
     action =
       "<cmd>lua local view = require('nvim-tree.view'); local was_open = view.is_visible(); vim.cmd('NvimTreeToggle'); if not was_open then vim.cmd('wincmd p') end<CR>";
     options = {
@@ -45,8 +45,17 @@
   }
   {
     mode = [ "n" ];
-    key = "<C-e>";
+    key = "<M-e>";
     action = "<cmd>lua require('trouble').toggle()<CR>";
+  }
+  {
+    mode = [ "n" ];
+    key = "<M-w>";
+    action = "<C-w>w";
+    options = {
+      desc = "Switch between windows";
+      silent = true;
+    };
   }
 
   # 🏷️ LSP / Code Navigation
@@ -64,19 +73,19 @@
   # 📋 Multi-cursor / Selection
   {
     mode = [ "n" ];
-    key = "<C-d>";
+    key = "<M-d>";
     action = "<Plug>(VM-Find-Under)";
     options = { noremap = false; };
   }
   {
     mode = [ "n" ];
-    key = "<C-S-Down>";
+    key = "<M-S-Down>";
     action = "<Plug>(VM-Add-Cursor-Down)";
     options = { noremap = false; };
   }
   {
     mode = [ "n" ];
-    key = "<C-S-Up>";
+    key = "<M-S-Up>";
     action = "<Plug>(VM-Add-Cursor-Up)";
     options = { noremap = false; };
   }
@@ -120,17 +129,17 @@
   # 🔀 Tab Navigation
   {
     mode = [ "n" ];
-    key = "<C-Tab>";
+    key = "<M-Tab>";
     action = "<cmd>lua require('telescope.builtin').buffers()<CR>";
   }
   {
     mode = [ "n" ];
-    key = "<C-S-Tab>";
+    key = "<M-S-Tab>";
     action = "<cmd>lua require('telescope.builtin').buffers()<CR>";
   }
   {
     mode = [ "n" ];
-    key = "<C-S-n>";
+    key = "<M-S-n>";
     action =
       "<cmd>lua local file = vim.fn.expand('%:p'); local path = file != '' && vim.fn.fnameescape(file) || ''; os.execute('kitty nvim ' + path + ' >/dev/null 2>&1 &')<CR>";
     options = {
@@ -142,7 +151,7 @@
   # 📄 Copy/Paste
   {
     mode = [ "v" ];
-    key = "<C-c>";
+    key = "<M-c>";
     action = "\"+y";
   }
 
@@ -152,6 +161,27 @@
     key = "hh";
     action = "<Esc>";
   }
+<<<<<<< Updated upstream
+=======
+  {
+    mode = [ "t" ];
+    key = "hh";
+    action = "<M-\\><M-n>";
+    options = {
+      desc = "Exit terminal mode";
+      silent = true;
+    };
+  }
+  {
+    mode = [ "t" ];
+    key = "<Esc>";
+    action = "<M-\\><M-n>";
+    options = {
+      desc = "Exit terminal mode with Escape";
+      silent = true;
+    };
+  }
+>>>>>>> Stashed changes
 
   # 🔄 Word Navigation (Normal Mode)
   {
@@ -183,32 +213,32 @@
   {
     mode = [ "i" ];
     key = "<M-Left>";
-    action = "<C-Left>";
+    action = "<M-Left>";
     options = { silent = true; };
   }
   {
     mode = [ "i" ];
     key = "<M-Right>";
-    action = "<C-Right>";
+    action = "<M-Right>";
     options = { silent = true; };
   }
   {
     mode = [ "i" ];
     key = "<D-Left>";
-    action = "<C-o>^";
+    action = "<M-o>^";
     options = { silent = true; };
   }
   {
     mode = [ "i" ];
     key = "<D-Right>";
-    action = "<C-o>$";
+    action = "<M-o>$";
     options = { silent = true; };
   }
 
   # 🔄 Completion
   {
     mode = [ "i" ];
-    key = "<C-i>";
+    key = "<M-i>";
     action = "<cmd>lua require('cmp').complete()<CR>";
     options = {
       noremap = true;
