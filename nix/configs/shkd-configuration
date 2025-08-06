@@ -77,20 +77,12 @@ alt - 5 : aerospace workspace 5
 
 alt - f : aerospace fullscreen
 
-<<<<<<< Updated upstream
-ctrl + alt - left : aerospace join-with left
-ctrl + alt - down : aerospace join-with down
-ctrl + alt - up : aerospace join-with up
-ctrl + alt - right : aerospace join-with right
-=======
-# quit application
 alt - q : osascript -e 'tell application (path to frontmost application as text) to quit'
 
 alt + alt - left : aerospace join-with left
 alt + alt - down : aerospace join-with down
 alt + alt - up : aerospace join-with up
 alt + alt - right : aerospace join-with right
->>>>>>> Stashed changes
 
 # swap window
 #shift + alt - h : window --swap west

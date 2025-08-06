@@ -61,6 +61,11 @@
   # 🏷️ LSP / Code Navigation
   {
     mode = [ "n" ];
+    key = "k";
+    action = "<cmd>lua vim.lsp.buf.signature_help()<CR>";
+  }
+  {
+    mode = [ "n" ];
     key = "gd";
     action = "<cmd>lua vim.lsp.buf.definition()<CR>";
   }
@@ -113,7 +118,7 @@
     key = "<S-Up>";
     action = "{";
   }
-  
+
   # 🏃 Fast Movement - 5 lines with cmd+arrows
   {
     mode = [ "n" "i" "v" ];
@@ -151,8 +156,8 @@
   # 📄 Copy/Paste
   {
     mode = [ "v" ];
-    key = "<M-c>";
-    action = "\"+y";
+    key = "<C-c>";
+    action = ''"+y'';
   }
 
   # 🔄 Mode Switching - Quick Escape
@@ -161,12 +166,11 @@
     key = "hh";
     action = "<Esc>";
   }
-<<<<<<< Updated upstream
-=======
+
   {
     mode = [ "t" ];
     key = "hh";
-    action = "<M-\\><M-n>";
+    action = "<C-\\><C-n>";
     options = {
       desc = "Exit terminal mode";
       silent = true;
@@ -175,13 +179,12 @@
   {
     mode = [ "t" ];
     key = "<Esc>";
-    action = "<M-\\><M-n>";
+    action = "<C-\\><C-n>";
     options = {
       desc = "Exit terminal mode with Escape";
       silent = true;
     };
   }
->>>>>>> Stashed changes
 
   # 🔄 Word Navigation (Normal Mode)
   {
@@ -259,7 +262,8 @@
   {
     mode = [ "v" ];
     key = "<CR>";
-    action = "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>";
+    action =
+      "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>";
     options = {
       noremap = true;
       silent = true;

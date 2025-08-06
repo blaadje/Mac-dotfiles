@@ -29,6 +29,7 @@ let
     vim-visual-multi
     comment-nvim
     resession-nvim # Session management
+    vim-textobj-user # add personnalized shortcuts e.g vil
   ];
 
   # 🎨 UI & Visual Enhancements
@@ -42,7 +43,7 @@ let
     vim-cursorword # Highlight word under cursor
     bufferline-nvim # Tabs
     incline-nvim # sticky bar displaying : INSERT, VISUAL etc.
-    dashboard-nvim # dashboard when opening nvim
+    # dashboard-nvim # dashboard when opening nvim
     wilder-nvim # vim commands autocompletion
     satellite-nvim
     marks-nvim
@@ -118,6 +119,21 @@ in {
     })
 
     require("init")
+
+    -- Use Fish for terminal in nvim
+    vim.o.shell = "${pkgs.fish}/bin/fish"
+
+    -- Disable nvim-tree auto opening when opening directory  
+    vim.g.nvim_tree_hijack_netrw = 0
+
+    -- Auto-start server for remote commands
+    if vim.fn.has('nvim') and not vim.env.NVIM then
+      local server_path = '/tmp/nvim-server-' .. vim.fn.getpid()
+      vim.fn.serverstart(server_path)
+      -- Export server path for terminal to use
+      vim.env.NVIM_SERVER = server_path
+    end
+
   '';
 
 }
