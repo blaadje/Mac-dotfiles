@@ -3,6 +3,7 @@
 let
   arrows = builtins.fromJSON (builtins.readFile ./arrows.json);
   numbers = builtins.fromJSON (builtins.readFile ./numbers.json);
+  deviceSpecificMods = builtins.fromJSON (builtins.readFile ./device-specific-mods.json);
   simpleMods = builtins.fromJSON (builtins.readFile ./simple-mods.json);
   devices = builtins.fromJSON (builtins.readFile ./devices.json);
   
@@ -11,7 +12,7 @@ let
     "profiles" = [
       {
         "complex_modifications" = {
-          "rules" = [ arrows numbers ];
+          "rules" = [ arrows numbers deviceSpecificMods ];
         };
         "devices" = devices;
         "name" = "Default profile";

@@ -4,8 +4,7 @@
             "is_keyboard": true,
             "product_id": 9090,
             "vendor_id": 13613
-        },
-        "treat_as_built_in_keyboard": true
+        }
     },
     {
         "identifiers": {

@@ -1,0 +1,106 @@
+{
+  "description": "Device-specific modifier key mappings",
+  "manipulators": [
+    {
+      "description": "MacBook built-in: ctrl/option/command → command/ctrl/option",
+      "type": "basic",
+      "from": {
+        "key_code": "left_control",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "key_code": "left_command" }],
+      "conditions": [
+        {
+          "type": "device_if",
+          "identifiers": [{ "is_built_in_keyboard": true }]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "left_option",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "key_code": "left_control" }],
+      "conditions": [
+        {
+          "type": "device_if",
+          "identifiers": [{ "is_built_in_keyboard": true }]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "left_command",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "key_code": "left_option" }],
+      "conditions": [
+        {
+          "type": "device_if",
+          "identifiers": [{ "is_built_in_keyboard": true }]
+        }
+      ]
+    },
+    {
+      "description": "External keyboard: ctrl/command/option → command/ctrl/option",
+      "type": "basic",
+      "from": {
+        "key_code": "left_control",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "key_code": "left_command" }],
+      "conditions": [
+        {
+          "type": "device_if",
+          "identifiers": [{ "vendor_id": 13613, "product_id": 9090 }]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "left_command",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "key_code": "left_control" }],
+      "conditions": [
+        {
+          "type": "device_if",
+          "identifiers": [{ "vendor_id": 13613, "product_id": 9090 }]
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "left_option",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "key_code": "left_option" }],
+      "conditions": [
+        {
+          "type": "device_if",
+          "identifiers": [{ "vendor_id": 13613, "product_id": 9090 }]
+        }
+      ]
+    },
+    {
+      "description": "External keyboard: map right_option to right_command for consistency",
+      "type": "basic",
+      "from": {
+        "key_code": "right_option",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "key_code": "right_command" }],
+      "conditions": [
+        {
+          "type": "device_if",
+          "identifiers": [{ "vendor_id": 13613, "product_id": 9090 }]
+        }
+      ]
+    }
+  ]
+}
