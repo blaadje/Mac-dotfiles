@@ -6,6 +6,8 @@ let
   # Packages spécifiques à macOS
 in {
   home.packages = with pkgs; [
+    moonlight-qt
+
     # Outils macOS spécifiques
     aerospace
     autoraise

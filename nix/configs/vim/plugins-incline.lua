@@ -10,11 +10,12 @@ incline1.setup({
         if vim.bo.filetype == "NvimTree" then return {} end
 
         -- Defer mode check to avoid race conditions
-        local mode = vim.schedule_wrap(function() return vim.fn.mode() end)() or vim.fn.mode()
+        local mode = vim.schedule_wrap(function() return vim.fn.mode() end)() or
+                         vim.fn.mode()
         local hl_map = {
             n = "InclineNormal",
             i = "InclineInsert",
-            v = "InclineVisual", 
+            v = "InclineVisual",
             V = "InclineVisual",
             ["\22"] = "InclineVisual",
             c = "InclineCommand",
@@ -38,7 +39,7 @@ incline1.setup({
         end
 
         local modified_indicator = vim.bo.modified and " ●" or ""
-        
+
         return {
             {
                 " " .. path .. modified_indicator .. " ",
@@ -68,9 +69,7 @@ vim.api.nvim_create_autocmd({
 -- Separate autocmd for mode changes with delay
 vim.api.nvim_create_autocmd({'ModeChanged'}, {
     callback = function()
-        vim.defer_fn(function()
-            manager1.update {refresh = true}
-        end, 50)
+        vim.defer_fn(function() manager1.update {refresh = true} end, 50)
     end
 })
 
@@ -123,7 +122,7 @@ incline.setup({
     end,
 
     window = {
-        placement = {vertical = "bottom", horizontal = "right"},
+        placement = {vertical = "top", horizontal = "right"},
         margin = {horizontal = 1, vertical = 0},
         padding = 0
     }

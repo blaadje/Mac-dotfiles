@@ -34,6 +34,14 @@ vim.o.modifiable = true
 vim.cmd('syntax on')
 vim.o.termguicolors = true
 
+-- Show line numbers in terminal mode
+vim.api.nvim_create_autocmd("TermOpen", {
+    callback = function()
+        vim.wo.number = true
+        vim.wo.relativenumber = true
+    end
+})
+
 -- Disable verbose messages
 vim.opt.shortmess:append("WwFfIAscToC")
 

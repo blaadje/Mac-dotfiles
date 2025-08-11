@@ -1,7 +1,9 @@
-# Disable skhd when Parsec is in focus
+# Disable skhd when Parsec or Moonlight is in focus
 .blacklist [
     "parsecd"
     "Parsec"
+    "Moonlight"
+    "moonlight"
 ]
 
 # alt + shift - f : yabai -m window --toggle float
@@ -15,7 +17,7 @@ alt + shift - r : aerospace layout toggle horizontal vertical
 # open terminal, blazingly fast compared to iTerm/Hyper
 alt - return : open -na kitty
 
-# alt + shift - return : open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
+alt + shift - return : moonlight
 # cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # focus space
