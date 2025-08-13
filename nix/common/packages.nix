@@ -49,7 +49,7 @@ let
 
   web = [ heroku netlify-cli nodePackages.http-server ];
 
-  ai = [ nurpkgs.repos.charmbracelet.crush claude-code ];
+  ai = [ nurpkgs.repos.charmbracelet.crush claude-code chatgpt-cli codex ];
 
 in {
   home.packages = development ++ lsp ++ commandLineTools ++ web ++ ai ++ [
