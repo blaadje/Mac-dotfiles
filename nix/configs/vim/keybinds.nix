@@ -62,7 +62,7 @@
   {
     mode = [ "n" ];
     key = "k";
-    action = "<cmd>lua vim.lsp.buf.signature_help()<CR>";
+    action = "<cmd>lua vim.lsp.buf.hover()<CR>";
   }
   {
     mode = [ "n" ];
@@ -161,15 +161,20 @@
   }
 
   # 🔄 Mode Switching - Quick Escape
+  # {
+  #   mode = [ "i" "n" "v" ];
+  #   key = "hh";
+  #   action = "<Esc>";
+  # }
   {
     mode = [ "i" "n" "v" ];
-    key = "hh";
+    key = "<Tab>";
     action = "<Esc>";
   }
 
   {
     mode = [ "t" ];
-    key = "hh";
+    key = "<Tab>";
     action = "<C-\\><C-n>";
     options = {
       desc = "Exit terminal mode";

@@ -39,6 +39,19 @@ local on_attach = function(client, bufnr)
     -- end
 end
 
+local clangd_cmd = {
+    "/mnt/c/Windows/System32/cmd.exe", "/C",
+    [[C:\Users\aukx\projects\llvm-projects\build\build-mingw\bin\clangd.exe --background-index --compile-commands-dir=C:\Users\aukx\projects\cod2-asi\build --path-mappings=/mnt/c/=C:/,C:/=/mnt/c/ --enable-config --clang-tidy --log=verbose --pretty 2>> C:\Users\aukx\clangd-live.log]]
+}
+
+lspconfig.clangd.setup({
+    cmd = clangd_cmd,
+    root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
+    single_file_support = true,
+    flags = {debounce_text_changes = 150, allow_incremental_sync = true},
+    on_attach = on_attach
+})
+
 lspconfig.nil_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,

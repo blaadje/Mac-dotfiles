@@ -22,6 +22,7 @@ in {
     gnumake
     ninja
     pkg-config
+    uv # package manage for python
   ];
 
   programs.fish = {

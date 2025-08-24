@@ -13,6 +13,9 @@ let
 
   # Packages communs à macOS et Linux
   development = [
+    python3Minimal
+    pipx
+    pre-commit
     deno
     docker
     watchman
@@ -49,8 +52,7 @@ let
 
   web = [ heroku netlify-cli nodePackages.http-server ];
 
-  ai = [ nurpkgs.repos.charmbracelet.crush claude-code chatgpt-cli codex ];
-
+  ai = [ nurpkgs.repos.charmbracelet.crush claude-code codex ];
 in {
   home.packages = development ++ lsp ++ commandLineTools ++ web ++ ai ++ [
     node
