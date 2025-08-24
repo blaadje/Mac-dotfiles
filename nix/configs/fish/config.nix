@@ -39,5 +39,6 @@
     ls = "eza --icons --git --oneline";
     ll = "eza -l --icons --git";
     la = "eza -la --icons --git";
+    openhands = "uvx --python 3.12 --from openhands-ai openhands";
   };
 }
