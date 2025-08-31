@@ -1,4 +1,4 @@
-{ config, pkgs, lib, fontConfig, nurpkgs, ... }:
+{ config, pkgs, lib, fontConfig, ... }:
 
 let
   aerospaceConfig = import ../configs/aerospace.nix { inherit config pkgs; };

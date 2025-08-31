@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nix-colors, nixvim, nurpkgs, ... }:
+{ config, pkgs, lib, nix-colors, nixvim, ... }:
 
 let
   fontConfig = {
@@ -10,9 +10,7 @@ in {
   imports = [
     nix-colors.homeManagerModules.default
     nixvim.homeManagerModules.nixvim
-    (import ./nix/common/packages.nix {
-      inherit config pkgs lib fontConfig nurpkgs;
-    })
+    (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig; })
     (import ./nix/linux/packages.nix { inherit config pkgs lib fontConfig; })
     (import ./nix/linux/services.nix { inherit config pkgs lib; })
   ];
@@ -35,10 +33,7 @@ in {
     FONTCONFIG_FILE = "${pkgs.fontconfig.out}/etc/fonts/fonts.conf";
   };
   # Schéma de couleurs
-  colorScheme = nix-colors.colorSchemes.catppuccin-frappe;
-
-  # colorScheme = nix-colors.colorSchemes.nova;
-  # colorScheme = nix-colors.colorSchemes.dracula;
+  colorScheme = nix-colors.colorSchemes.rose-pine-moon;
 
   fonts = { fontconfig.enable = true; };
 
@@ -50,6 +45,7 @@ in {
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [ (import ./nix/overlays) ];
 
   # Enable nix flakes
   nix = {
