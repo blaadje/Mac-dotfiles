@@ -1,4 +1,4 @@
-{ config, pkgs, lib, users, nix-colors, nixvim, nurpkgs, ... }: {
+{ config, pkgs, lib, users, nix-colors, nixvim, ... }: {
   imports = [ nix-colors.homeManagerModule ./nix/darwin/services.nix ];
 
   system.primaryUser = "alexandre.charlot";
@@ -47,8 +47,8 @@
 
       imports = [
         nixvim.homeManagerModules.nixvim
-        (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig nurpkgs; })
-        (import ./nix/darwin/packages.nix { inherit config pkgs lib fontConfig nurpkgs; })
+        (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig; })
+        (import ./nix/darwin/packages.nix { inherit config pkgs lib fontConfig; })
         (import ./nix/configs/sketchybar/sketchybar.nix {
           inherit config pkgs lib fontConfig;
         })

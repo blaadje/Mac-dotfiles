@@ -1,4 +1,4 @@
-{ config, pkgs, lib, fontConfig, nurpkgs, ... }:
+{ config, pkgs, lib, fontConfig, ... }:
 
 with lib;
 with pkgs;
@@ -52,7 +52,24 @@ let
 
   web = [ heroku netlify-cli nodePackages.http-server ];
 
-  ai = [ nurpkgs.repos.charmbracelet.crush claude-code codex ];
+  ai = [
+    claude-code
+    # POCS :
+    # amp
+    # backlog-md # TODO
+    # catnip # TODO # TODO
+    # claude-code-router # TODO
+    # claudebox # TODO
+    # codex # TESTED - visu pas ouf
+    # crush # TESTED - max token amount issue
+    # cursor-agent # TODO
+    # forge # TODO
+    # gemini-cli # TODO
+    # goose-cli # TODO
+    # groq-code-cli # TODO
+    opencode # TESTED - work well except in cant use correctly normal mode
+    # qwen-code # TODO
+  ];
 in {
   home.packages = development ++ lsp ++ commandLineTools ++ web ++ ai ++ [
     node
