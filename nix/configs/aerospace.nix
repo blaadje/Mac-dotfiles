@@ -35,8 +35,8 @@
       };
       outer = {
         left = 10;
+        top = [ { monitor."^built-in retina display$" = 10; } 34 ];
         bottom = 10;
-        top = 10;
         right = 10;
       };
     };
