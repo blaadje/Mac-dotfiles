@@ -68,11 +68,13 @@ in {
   #   config = import ./configs/spacebar.nix { inherit config; };
   # };
 
-  services.skhd = {
+  services.skhd = let
+    skhdModule = import ../configs/skhd-module.nix { inherit lib pkgs; };
+    skhdConfigFile = "${skhdModule.skhdConfig}/skhd-configuration";
+  in {
     enable = true;
-    skhdConfig = builtins.readFile ../configs/shkd-configuration;
+    skhdConfig = builtins.readFile skhdConfigFile;
   };
-
 
   # services.yabai = (import ./configs/yabai.nix { inherit config; }) // {
   # enable = true;

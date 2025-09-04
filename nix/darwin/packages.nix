@@ -1,7 +1,7 @@
 { config, pkgs, lib, fontConfig, ... }:
 
 let
-  aerospaceConfig = import ../configs/aerospace.nix { inherit config pkgs; };
+  aerospaceConfig = import ../configs/window-manager/aerospace.nix { inherit config pkgs; };
 
   # Packages spécifiques à macOS
 in {

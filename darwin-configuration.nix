@@ -23,13 +23,10 @@
 
   nixpkgs.overlays = [ (import ./nix/overlays) ];
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "crush"
-  ];
 
   programs.fish.enable = true;
   programs.bash.enable = true;
-  
+
   # Set Fish as default shell
   users.users."alexandre.charlot".shell = pkgs.fish;
 
@@ -38,17 +35,21 @@
   home-manager.users."alexandre.charlot" = { lib, ... }:
     let
       fontConfig = {
-        family = "MesloLGL Nerd Font";
+        family = "MesloLGS NF";
         size = "15";
-        package = pkgs.nerd-fonts.meslo-lg;
+        package = pkgs.meslo-lgs-nf;
       };
     in {
       fonts = { fontconfig.enable = true; };
 
       imports = [
         nixvim.homeManagerModules.nixvim
-        (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig; })
-        (import ./nix/darwin/packages.nix { inherit config pkgs lib fontConfig; })
+        (import ./nix/common/packages.nix {
+          inherit config pkgs lib fontConfig;
+        })
+        (import ./nix/darwin/packages.nix {
+          inherit config pkgs lib fontConfig;
+        })
         (import ./nix/configs/sketchybar/sketchybar.nix {
           inherit config pkgs lib fontConfig;
         })
