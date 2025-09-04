@@ -25,6 +25,8 @@
 
   toggle_fullscreen = "aerospace fullscreen";
   toggle_floating = "aerospace layout floating tiling";
+  close_window = "aerospace close";
+  open_terminal = "open -a kitty";
 
   # Tree manipulation commands
   rotate_tree = "aerospace layout h_tiles v_tiles";

@@ -1,6 +1,6 @@
 {
-  control = "ctrl"; # Control modifier
+  control = "cmd"; # Control modifier
   alt = "alt"; # Alt modifier (Option on Mac)
-  super = "cmd"; # Super modifier (Command on Mac)
+  super = "ctrl"; # Super modifier (Command on Mac)
   shift = "shift"; # Shift modifier
 }

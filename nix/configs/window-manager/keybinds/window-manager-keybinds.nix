@@ -31,14 +31,16 @@
   # Window actions
   "${modifiers.alt}+f" = "toggle_fullscreen";
   "${modifiers.alt}+${modifiers.shift}+f" = "toggle_floating";
+  "${modifiers.alt}+q" = "close_window";
+  "${modifiers.alt}+enter" = "open_terminal";
 
   # Tree manipulation
   "${modifiers.alt}+r" = "rotate_tree";
   "${modifiers.alt}+j" = "join_left";
 
   # Resize windows
-  "${modifiers.alt}+${modifiers.super}+left" = "resize_decrease_width";
-  "${modifiers.alt}+${modifiers.super}+right" = "resize_increase_width";
-  "${modifiers.alt}+${modifiers.super}+up" = "resize_decrease_height";
-  "${modifiers.alt}+${modifiers.super}+down" = "resize_increase_height";
+  "${modifiers.alt}+${modifiers.control}+left" = "resize_decrease_width";
+  "${modifiers.alt}+${modifiers.control}+right" = "resize_increase_width";
+  "${modifiers.alt}+${modifiers.control}+up" = "resize_decrease_height";
+  "${modifiers.alt}+${modifiers.control}+down" = "resize_increase_height";
 }
