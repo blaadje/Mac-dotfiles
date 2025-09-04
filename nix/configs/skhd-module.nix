@@ -30,9 +30,23 @@ let
       modifierStr = lib.concatStringsSep " + " modifiers;
     in if modifiers == [ ] then keyName else modifierStr + " - " + keyName;
 
-  lines = lib.concatStringsSep "\n"
+  # Blacklist certain applications
+  blacklistApps = [
+    "parsecd"
+    "Parsec"
+    "Moonlight"
+    "moonlight"
+  ];
+  
+  blacklistConfig = ".blacklist [\n    " + 
+    (lib.concatStringsSep "\n    " (map (app: "\"${app}\"") blacklistApps)) + 
+    "\n]";
+
+  keybindLines = lib.concatStringsSep "\n"
     (lib.mapAttrsToList (k: v: (convertToSkhdSyntax k) + " : " + v)
       allKeybinds);
+  
+  lines = blacklistConfig + "\n\n" + keybindLines;
 
 in {
   skhdConfig = pkgs.runCommand "skhd-configuration" { } ''
