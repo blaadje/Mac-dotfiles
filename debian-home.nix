@@ -13,6 +13,7 @@ in {
     (import ./nix/common/packages.nix { inherit config pkgs lib fontConfig; })
     (import ./nix/linux/packages.nix { inherit config pkgs lib fontConfig; })
     (import ./nix/linux/services.nix { inherit config pkgs lib; })
+    ./nix/configs/window-manager/glazewm.nix
   ];
 
   home = {

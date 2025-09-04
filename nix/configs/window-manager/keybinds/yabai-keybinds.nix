@@ -24,4 +24,17 @@
   workspace_6 = "yabai -m space --focus 6";
 
   toggle_fullscreen = "yabai -m window --toggle zoom-fullscreen";
+  toggle_floating = "yabai -m window --toggle float";
+  close_window = "yabai -m window --close";
+  open_terminal = "open -a kitty";
+
+  # Tree manipulation commands
+  rotate_tree = "yabai -m space --rotate 90";
+  join_left = "yabai -m window --warp west";
+
+  # Resize commands
+  resize_decrease_width = "yabai -m window --resize right:-50:0";
+  resize_increase_width = "yabai -m window --resize right:50:0";
+  resize_decrease_height = "yabai -m window --resize bottom:0:-50";
+  resize_increase_height = "yabai -m window --resize bottom:0:50";
 }
