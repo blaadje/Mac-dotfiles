@@ -24,4 +24,12 @@
   workspace_6 = "aerospace workspace 6";
 
   toggle_fullscreen = "aerospace fullscreen";
+
+  # Tree manipulation commands
+  rotate_tree = "aerospace layout h_tiles v_tiles";
+  join_left = "aerospace join-with left";
+
+  # Resize commands (smart adapts automatically to tree orientation)
+  resize_decrease_width = "aerospace resize smart -50";
+  resize_increase_width = "aerospace resize smart +50";
 }

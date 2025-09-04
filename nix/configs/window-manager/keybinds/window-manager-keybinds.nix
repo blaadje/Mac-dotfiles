@@ -20,6 +20,7 @@
   "${modifiers.alt}+${modifiers.shift}+4" = "move_node_to_workspace_4";
   "${modifiers.alt}+${modifiers.shift}+5" = "move_node_to_workspace_5";
   "${modifiers.alt}+${modifiers.shift}+6" = "move_node_to_workspace_6";
+
   "${modifiers.alt}+1" = "workspace_1";
   "${modifiers.alt}+2" = "workspace_2";
   "${modifiers.alt}+3" = "workspace_3";
@@ -29,4 +30,14 @@
 
   # Window actions
   "${modifiers.alt}+f" = "toggle_fullscreen";
+
+  # Tree manipulation
+  "${modifiers.alt}+r" = "rotate_tree";
+  "${modifiers.alt}+j" = "join_left";
+
+  # Resize windows
+  "${modifiers.alt}+${modifiers.super}+left" = "resize_decrease_width";
+  "${modifiers.alt}+${modifiers.super}+right" = "resize_increase_width";
+  "${modifiers.alt}+${modifiers.super}+up" = "resize_decrease_height";
+  "${modifiers.alt}+${modifiers.super}+down" = "resize_increase_height";
 }
