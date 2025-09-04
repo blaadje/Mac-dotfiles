@@ -24,6 +24,7 @@
   workspace_6 = "aerospace workspace 6";
 
   toggle_fullscreen = "aerospace fullscreen";
+  toggle_floating = "aerospace layout floating tiling";
 
   # Tree manipulation commands
   rotate_tree = "aerospace layout h_tiles v_tiles";

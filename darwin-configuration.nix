@@ -88,6 +88,7 @@
       InitialKeyRepeat = 20;
       KeyRepeat = 1;
       ApplePressAndHoldEnabled = false;
+      NSWindowShouldDragOnGesture = true;
     };
   };
 

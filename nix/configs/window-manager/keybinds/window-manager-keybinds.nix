@@ -30,6 +30,7 @@
 
   # Window actions
   "${modifiers.alt}+f" = "toggle_fullscreen";
+  "${modifiers.alt}+${modifiers.shift}+f" = "toggle_floating";
 
   # Tree manipulation
   "${modifiers.alt}+r" = "rotate_tree";
