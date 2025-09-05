@@ -24,8 +24,13 @@
     key-mapping.preset = "qwerty";
 
     workspace-to-monitor-force-assignment = {
-      "5" = "secondary";
-      "6" = "secondary";
+      # workspace = monitor
+      "1" = 3;
+      "2" = 1;
+      "3" = 1;
+      "4" = 2;
+      "5" = 2;
+      "6" = 2;
     };
 
     gaps = {
