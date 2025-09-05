@@ -18,19 +18,22 @@
     default-root-container-orientation = "auto";
 
     automatically-unhide-macos-hidden-apps = false;
+    
+    # Empêcher le switch automatique vers un autre workspace quand le workspace devient vide
+    enable-normalization-flatten-containers = false;
+    enable-normalization-opposite-orientation-for-nested-containers = false;
 
     on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
 
     key-mapping.preset = "qwerty";
 
     workspace-to-monitor-force-assignment = {
-      # workspace = monitor
-      "1" = 3;
-      "2" = 1;
-      "3" = 1;
-      "4" = 2;
-      "5" = 2;
-      "6" = 2;
+      "1" = 2;  # Workspace 1 → 27GN7
+      "2" = 1;  # Workspace 2 → PHL 279P1 (forcer sa création)
+      "3" = 1;  # Workspace 3 → PHL 279P1 (forcer sa création)
+      "4" = 3;  # Workspaces 4,5,6 → Built-in Retina Display
+      "5" = 3;
+      "6" = 3;
     };
 
     gaps = {

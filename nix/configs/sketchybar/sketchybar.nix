@@ -31,18 +31,11 @@
 
       sketchybar --add event aerospace_workspace_change
 
-      # Mapping explicite AeroSpace monitor -> SketchyBar display
-      # Monitor 2 (Built-in Retina) avec workspaces 4,5,6 -> Display 3
-      # Monitor 3 (27GN7) avec workspace 2 -> Display 2
-      declare -A monitor_to_display_map
-      monitor_to_display_map[1]=1  # PHL 279P1
-      monitor_to_display_map[2]=3  # Built-in Retina Display  
-      monitor_to_display_map[3]=2  # 27GN7
-      
       for monitor_id in $(${pkgs.aerospace}/bin/aerospace list-monitors | grep -E "^[0-9]+" | cut -d' ' -f1); do
         # Détection automatique des workspaces par moniteur
         workspace_ids=$(${pkgs.aerospace}/bin/aerospace list-workspaces --monitor "$monitor_id")
-        display_id=''${monitor_to_display_map[$monitor_id]}
+        # Utilisation directe des IDs AeroSpace comme displays SketchyBar
+        display_id="$monitor_id"
         
         for sid in $workspace_ids; do
           sketchybar --add item space.$sid left \
@@ -63,9 +56,9 @@
         done
       done
 
-      # Ajouter clock et battery sur chaque moniteur avec le bon mapping
+      # Ajouter clock et battery sur chaque moniteur
       for monitor_id in $(${pkgs.aerospace}/bin/aerospace list-monitors | grep -E "^[0-9]+" | cut -d' ' -f1); do
-        display_id=''${monitor_to_display_map[$monitor_id]}
+        display_id="$monitor_id"
         
         sketchybar --add item clock.$monitor_id right \
           --set clock.$monitor_id \
