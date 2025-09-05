@@ -22,14 +22,24 @@
       "alacritty --title vimwindow --working-directory (pwd) -e nvim $argv &";
     nvopen.body = ''
       if test (count $argv) -gt 0
-        set target_dir (realpath $argv[1])
+        set target (realpath $argv[1])
       else
-        set target_dir (pwd)
+        set target (pwd)
       end
 
       if test -n "$NVIM_SERVER"; and test -S "$NVIM_SERVER"
-        nvim --server "$NVIM_SERVER" --remote-send "<C-\\><C-n>:cd $target_dir<CR>:e .<CR>"
-        echo "Directory changed to $target_dir in nvim"
+        if test -f "$target"
+          # C'est un fichier - ouvrir le fichier et changer vers son répertoire
+          set target_dir (dirname "$target")
+          nvim --server "$NVIM_SERVER" --remote-send "<C-\\><C-n>:cd $target_dir<CR>:e $target<CR>"
+          echo "Opened file $target in nvim"
+        else if test -d "$target"
+          # C'est un répertoire - changer vers le répertoire et ouvrir l'explorer
+          nvim --server "$NVIM_SERVER" --remote-send "<C-\\><C-n>:cd $target<CR>:e .<CR>"
+          echo "Directory changed to $target in nvim"
+        else
+          echo "Error: $target is neither a file nor directory"
+        end
       else
         echo "No nvim server found (NVIM_SERVER=$NVIM_SERVER)"
       end

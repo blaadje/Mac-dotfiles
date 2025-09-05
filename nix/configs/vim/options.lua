@@ -34,11 +34,12 @@ vim.o.modifiable = true
 vim.cmd('syntax on')
 vim.o.termguicolors = true
 
--- Show line numbers in terminal mode
+-- Show line numbers in terminal mode and start in insert mode
 vim.api.nvim_create_autocmd("TermOpen", {
     callback = function()
         vim.wo.number = true
         vim.wo.relativenumber = true
+        vim.cmd('startinsert')
     end
 })
 
