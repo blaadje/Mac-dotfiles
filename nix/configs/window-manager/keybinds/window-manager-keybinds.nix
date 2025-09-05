@@ -32,7 +32,7 @@
   "${modifiers.alt}+f" = "toggle_fullscreen";
   "${modifiers.alt}+${modifiers.shift}+f" = "toggle_floating";
   "${modifiers.alt}+q" = "close_window";
-  "${modifiers.alt}+enter" = "open_terminal";
+  "${modifiers.alt}+return" = "open_terminal";
 
   # Tree manipulation
   "${modifiers.alt}+r" = "rotate_tree";

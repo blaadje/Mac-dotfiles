@@ -25,8 +25,9 @@
 
   toggle_fullscreen = "aerospace fullscreen";
   toggle_floating = "aerospace layout floating tiling";
-  close_window = "aerospace close";
-  open_terminal = "open -a kitty";
+  close_window =
+    "osascript -e 'tell application (path to frontmost application as text) to quit'";
+  open_terminal = "open -na kitty";
 
   # Tree manipulation commands
   rotate_tree = "aerospace layout h_tiles v_tiles";
@@ -35,4 +36,6 @@
   # Resize commands (smart adapts automatically to tree orientation)
   resize_decrease_width = "aerospace resize smart -50";
   resize_increase_width = "aerospace resize smart +50";
+  resize_decrease_height = "aerospace resize smart -50";
+  resize_increase_height = "aerospace resize smart +50";
 }

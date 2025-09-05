@@ -5,9 +5,6 @@ let
   modifiers = import ../darwin/modifiers.nix;
 
   directKeybinds = {
-    "${modifiers.alt}+return" = "kitty";
-    "${modifiers.alt}+q" =
-      "osascript -e 'tell application (path to frontmost application as text) to quit'";
     "${modifiers.super}+l" = "pmset displaysleepnow";
   };
   wmGenericKeybinds =
