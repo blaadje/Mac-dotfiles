@@ -30,7 +30,7 @@
 
   # Window actions
   "${modifiers.alt}+f" = "toggle_fullscreen";
-  "${modifiers.alt}+${modifiers.shift}+f" = "toggle_floating";
+  # "${modifiers.alt}+${modifiers.shift}+f" = "toggle_floating";
   "${modifiers.alt}+q" = "close_window";
   "${modifiers.alt}+return" = "open_terminal";
 
