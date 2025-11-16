@@ -4,6 +4,20 @@ require("nvim-treesitter.configs").setup {
     highlight = {enable = true}
 }
 
+-- Tree-sitter language injection setup
+require("tree-sitter-language-injection").setup({
+    cpp = {
+        string = {
+            langs = {{name = "html", match = "<rml"}},
+            query = [[
+        ; raw string
+        ((raw_string_content) @injection.content
+         (#match? @injection.content "{match}")
+         (#set! injection.language "{name}"))
+      ]]
+        }
+    }
+})
 -- Rainbow delimiters configuration
 local rainbow_delimiters = require "rainbow-delimiters"
 local colors = require('highlights')

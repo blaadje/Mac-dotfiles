@@ -64,6 +64,7 @@ let
   langPlugins = with plugins; [
     nvim-treesitter.withAllGrammars # Tree-sitter with all grammars
     vim-nix # Nix language support
+    tree-sitter-language-injection
   ];
 
   # 🔧 Git Integration
@@ -73,14 +74,20 @@ let
     git-conflict-nvim
   ];
 
-  myVimPlugins = concatLists [
-    lspPlugins
-    editingPlugins
-    uiPlugins
-    navPlugins
-    langPlugins
-    gitPlugins
-  ];
+   # 🌳 Language Injection
+   injectionPlugins = with custom-plugins; [
+     tree-sitter-language-injection
+   ];
+
+   myVimPlugins = concatLists [
+     lspPlugins
+     editingPlugins
+     uiPlugins
+     navPlugins
+     langPlugins
+     gitPlugins
+     injectionPlugins
+   ];
 in {
   opts = {
     number = true;
@@ -118,10 +125,10 @@ in {
       base0F = "#${config.colorScheme.palette.base0F}",
     })
 
-    require("init")
+     require("init")
 
-    -- Use Fish for terminal in nvim
-    vim.o.shell = "${pkgs.fish}/bin/fish"
+     -- Use Fish for terminal in nvim
+     vim.o.shell = "${pkgs.fish}/bin/fish"
 
     -- Disable nvim-tree auto opening when opening directory  
     vim.g.nvim_tree_hijack_netrw = 0
@@ -133,7 +140,6 @@ in {
       -- Export server path for terminal to use
       vim.env.NVIM_SERVER = server_path
     end
-
   '';
 
 }
