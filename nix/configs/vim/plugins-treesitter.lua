@@ -8,7 +8,7 @@ require("nvim-treesitter.configs").setup {
 require("tree-sitter-language-injection").setup({
     cpp = {
         string = {
-            langs = {{name = "html", match = "<rml"}},
+            langs = {{name = "html", match = "<"}, {name = "css", match = "/\\*"}},
             query = [[
         ; raw string
         ((raw_string_content) @injection.content

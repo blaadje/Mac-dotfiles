@@ -120,6 +120,9 @@ vim.api.nvim_set_hl(0, "NvimTreeStatusLineNC",
 vim.api.nvim_set_hl(0, "NvimTreeFocusedFile",
                     {fg = themeColors.base05, bold = true})
 
+-- MatchParen highlighting for vim-matchup
+vim.api.nvim_set_hl(0, 'MatchParen', {fg = themeColors.base0A, bg = themeColors.base02, bold = true})
+
 -- Search and UI elements
 vim.api.nvim_set_hl(0, 'Search',
                     {fg = themeColors.base08, bg = themeColors.base04})

@@ -14,6 +14,15 @@ require('Comment').setup()
 require('move').setup()
 require("yanky").setup()
 require('colorizer').setup()
+
+-- vim-matchup configuration
+-- vim.g.matchup_matchparen_offscreen = {method = "popup"}
+-- vim.g.matchup_matchparen_deferred = 0  -- Disable deferred highlighting for immediate response
+-- vim.g.matchup_matchparen_timeout = 100  -- Faster timeout
+vim.g.matchup_matchparen_enabled = 1 -- Ensure highlighting is enabled
+vim.g.matchup_matchparen_deferred = 1
+vim.g.matchup_matchparen_hi_surround_always = 1
+
 require("telescope").load_extension("conflicts")
 -- Force git-conflict detection on common file types (removed - causing errors)
 

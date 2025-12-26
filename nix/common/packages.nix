@@ -13,6 +13,8 @@ let
 
   # Packages communs à macOS et Linux
   development = [
+    google-cloud-sdk
+    gh
     python3Minimal
     pipx
     pre-commit
@@ -54,6 +56,7 @@ let
 
   ai = [
     claude-code
+    gemini-cli
     # POCS :
     # amp
     # backlog-md # TODO

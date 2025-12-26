@@ -30,6 +30,7 @@ let
     comment-nvim
     resession-nvim # Session management
     vim-textobj-user # add personnalized shortcuts e.g vil
+    vim-matchup # Match pairs of brackets/tags/etc.
   ];
 
   # 🎨 UI & Visual Enhancements
