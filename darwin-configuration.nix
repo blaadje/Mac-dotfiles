@@ -53,6 +53,10 @@
         (import ./nix/configs/sketchybar/sketchybar.nix {
           inherit config pkgs lib fontConfig;
         })
+        (import ./nix/configs/window-manager/rift.nix {
+          inherit config pkgs lib;
+        })
+        (import ./nix/configs/skhd-home.nix { inherit lib pkgs; })
         (import ./nix/configs/karabiner/karabiner.nix {
           inherit config pkgs lib;
         })
@@ -91,6 +95,19 @@
       NSWindowShouldDragOnGesture = true;
     };
   };
+
+  system.activationScripts.riftWrappers.text = ''
+    if [ -d "/Users/alexandre.charlot/Applications/Rift.app" ]; then
+      mkdir -p /Applications
+      rm -rf /Applications/Rift.app
+      cp -R -L "/Users/alexandre.charlot/Applications/Rift.app" /Applications/
+    fi
+    if [ -d "/Users/alexandre.charlot/Applications/Skhd.app" ]; then
+      mkdir -p /Applications
+      rm -rf /Applications/Skhd.app
+      cp -R -L "/Users/alexandre.charlot/Applications/Skhd.app" /Applications/
+    fi
+  '';
 
   system.stateVersion = 4;
 

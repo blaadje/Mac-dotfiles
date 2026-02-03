@@ -1,19 +1,19 @@
 { config, pkgs, lib, fontConfig, ... }:
 
 let
-  aerospaceConfig = import ../configs/window-manager/aerospace.nix { inherit config pkgs; };
-
   # Packages spécifiques à macOS
 in {
   home.packages = with pkgs; [
     moonlight-qt
 
     # Outils macOS spécifiques
-    aerospace
+    # aerospace
     autoraise
     ccusage
     karabiner-elements
     macfuse-stubs
+    # yabai
+    rift
 
     # iOS Development tools
     git-lfs
@@ -29,7 +29,9 @@ in {
   ];
 
   programs = {
-    aerospace = aerospaceConfig // { enable = true; };
+    # aerospace = (import ../configs/window-manager/aerospace.nix { inherit config pkgs; }) // {
+    #   enable = true;
+    # };
 
     sketchybar = {
       enable = true;

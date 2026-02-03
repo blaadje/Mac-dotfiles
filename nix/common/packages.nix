@@ -33,6 +33,7 @@ let
     nixfmt-classic
     pnpm
     sshfs
+    go
   ];
 
   lsp = [
@@ -49,6 +50,7 @@ let
   commandLineTools = [ autojump btop eza gtop neofetch nix-tree ];
 
   node = nodejs_20;
+  # node = nodejs_24;
 
   web = [ heroku netlify-cli nodePackages.http-server ];
 
@@ -60,7 +62,7 @@ let
     # catnip # TODO # TODO
     # claude-code-router # TODO
     # claudebox # TODO
-    # codex # TESTED - visu pas ouf
+    codex # TESTED - visu pas ouf
     # crush # TESTED - max token amount issue
     # cursor-agent # TODO
     # forge # TODO

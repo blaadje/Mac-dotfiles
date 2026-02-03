@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   pname = "jankyBorders";
-  version = "1.6.0";
+  version = "1.8.4";
 
   src = fetchFromGitHub {
     owner = "FelixKratz";
     repo = "JankyBorders";
     rev = "v${version}";
-    sha256 = "sha256-DX1d228UCOI+JU+RxenhiGyn3AiqpsGe0aCtr091szs=";
+    sha256 = "sha256-31Er+cUQNJbZnXKC6KvlrBhOvyPAM7nP3BaxunAtvWg=";
   };
 
   nativeBuildInputs = [ gcc ];
