@@ -21,5 +21,16 @@
       hash = "sha256-+9BjCfOQTbJyOPIATHak7B8qxn7n6BfJVNT3KRhxLgk=";
     };
   };
+  tree-sitter-language-injection = buildVimPlugin {
+    name = "tree-sitter-language-injection";
+    version = "2025-01-01";
+    src = fetchFromGitHub {
+      owner = "DariusCorvus";
+      repo = "tree-sitter-language-injection.nvim";
+      rev = "main";
+      hash =
+        "sha256-/oqleaE2CGXAx7YTz4fEDv4CtuyAWt2CfSwTZ+wvqNw="; # Remplace par le hash de nix-prefetch-git
+    };
+  };
 
 }

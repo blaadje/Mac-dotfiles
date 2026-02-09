@@ -40,8 +40,14 @@ local on_attach = function(client, bufnr)
 end
 
 local clangd_cmd = {
-    "/mnt/c/Windows/System32/cmd.exe", "/C",
-    [[C:\Users\aukx\projects\llvm-projects\build\build-mingw\bin\clangd.exe --background-index --compile-commands-dir=C:\Users\aukx\projects\cod2-asi\build --path-mappings=/mnt/c/=C:/,C:/=/mnt/c/ --enable-config --clang-tidy --log=verbose --pretty 2>> C:\Users\aukx\clangd-live.log]]
+    "/mnt/c/Users/aukx/projects/llvm-projects/build/build-mingw32/bin/clangd.exe",
+    "--background-index",
+    "--compile-commands-dir=C:\\Users\\aukx\\projects\\cod2-asi\\build",
+    "--path-mappings=/mnt/c/=C:/,C:/=/mnt/c/",
+    "--enable-config",
+    "--clang-tidy",
+    "--log=verbose",
+    "--pretty"
 }
 
 lspconfig.clangd.setup({

@@ -1,4 +1,4 @@
-vim.g.neoformat_enabled_cpp = {'clangformat'}
+vim.g.neoformat_enabled_cpp = {'clangformat', 'prettier'}
 vim.g.neoformat_enabled_c = {'clangformat'}
 
 vim.g.neoformat_cpp_clangformat = {
