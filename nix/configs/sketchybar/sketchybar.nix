@@ -11,7 +11,7 @@
 
       sketchybar --add event focus_change
 
-      source "$PLUGIN_DIR/items.sh"
+      . "$PLUGIN_DIR/items.sh"
 
       sketchybar --update
     '';
@@ -29,70 +29,63 @@
       # Clear existing items
       sketchybar --remove '/.*/'
 
-      sketchybar --add event aerospace_workspace_change
+      sketchybar --add event wm_workspace_changed
 
-      for monitor_id in $(${pkgs.aerospace}/bin/aerospace list-monitors | grep -E "^[0-9]+" | cut -d' ' -f1); do
-        # Détection automatique des workspaces par moniteur
-        workspace_ids=$(${pkgs.aerospace}/bin/aerospace list-workspaces --monitor "$monitor_id")
-        # Utilisation directe des IDs AeroSpace comme displays SketchyBar
-        display_id="$monitor_id"
-        
-        for sid in $workspace_ids; do
-          sketchybar --add item space.$sid left \
-            --subscribe space.$sid aerospace_workspace_change \
-            --set space.$sid \
-              label="$sid" \
-              label.font="${fontConfig.family}:Heavy:${fontConfig.size}.0" \
-              label.padding_left=12 \
-              label.padding_right=12 \
-              label.color=0xff${config.colorScheme.palette.base03} \
-              background.corner_radius=3 \
-              background.height=18 \
-              background.color=0xff${config.colorScheme.palette.base0F} \
-              background.drawing=off \
-              display="$display_id" \
-              click_script="aerospace workspace $sid" \
-              script="$PLUGIN_DIR/aerospace.sh $sid"
-        done
+      for sid in 1 2 3 4 5 6; do
+        sketchybar --add item space.$sid left \
+          --subscribe space.$sid wm_workspace_changed \
+          --set space.$sid \
+            label="$sid" \
+            label.font="${fontConfig.family}:Heavy:${fontConfig.size}.0" \
+            label.padding_left=12 \
+            label.padding_right=12 \
+            label.color=0xff${config.colorScheme.palette.base03} \
+            background.corner_radius=3 \
+            background.height=18 \
+            background.color=0xff${config.colorScheme.palette.base0F} \
+            background.drawing=off \
+            script="$PLUGIN_DIR/wm.sh $sid"
       done
 
-      # Ajouter clock et battery sur chaque moniteur
-      for monitor_id in $(${pkgs.aerospace}/bin/aerospace list-monitors | grep -E "^[0-9]+" | cut -d' ' -f1); do
-        display_id="$monitor_id"
-        
-        sketchybar --add item clock.$monitor_id right \
-          --set clock.$monitor_id \
-            icon.font="${fontConfig.family}:Bold:${fontConfig.size}.0" \
-            label.font="${fontConfig.family}:Heavy:${fontConfig.size}.0" \
-            label.y_offset=0 \
-            icon.y_offset=0 \
-            update_freq=10 \
-            display="$display_id" \
-            script="$PLUGIN_DIR/clock.sh"
+      sketchybar --add item clock right \
+        --set clock \
+          icon.font="${fontConfig.family}:Bold:${fontConfig.size}.0" \
+          label.font="${fontConfig.family}:Heavy:${fontConfig.size}.0" \
+          label.y_offset=0 \
+          icon.y_offset=0 \
+          update_freq=10 \
+          script="$PLUGIN_DIR/clock.sh"
 
-        sketchybar --add item battery.$monitor_id right \
-          --set battery.$monitor_id \
-            icon.font="${fontConfig.family}:Bold:${fontConfig.size}.0" \
-            label.font="${fontConfig.family}:Heavy:${fontConfig.size}.0" \
-            label.y_offset=3 \
-            icon.y_offset=1 \
-            label.align=center \
-            icon.y_offset=0 \
-            label.padding_right=10 \
-            update_freq=60 \
-            display="$display_id" \
-            script="$PLUGIN_DIR/battery.sh"
-      done
+      sketchybar --add item battery right \
+        --set battery \
+          icon.font="${fontConfig.family}:Bold:${fontConfig.size}.0" \
+          label.font="${fontConfig.family}:Heavy:${fontConfig.size}.0" \
+          label.y_offset=3 \
+          icon.y_offset=1 \
+          label.align=center \
+          icon.y_offset=0 \
+          label.padding_right=10 \
+          update_freq=60 \
+          script="$PLUGIN_DIR/battery.sh"
     '';
     executable = true;
     onChange = "${pkgs.sketchybar}/bin/sketchybar --reload";
   };
 
-  home.file.".config/sketchybar/plugins/aerospace.sh" = {
+  home.file.".config/sketchybar/plugins/wm.sh" = {
     text = ''
       #!/usr/bin/env bash
 
-      if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
+      if [ -n "$WM_WORKSPACE_INDEX" ]; then
+        idx="$WM_WORKSPACE_INDEX"
+      elif [ -n "$WM_WORKSPACE_NAME" ]; then
+        idx="$((WM_WORKSPACE_NAME - 1))"
+      else
+        exit 0
+      fi
+
+      focused="$((idx + 1))"
+      if [ "$1" = "$focused" ]; then
         sketchybar --set "$NAME" background.drawing=on label.color=0xff${config.colorScheme.palette.base00}
       else
         sketchybar --set "$NAME" background.drawing=off label.color=0xff${config.colorScheme.palette.base03}

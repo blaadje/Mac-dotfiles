@@ -1,4 +1,78 @@
 self: super: {
+  # Override aerospace with custom version
+  aerospace = super.stdenv.mkDerivation rec {
+    pname = "aerospace";
+    version = "0.20.2-Beta";
+
+    src = super.fetchzip {
+      url =
+        "https://github.com/nikitabobko/AeroSpace/releases/download/v${version}/AeroSpace-v${version}.zip";
+      sha256 = "sha256-PyWHtM38XPNkkEZ0kACPia0doR46FRpmSoNdsOhU4uw=";
+    };
+
+    nativeBuildInputs = [ super.installShellFiles ];
+
+    installPhase = ''
+      runHook preInstall
+
+      mkdir -p $out/Applications
+      cp -r AeroSpace.app $out/Applications/
+
+      mkdir -p $out/bin
+      cp bin/aerospace $out/bin/aerospace
+
+      # Install man pages
+      mkdir -p $out/share/man
+      cp -r manpage/* $out/share/man/
+
+      # Install shell completions
+      installShellCompletion --bash shell-completion/bash/aerospace
+      installShellCompletion --zsh shell-completion/zsh/_aerospace
+      installShellCompletion --fish shell-completion/fish/aerospace.fish
+
+      runHook postInstall
+    '';
+
+    meta = with super.lib; {
+      description = "AeroSpace is an i3-like tiling window manager for macOS";
+      homepage = "https://github.com/nikitabobko/AeroSpace";
+      license = licenses.mit;
+      platforms = platforms.darwin;
+      mainProgram = "aerospace";
+    };
+  };
+
+  rift = super.stdenvNoCC.mkDerivation rec {
+    pname = "rift";
+    version = "0.3.9";
+
+    src = super.fetchurl {
+      url = "https://github.com/acsandmann/rift/releases/download/v${version}/rift-universal-macos-${version}.tar.gz";
+      sha256 = "174yxnq3ks02jj8kfmv4sqxcdfswxcpm191fd50cx7pdy43a0mk9";
+    };
+
+    dontBuild = true;
+    dontConfigure = true;
+
+    unpackPhase = ''
+      tar -xzf $src
+    '';
+
+    installPhase = ''
+      mkdir -p $out/bin
+      cp rift $out/bin/
+      cp rift-cli $out/bin/
+    '';
+
+    meta = with super.lib; {
+      description = "Rift is a fast, configurable tiling window manager for macOS";
+      homepage = "https://github.com/acsandmann/rift";
+      license = licenses.mit;
+      platforms = platforms.darwin;
+      mainProgram = "rift";
+    };
+  };
+
   ccusage = super.stdenv.mkDerivation rec {
     pname = "ccusage";
     version = "15.5.0";
