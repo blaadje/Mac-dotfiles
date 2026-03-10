@@ -1,8 +1,5 @@
 -- Treesitter configuration
-require("nvim-treesitter.configs").setup {
-    autotag = {enable = true},
-    highlight = {enable = true}
-}
+-- Grammars are installed by Nix (withAllGrammars); highlight is enabled by default.
 
 -- Tree-sitter language injection setup
 require("tree-sitter-language-injection").setup({

@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, darwin, gcc, make }:
+{ stdenv, fetchFromGitHub, darwin, gcc, make, apple-sdk_15 }:
 
 stdenv.mkDerivation rec {
   pname = "jankyBorders";
@@ -13,8 +13,9 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ gcc ];
 
-  buildInputs =
-    [ darwin.apple_sdk.frameworks.AppKit darwin.apple_sdk.frameworks.SkyLight ];
+  buildInputs = [ apple-sdk_15 ];
+
+  NIX_LDFLAGS = "-F/System/Library/PrivateFrameworks -framework SkyLight";
 
   buildPhase = ''
     make

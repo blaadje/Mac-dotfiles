@@ -27,7 +27,7 @@ let
     jq
     act
     nodePackages.git-run
-    gitAndTools.delta
+    delta
     tree-sitter
     luaformatter
     eslint_d
@@ -49,7 +49,7 @@ let
     nil
   ];
 
-  commandLineTools = [ autojump btop eza gtop neofetch nix-tree ];
+  commandLineTools = [ autojump btop eza gtop fastfetch nix-tree ];
 
   node = nodejs_20;
   # node = nodejs_24;
