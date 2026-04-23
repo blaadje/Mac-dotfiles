@@ -4,17 +4,14 @@ let
   wmUtils = import ./window-manager/wm-utils.nix { inherit lib; };
   modifiers = import ../darwin/modifiers.nix;
 
-  directKeybinds = {
-    "${modifiers.super}+l" = "pmset displaysleepnow";
-  };
+  directKeybinds = { "${modifiers.super}+l" = "pmset displaysleepnow"; };
   wmGenericKeybinds =
     import ./window-manager/keybinds/window-manager-keybinds.nix {
       inherit lib pkgs modifiers;
     };
-  wmCommandMap = (import ./window-manager/keybinds/rift-keybinds.nix {
-    inherit lib pkgs;
-  });
-  # wmCommandMap = (import ./window-manager/keybinds/yabai-keybinds.nix {
+  wmCommandMap =
+    (import ./window-manager/keybinds/yabai-keybinds.nix { inherit lib pkgs; });
+  # wmCommandMap = (import ./window-manager/keybinds/rift-keybinds.nix {
   #   inherit lib pkgs;
   # });
 
@@ -30,21 +27,18 @@ let
     in if modifiers == [ ] then keyName else modifierStr + " - " + keyName;
 
   # Blacklist certain applications
-  blacklistApps = [
-    "parsecd"
-    "Parsec"
-    "Moonlight"
-    "moonlight"
-  ];
-  
-  blacklistConfig = ".blacklist [\n    " + 
-    (lib.concatStringsSep "\n    " (map (app: "\"${app}\"") blacklistApps)) + 
-    "\n]";
+  blacklistApps = [ "parsecd" "Parsec" "Artemis" "Moonlight" "moonlight" ];
+
+  blacklistConfig = ".blacklist [\n    "
+    + (lib.concatStringsSep "\n    " (map (app: ''"${app}"'') blacklistApps))
+    + ''
+
+      ]'';
 
   keybindLines = lib.concatStringsSep "\n"
     (lib.mapAttrsToList (k: v: (convertToSkhdSyntax k) + " : " + v)
       allKeybinds);
-  
+
   lines = blacklistConfig + "\n\n" + keybindLines;
 
 in {

@@ -42,30 +42,52 @@ self: super: {
     };
   };
 
-  rift = super.stdenvNoCC.mkDerivation rec {
-    pname = "rift";
-    version = "0.3.9";
+  yabai = super.yabai.overrideAttrs (finalAttrs: old: {
+    version = "7.1.23";
+    passthru = old.passthru // {
+      sources = old.passthru.sources // {
+        "aarch64-darwin" = super.fetchzip {
+          url =
+            "https://github.com/asmvik/yabai/releases/download/v${finalAttrs.version}/yabai-v${finalAttrs.version}.tar.gz";
+          hash = "sha256-p8LHuAhmkKNPkRNIw4NHpAA+/oQPMI34H21mlUiwK+M=";
+        };
+      };
+    };
+    src = finalAttrs.passthru.sources.${super.stdenv.hostPlatform.system};
+  });
 
-    src = super.fetchurl {
-      url = "https://github.com/acsandmann/rift/releases/download/v${version}/rift-universal-macos-${version}.tar.gz";
-      sha256 = "174yxnq3ks02jj8kfmv4sqxcdfswxcpm191fd50cx7pdy43a0mk9";
+  rift = super.rustPlatform.buildRustPackage rec {
+    pname = "rift";
+    version = "0-unstable-2026-04-15";
+
+    src = super.fetchFromGitHub {
+      owner = "acsandmann";
+      repo = "rift";
+      rev = "27f5f00e7f40e7ba1b01cd25721b2545f255d42f";
+      hash = "sha256-JH6G5PWaR8Kw/hE4Rb6RvrkvBX6Hn4u1g+OFXE2Mmkc=";
     };
 
-    dontBuild = true;
-    dontConfigure = true;
+    cargoLock = {
+      lockFile = src + "/Cargo.lock";
+      outputHashes = {
+        "continue-0.1.1" =
+          "sha256-8S+gPfz6CtzIKsGh9wg3CevMdNA9V+KOyHR9F9DlVcw=";
+        "dispatchr-1.0.0" =
+          "sha256-Df6PdDA5bpmy2P30vGdad+EiHJiANmHrRF2q75Uegik=";
+      };
+    };
 
-    unpackPhase = ''
-      tar -xzf $src
-    '';
+    buildInputs = [ super.apple-sdk_15 ];
 
-    installPhase = ''
-      mkdir -p $out/bin
-      cp rift $out/bin/
-      cp rift-cli $out/bin/
-    '';
+    # Link against macOS private frameworks
+    NIX_LDFLAGS =
+      "-F/System/Library/PrivateFrameworks -framework SkyLight -framework MultitouchSupport";
+
+    # Use default cargoInstallHook (handles cross-compile target paths)
 
     meta = with super.lib; {
-      description = "Rift is a fast, configurable tiling window manager for macOS";
+      description =
+        "Rift is a fast, configurable tiling window manager for macOS";
       homepage = "https://github.com/acsandmann/rift";
       license = licenses.mit;
       platforms = platforms.darwin;

@@ -2,7 +2,7 @@
 with lib;
 let
   janky-borders = import ../derivations/jankyBorders.nix {
-    inherit (pkgs) stdenv fetchFromGitHub gcc make darwin;
+    inherit (pkgs) stdenv fetchFromGitHub gcc make darwin apple-sdk_15;
   };
 
 in {
@@ -31,7 +31,13 @@ in {
   #   serviceConfig.RunAtLoad = true;
   # };
 
-  # Rift is managed by its own launchd service (rift service install/start).
+  # Rift is already started by the app LaunchAgent (git.acsandmann.rift).
+  # Keeping both this agent and the app agent enabled spawns two Rift instances.
+  # launchd.user.agents.rift = {
+  #   serviceConfig.ProgramArguments = [ "${pkgs.rift}/bin/rift" ];
+  #   serviceConfig.KeepAlive = true;
+  #   serviceConfig.RunAtLoad = true;
+  # };
 
   # Ne fonctionne pas avec les arrows / tous les inputs
   # launchd.user.agents.sketchyvim = {
@@ -51,26 +57,14 @@ in {
     skhdConfigFile = "${skhdModule.skhdConfig}/skhd-configuration";
   in {
     # Disabled: we run skhd via the .app wrapper so TCC permissions apply.
-    enable = false;
+    enable = true;
     skhdConfig = builtins.readFile skhdConfigFile;
   };
 
   services.yabai =
     (import ../configs/window-manager/yabai.nix { inherit config; }) // {
-      # Disabled by default; enable when using yabai.
-      enable = false;
+      enable = true;
     };
-
-  # skhd via wrapper app (for reliable Accessibility/Input Monitoring)
-  launchd.user.agents.skhd-app = {
-    serviceConfig.ProgramArguments = [
-      "/Applications/Skhd.app/Contents/MacOS/Skhd"
-      "-c"
-      "/Users/alexandre.charlot/.skhdrc"
-    ];
-    serviceConfig.KeepAlive = true;
-    serviceConfig.RunAtLoad = true;
-  };
 
   # sketchybar is managed by home-manager program service
   # services.aerospace = (import ../configs/window-manager/aerospace.nix { inherit config pkgs; }) // {
