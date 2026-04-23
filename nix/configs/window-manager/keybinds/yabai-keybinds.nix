@@ -1,13 +1,18 @@
 { lib, pkgs ? import <nixpkgs> { } }: {
-  focus_left = "yabai -m window --focus west";
-  focus_down = "yabai -m window --focus south";
-  focus_up = "yabai -m window --focus north";
-  focus_right = "yabai -m window --focus east";
+  focus_left = "yabai -m window --focus west || yabai -m display --focus west";
+  focus_down =
+    "yabai -m window --focus south || yabai -m display --focus south";
+  focus_up = "yabai -m window --focus north || yabai -m display --focus north";
+  focus_right = "yabai -m window --focus east || yabai -m display --focus east";
 
-  move_left = "yabai -m window --warp west";
-  move_down = "yabai -m window --warp south";
-  move_up = "yabai -m window --warp north";
-  move_right = "yabai -m window --warp east";
+  move_left =
+    "yabai -m window --warp west || yabai -m window --display west --focus";
+  move_down =
+    "yabai -m window --warp south || yabai -m window --display south --focus";
+  move_up =
+    "yabai -m window --warp north || yabai -m window --display north --focus";
+  move_right =
+    "yabai -m window --warp east || yabai -m window --display east --focus";
 
   move_node_to_workspace_1 = "yabai -m window --space 1";
   move_node_to_workspace_2 = "yabai -m window --space 2";
@@ -26,7 +31,7 @@
   toggle_fullscreen = "yabai -m window --toggle zoom-fullscreen";
   toggle_floating = "yabai -m window --toggle float";
   close_window = "yabai -m window --close";
-  open_terminal = "open -a kitty";
+  open_terminal = "open -na kitty";
 
   # Tree manipulation commands
   rotate_tree = "yabai -m space --rotate 90";

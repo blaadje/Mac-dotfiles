@@ -63,8 +63,7 @@ in {
 
   services.yabai =
     (import ../configs/window-manager/yabai.nix { inherit config; }) // {
-      # Disabled by default; enable when using yabai.
-      enable = false;
+      enable = true;
     };
 
   # sketchybar is managed by home-manager program service

@@ -42,15 +42,29 @@ self: super: {
     };
   };
 
+  yabai = super.yabai.overrideAttrs (finalAttrs: old: {
+    version = "7.1.23";
+    passthru = old.passthru // {
+      sources = old.passthru.sources // {
+        "aarch64-darwin" = super.fetchzip {
+          url =
+            "https://github.com/asmvik/yabai/releases/download/v${finalAttrs.version}/yabai-v${finalAttrs.version}.tar.gz";
+          hash = "sha256-p8LHuAhmkKNPkRNIw4NHpAA+/oQPMI34H21mlUiwK+M=";
+        };
+      };
+    };
+    src = finalAttrs.passthru.sources.${super.stdenv.hostPlatform.system};
+  });
+
   rift = super.rustPlatform.buildRustPackage rec {
     pname = "rift";
-    version = "0-unstable-2026-03-09";
+    version = "0-unstable-2026-04-15";
 
     src = super.fetchFromGitHub {
       owner = "acsandmann";
       repo = "rift";
-      rev = "17eb725102f3bcc9f8e92b86a6c8be068bcdbf43";
-      hash = "sha256-vrfXXRDDnk556BYKBJjFD/RXDiVih3uz1OO/TPwZvgI=";
+      rev = "27f5f00e7f40e7ba1b01cd25721b2545f255d42f";
+      hash = "sha256-JH6G5PWaR8Kw/hE4Rb6RvrkvBX6Hn4u1g+OFXE2Mmkc=";
     };
 
     cargoLock = {

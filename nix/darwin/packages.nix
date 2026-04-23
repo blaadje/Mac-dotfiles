@@ -12,8 +12,9 @@ in {
     ccusage
     karabiner-elements
     macfuse-stubs
-    # yabai
-    rift
+    yabai
+    # rift disabled in favour of yabai, keep package available
+    # rift
 
     # iOS Development tools
     git-lfs
