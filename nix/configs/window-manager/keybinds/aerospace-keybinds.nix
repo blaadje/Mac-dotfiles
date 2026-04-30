@@ -1,13 +1,13 @@
 { lib, pkgs ? import <nixpkgs> { } }: {
-  focus_left = "aerospace focus left";
-  focus_down = "aerospace focus down";
-  focus_up = "aerospace focus up";
-  focus_right = "aerospace focus right";
+  focus_left = "aerospace focus left --boundaries-action fail || aerospace focus-monitor left";
+  focus_down = "aerospace focus down --boundaries-action fail || aerospace focus-monitor down";
+  focus_up = "aerospace focus up --boundaries-action fail || aerospace focus-monitor up";
+  focus_right = "aerospace focus right --boundaries-action fail || aerospace focus-monitor right";
 
-  move_left = "aerospace move left";
-  move_down = "aerospace move down";
-  move_up = "aerospace move up";
-  move_right = "aerospace move right";
+  move_left = "aerospace move left --boundaries-action fail || aerospace move-node-to-monitor --focus-follows-window left";
+  move_down = "aerospace move down --boundaries-action fail || aerospace move-node-to-monitor --focus-follows-window down";
+  move_up = "aerospace move up --boundaries-action fail || aerospace move-node-to-monitor --focus-follows-window up";
+  move_right = "aerospace move right --boundaries-action fail || aerospace move-node-to-monitor --focus-follows-window right";
 
   move_node_to_workspace_1 = "aerospace move-node-to-workspace 1";
   move_node_to_workspace_2 = "aerospace move-node-to-workspace 2";

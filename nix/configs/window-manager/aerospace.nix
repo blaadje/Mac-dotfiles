@@ -1,9 +1,5 @@
 { config, pkgs }: {
-  launchd = {
-    enable = true;
-    keepAlive = true;
-  };
-  userSettings = {
+  settings = {
     after-login-command = [ ];
     after-startup-command =
       [ "exec-and-forget ${pkgs.sketchybar}/bin/sketchybar" ];
@@ -18,7 +14,7 @@
     default-root-container-orientation = "auto";
 
     automatically-unhide-macos-hidden-apps = false;
-    
+
     # Empêcher le switch automatique vers un autre workspace quand le workspace devient vide
     enable-normalization-flatten-containers = false;
     enable-normalization-opposite-orientation-for-nested-containers = false;
@@ -28,10 +24,10 @@
     key-mapping.preset = "qwerty";
 
     workspace-to-monitor-force-assignment = {
-      "1" = 2;  # Workspace 1 → 27GN7
-      "2" = 1;  # Workspace 2 → PHL 279P1 (forcer sa création)
-      "3" = 1;  # Workspace 3 → PHL 279P1 (forcer sa création)
-      "4" = 3;  # Workspaces 4,5,6 → Built-in Retina Display
+      "1" = 2; # Workspace 1 → 27GN7
+      "2" = 1; # Workspace 2 → PHL 279P1 (forcer sa création)
+      "3" = 1; # Workspace 3 → PHL 279P1 (forcer sa création)
+      "4" = 3; # Workspaces 4,5,6 → Built-in Retina Display
       "5" = 3;
       "6" = 3;
     };

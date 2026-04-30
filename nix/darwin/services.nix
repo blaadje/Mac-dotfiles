@@ -61,13 +61,15 @@ in {
     skhdConfig = builtins.readFile skhdConfigFile;
   };
 
-  services.yabai =
-    (import ../configs/window-manager/yabai.nix { inherit config; }) // {
-      enable = true;
-    };
+  # services.yabai =
+  #   (import ../configs/window-manager/yabai.nix { inherit config; }) // {
+  #     enable = true;
+  #   };
 
   # sketchybar is managed by home-manager program service
-  # services.aerospace = (import ../configs/window-manager/aerospace.nix { inherit config pkgs; }) // {
-  #   enable = true;
-  # };
+  services.aerospace =
+    (import ../configs/window-manager/aerospace.nix { inherit config pkgs; })
+    // {
+      enable = true;
+    };
 }

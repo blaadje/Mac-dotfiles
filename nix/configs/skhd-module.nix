@@ -9,8 +9,11 @@ let
     import ./window-manager/keybinds/window-manager-keybinds.nix {
       inherit lib pkgs modifiers;
     };
-  wmCommandMap =
-    (import ./window-manager/keybinds/yabai-keybinds.nix { inherit lib pkgs; });
+  wmCommandMap = (import ./window-manager/keybinds/aerospace-keybinds.nix {
+    inherit lib pkgs;
+  });
+  # wmCommandMap =
+  #   (import ./window-manager/keybinds/yabai-keybinds.nix { inherit lib pkgs; });
   # wmCommandMap = (import ./window-manager/keybinds/rift-keybinds.nix {
   #   inherit lib pkgs;
   # });

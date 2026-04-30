@@ -65,7 +65,7 @@ let
     # catnip # TODO # TODO
     # claude-code-router # TODO
     # claudebox # TODO
-    codex # TESTED - visu pas ouf
+    # codex # TESTED - visu pas ouf (crates.io fetch 403)
     # crush # TESTED - max token amount issue
     # cursor-agent # TODO
     # forge # TODO

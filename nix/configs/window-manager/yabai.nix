@@ -16,6 +16,7 @@
     split_ratio = "0";
     mouse_modifier = "fn";
     focus_follows_mouse = "autoraise";
+    mouse_follows_focus = "on";
     window_topmost = "on";
     window_shadow = "float";
     window_opacity = "off";

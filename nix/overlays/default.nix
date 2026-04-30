@@ -2,12 +2,12 @@ self: super: {
   # Override aerospace with custom version
   aerospace = super.stdenv.mkDerivation rec {
     pname = "aerospace";
-    version = "0.20.2-Beta";
+    version = "0.20.3-Beta";
 
     src = super.fetchzip {
       url =
         "https://github.com/nikitabobko/AeroSpace/releases/download/v${version}/AeroSpace-v${version}.zip";
-      sha256 = "sha256-PyWHtM38XPNkkEZ0kACPia0doR46FRpmSoNdsOhU4uw=";
+      sha256 = "sha256-wrBcslp1W/lOmudMcW+SREL9LZY+wTwidh6Hot5ShGE=";
     };
 
     nativeBuildInputs = [ super.installShellFiles ];

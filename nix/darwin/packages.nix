@@ -7,13 +7,13 @@ in {
     moonlight-qt
 
     # Outils macOS spécifiques
-    # aerospace
+    aerospace
     autoraise
     ccusage
     karabiner-elements
     macfuse-stubs
-    yabai
-    # rift disabled in favour of yabai, keep package available
+    # yabai
+    # rift disabled in favour of aerospace, keep package available
     # rift
 
     # iOS Development tools
